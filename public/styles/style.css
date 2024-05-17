@@ -38,10 +38,10 @@ body {
   }
 
   label.hamburger {
-    font-size: 20px;
+    font-size: 1.2rem;
     position: relative;
-    right: 7px;
-    bottom: 5px;
+    right: 26px;
+    bottom: 23px;
     fill: var(--color-main-text);
   }
 
@@ -192,7 +192,6 @@ body {
                           Index.EJS Cards                       *                        
                                                                 *
 *****************************************************************/
-@media (min-width: 20rem) {
   main {
     margin: 16px;
   
@@ -208,7 +207,6 @@ body {
     }
   }
   
-  
   .container {
     display: flex;
     flex-direction: column;
@@ -223,10 +221,10 @@ body {
       flex-direction: column;
     }
   
-    .house-card {
+    .card-image {
       width: 100%;
       height: 40%;
-      object-fit: cover;
+      object-fit: fill;
     }
   
     .card-link:before {
@@ -264,90 +262,180 @@ body {
       display: block;
       padding: 3px;
     }
-}
-  
-  .card-favorites {
-    position: relative;
-    border: solid 0.1em var(--regent-blue-primary-color);
-    height: auto;
-    width: auto;
-    background-color: var(--white-primary-color);
-    /* border-radius: 3px; */
-    margin-bottom: 20px;
-    z-index: 0;
-  }
-  
-  article > h2,a {
-    text-decoration: none;
-    color: var(--color-main-text);
-  }
-
-  .btn__container {
-    margin-top: 20px;
-  }
-
-  .btn-popup {
-    font-size: 1em;
-    padding: 10px;
-    background-color: var(--regent-blue-primary-color);
-    color: var(--color-main-text);
-    border: 2px solid var(--web-orange-primary-color);
-    border-radius: 20px/50px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-    position: relative;
-    z-index: 1; 
-  }
-
-  .btn-popup:hover {
-    background-color: var(--web-orange-primary-color);
-  }
-
-
-/* TABLET */
-@media (min-width: 45rem) {
-
-    header {
-      margin-bottom: 50px;
-    }
-
-    .grid-container {
-      display: inline-grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
 
     .card-favorites {
-      /* position: relative; */
+      position: relative;
+      border: solid 0.1em var(--regent-blue-primary-color);
+      height: 60vh;
+      width: auto;
+      background-color: var(--white-primary-color);
+      margin-bottom: 20px;
+      z-index: 0;
+    }
+    
+    article > h2,a {
+      text-decoration: none;
+      color: var(--color-main-text);
+    }
+  
+  
+  /* TABLET */
+  @media (min-width: 45rem) {
+  
+      header {
+        margin-bottom: 50px;
+      }
+  
+      .grid-container {
+        display: inline-grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+  
+      .card-favorites {
+        border: solid 0.1em black;
+        background-color: var(--white-primary-color);
+        border-radius: 16px;
+        width: 45vw;
+        height: auto;
+      }
+  
+      img {
+        width: 50%;
+      }
+    
+  }
+  
+  /* DESKTOP */
+  @media (min-width: 55rem) {
+    .grid-container {
+      display: inline-grid;
+      /* grid-template-columns: repeat(3, 1fr); */
+      justify-content: center;
+    }
+  
+    .card-favorites {
       border: solid 0.1em black;
-      height: 450px;
-      width: 300px;
+      height: 550px;
       background-color: var(--white-primary-color);
       border-radius: 16px;
     }
-
-    img {
-      width: 50%;
-    }
-  
-}
-
-/* DESKTOP */
-@media (min-width: 55rem) {
-  .grid-container {
-    display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
   }
 
-  .card-favorites {
-    /* position: relative; */
-    border: solid 0.1em black;
-    height: 550px;
-    width: 500px;
-    background-color: var(--white-primary-color);
-    border-radius: 16px;
+/****************************************************************
+                                                                *
+                    Button Pop up index.EJS                     *                        
+                                                                *
+*****************************************************************/
+    .btn__container {
+      margin-top: 20px;
+    }
+
+    .btn-popup {
+      font-size: 1em;
+      padding: 10px;
+      background-color: var(--regent-blue-primary-color);
+      color: var(--color-main-text);
+      border: 2px solid var(--web-orange-primary-color);
+      border-radius: 20px/50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+      position: relative;
+      z-index: 1; 
+    }
+
+    .btn-popup:hover {
+      background-color: var(--web-orange-primary-color);
+      z-index: 1;
+    }
+
+  
+
+
+/****************************************************************
+                                                                *
+                          POPUP RATINGS                         *                        
+                                                                *
+*****************************************************************/
+
+.overlay { 
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--regent-blue-primary-color);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background-color: var(--regent-blue-primary-color);
+  border-radius: 5px;
+  width: 70%;
+  position: relative;
+  /* transition: all 5s ease-in-out; */
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: var(--color-main-text);
+}
+
+.popup .close {
+  position: absolute;
+  bottom: 5em;
+  left: 110%;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--color-main-text);
+}
+
+.popup .close:hover {
+  color: var(--web-orange-primary-color);
+}
+
+@media (min-width: 45rem) {
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background-color: var(--regent-blue-primary-color);
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+  }
+
+  .popup .close {
+    position: absolute;
+    bottom: 5em;
+    left: 90%;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-main-text);
+  }
+}
+
+@media (min-width:55rem) {
+  .popup .close {
+    position: absolute;
+    bottom: 5em;
+    left: 95%;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--color-main-text);
   }
 }
 
@@ -374,7 +462,7 @@ input
   margin-left: 1em;
   position: relative;
   top: 5px;
-  transition: 0.2s all linear;
+  /* transition: 0.2s all linear; */
 }
 label
 {
@@ -413,6 +501,10 @@ svg {
   width: 20px;
 }
 
+.ratingsFavorieten {
+  position: relative;
+  z-index: 1;
+}
 
 /****************************************************************
                                                                 *
@@ -510,7 +602,6 @@ article {
     padding-bottom: 1em;
   }
 }
-
 
 
 

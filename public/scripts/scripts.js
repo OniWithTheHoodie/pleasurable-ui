@@ -21,11 +21,4 @@ if(allRatings){
 }
 
 
-// confirm rating
-var radioStar = document.querySelector("input");
-var element = document.querySelector(".disabled-rating");
-
-input.addEventListener("click", function() {
-  element.classList.toggle(".confirm-rating")
-});
 
