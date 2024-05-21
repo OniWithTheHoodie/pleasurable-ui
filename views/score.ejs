@@ -79,23 +79,23 @@
         <p class="loading-state"></p>
     </section>
     <section class="formRatingItem">
-        <form>
+        <form method="POST" action="/score/<%= house.id %>" class="scorefield">
 
 
 <!--         algemeen-->
             <fieldset class="fieldsetRating">
                 <legend class="titleRating">algemeen</legend>
                 <label for="rating algemeen">
-                    <input class="inputRating" id="algemeen1" name="algmeen" type="radio" value="">
+                    <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="">
                 </label>
                 <label aria-label="1 " for="algemeen1" class="labelRating"></label>
 
 
-                <input class="inputRating" id="algemeen2" name="algmeen" type="radio" value="2">
+                <input class="inputRating" id="algemeen2" name="algemeenNumber" type="radio" value="2">
                 <label aria-label="2 sterren" for="algemeen2" class="labelRating"></label>
 
 
-                <input class="inputRating" id="algemeen3" name="algmeen" type="radio" value="3 ">
+                <input class="inputRating" id="algemeen3" name="algemeenNumber" type="radio" value="3 ">
                 <label aria-label="3 sterren" for="algemeen3" class="labelRating"></label>
 
 
@@ -103,7 +103,7 @@
                 <label aria-label="4 sterren" for="algemeen4" class="labelRating"></label>
 
 
-                <input class="inputRating" id="algeemn5" name="algmeen" type="radio" value="5 sterren">
+                <input class="inputRating" id="algeemn5" name="algemeenNumber" type="radio" value="5 sterren">
                 <label aria-label="5 sterren" for="algeemn5" class="labelRating"></label>
             </fieldset>
 
@@ -111,24 +111,24 @@
             <fieldset class="fieldsetRating">
                 <legend class="titleRating">keuken</legend>
                 <label for="rating algemeen">
-                    <input class="inputRating" id="keuken" name="keuken" type="radio" value="">
+                    <input class="inputRating" id="keuken" name="keukenNumber" type="radio" value="">
                 </label>
                 <label aria-label="1 " for="keuken" class="labelRating"></label>
 
 
-                <input class="inputRating" id="keuken2" name="keuken" type="radio" value="2">
+                <input class="inputRating" id="keuken2" name="keukenNumber" type="radio" value="2">
                 <label aria-label="2 sterren" for="keuken2" class="labelRating"></label>
 
 
-                <input class="inputRating" id="keuken3" name="keuken" type="radio" value="3 ">
+                <input class="inputRating" id="keuken3" name="keukenNumber" type="radio" value="3 ">
                 <label aria-label="3 sterren" for="keuken3" class="labelRating"></label>
 
 
-                <input class="inputRating" id="keuken4" name="keuken" type="radio" value="4">
+                <input class="inputRating" id="keuken4" name="keukenNumber" type="radio" value="4">
                 <label aria-label="4 sterren" for="keuken4" class="labelRating"></label>
 
 
-                <input class="inputRating" id="keuken5" name="keuken" type="radio" value="5 sterren">
+                <input class="inputRating" id="keuken5" name="keukenNumber" type="radio" value="5 sterren">
                 <label aria-label="5 sterren" for="keuken5" class="labelRating"></label>
             </fieldset>
             <button type="submit" class="savebutton">submit</button>
