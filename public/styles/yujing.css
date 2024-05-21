@@ -243,7 +243,7 @@ dit word hergebruiks users
 /*hier being het form met de sterren*/
 .fieldsetRating {
     display: flex;
-    background-color: deepskyblue;
+    /*background-color: deepskyblue;*/
 }
 .labelRating:after{
     width: 1.5em;

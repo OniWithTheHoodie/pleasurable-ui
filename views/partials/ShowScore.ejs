@@ -1,5 +1,16 @@
 <ul class="output_other_users">
 <li>uw score is toegevoegd</li>
+    <% for (const obj of feedback) { %>
+        <li>House ID: <%= obj.house %></li>
+        <% if (obj.rating) { %>
+            <li>Kitchen : <%= obj.rating.kitchen %></li>
+            <li>general : <%= obj.rating.general %></li>
+            <li>badkamer: <%= obj.rating.bathroom %></li>
+            <li>tuin: <%= obj.rating.garden %></li>
+        <% } else { %>
+            <p>er is geens core ingevoerd</p>
+        <% } %>
+    <% } %>
 </ul>
 
 <!--todo uitzoeken hoe je hier de socre kan weergeven-->

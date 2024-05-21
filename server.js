@@ -100,23 +100,6 @@ app.get('/score/:id', function (request, response) {
         .then(async (feedback) => {
             const feedbackdetails = feedback[0].data; // Assuming feedback is directly an array of objects
             const house = feedback[1].data; // Assuming house data is in the second response
-            // Filter feedback based on house ID
-            // const filteredFeedback = feedback.filter(item => item.house === house.id);
-
-
-          // for (const obj of feedbackdetails) {
-          //     for (const data of feedbackdetails) {
-          //         if (data.rating) {
-          //             data.kitchen
-          //             data.general
-          //             data.bathroom
-          //             data.garden
-          //         }
-          //     }
-          //
-          // }
-
-
             // console.log(JSON.parse(feedbackdetails))
             // console.log(JSON.stringify(feedbackdetails[2].rating))
             response.render('score', {
@@ -171,6 +154,7 @@ app.post('/score/:id',  function (request, response) {
                         result: apiResponse,
                         succed: gelukt,
                     note: noteUser,
+                    scores:feedbackUrl.data
                     // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
 
                     }
