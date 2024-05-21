@@ -106,7 +106,6 @@ app.get('/score/:id', function (request, response) {
                 house: house,
                 feedback: feedback[0].data,
                 // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
-                notities: feedbackdetails[2].note,
                 succed: gelukt,
                 users: usersUrl.data,
             });
@@ -149,12 +148,12 @@ app.post('/score/:id',  function (request, response) {
 
         .then(async (apiResponse) => {
             // if the enhanced is true do this en the render is the partial
+            // todo navragen waarom ik een error heb in de partial en hoe ik dit kan oplossen
             if (request.body.enhanced) {
                 response.render('partials/showScore', {
                         result: apiResponse,
                         succed: gelukt,
                     note: noteUser,
-                    scores:feedbackUrl.data
                     // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
 
                     }

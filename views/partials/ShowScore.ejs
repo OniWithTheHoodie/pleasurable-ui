@@ -1,16 +1,20 @@
 <ul class="output_other_users">
-<li>uw score is toegevoegd</li>
-    <% for (const obj of feedback) { %>
-        <li>House ID: <%= obj.house %></li>
-        <% if (obj.rating) { %>
-            <li>Kitchen : <%= obj.rating.kitchen %></li>
-            <li>general : <%= obj.rating.general %></li>
-            <li>badkamer: <%= obj.rating.bathroom %></li>
-            <li>tuin: <%= obj.rating.garden %></li>
+    <li>uw score is toegevoegd</li>
+    <% if (feedback.length > 0) { %>
+        <li>House ID: <%= feedback[feedback.length - 1].house %></li>
+        <% if (feedback[feedback.length - 1].rating) { %>
+            <li>Kitchen : <%= feedback[feedback.length - 1].rating.kitchen %></li>
+            <li>general : <%= feedback[feedback.length - 1].rating.general %></li>
+            <li>badkamer: <%= feedback[feedback.length - 1].rating.bathroom %></li>
+            <li>tuin: <%= feedback[feedback.length - 1].rating.garden %></li>
         <% } else { %>
-            <p>er is geens core ingevoerd</p>
+            <p class="successtate">er is geens core ingevoerd</p>
         <% } %>
+    <% } else { %>
+        <p>No feedback available.</p>
     <% } %>
 </ul>
+
+
 
 <!--todo uitzoeken hoe je hier de socre kan weergeven-->
