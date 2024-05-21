@@ -469,38 +469,39 @@ input
   /* transition: 0.2s all linear; */
 }
 
-label
-{
-  font-size: 1.5em;
-  font-weight: bold;
-  font-family: sans-serif;
-  color: #999;
-  padding: 1em;
-}
+/*todo dit moet op het sterretje van deze label met een class komen staan*/
+/*label*/
+/*{*/
+/*  font-size: 1.5em;*/
+/*  font-weight: bold;*/
+/*  font-family: sans-serif;*/
+/*  color: #999;*/
+/*  padding: 1em;*/
+/*}*/
 
-/* The adjacent sibling combinator */
-/*  select label that is direct after the checked imput*/
-input:checked+label, 
-/* The general sibling combinator */
-/* select all labels, but not the labels after the selected input*/
-input+label:not(input:checked ~ label) 
-{
-  color: gold;
-}
+/*!* The adjacent sibling combinator *!*/
+/*!*  select label that is direct after the checked imput*!*/
+/*input:checked+label, */
+/*!* The general sibling combinator *!*/
+/*!* select all labels, but not the labels after the selected input*!*/
+/*input+label:not(input:checked ~ label) */
+/*{*/
+/*  color: gold;*/
+/*}*/
 
-input:checked,
-input:not(input:checked ~ input)
-{
-  color: gold;
-}
+/*input:checked,*/
+/*input:not(input:checked ~ input)*/
+/*{*/
+/*  color: gold;*/
+/*}*/
 
-input:hover,
-label:hover
-{
-  color: black;
-  border-color: gold;
-  cursor: pointer;
-}
+/*input:hover,*/
+/*label:hover*/
+/*{*/
+/*  color: black;*/
+/*  border-color: gold;*/
+/*  cursor: pointer;*/
+/*}*/
 
 svg {
   width: 20px;

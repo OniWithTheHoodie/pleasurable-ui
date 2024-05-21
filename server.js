@@ -117,7 +117,7 @@ app.get('/score/:id', function (request, response) {
           // }
 
 
-            console.log(JSON.parse(feedback))
+            // console.log(JSON.parse(feedbackdetails))
             // console.log(JSON.stringify(feedbackdetails[2].rating))
             response.render('score', {
                 house: house,

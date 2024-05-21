@@ -237,3 +237,43 @@ dit word hergebruiks users
 .sectionScore{
     max-width: 320px;
 }
+
+
+
+/*hier being het form met de sterren*/
+.fieldsetRating {
+    display: flex;
+    background-color: deepskyblue;
+}
+.labelRating:after{
+    width: 1.5em;
+    content: "★";
+    font-size: 2em;
+    display: grid;
+    place-items: center;
+}
+
+.labelRating{
+    color: gray;
+}
+
+/*hier word gecheckt of de input checked is en het bijbehorende label*/
+.fieldsetRating input:checked + label {
+    color: green;
+}
+
+/*door deze code worden de andere sterren daarachter ook groen door het sibling selectord */
+.fieldsetRating label:has(~ :checked) {
+    color: green;
+}
+
+/*hier worden de sterren geel als er op gehoverd word behalve de sterren die gechekt zijn*/
+.fieldsetRating label:hover:not(input:checked + label) {
+    cursor: pointer;
+    color: yellow;
+}
+
+/*hier worden de sterren geel en overgenomen op label vanwege het sibling selector*/
+.fieldsetRating label:has(~ label:hover):not(input:checked + label) {
+    color: yellow;
+}
