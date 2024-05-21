@@ -1,15 +1,33 @@
 <%- include('./partials/head') %>
 <%- include('./partials/navigation') %>
- 
+
 <body>
-  <main>
-    <header>
+    <main>  
+        <header class="index-favorite-header">
       <h1>Favorieten</h1>
       <hr />
-      <p>In dit overzicht vind je al jouw favoriete huizen terug.</p>
-    </header>
- 
-    <div class="container">
+            <p>In dit overzicht vind je al jouw favoriete huizen terug.</p>
+        </header >
+        <ul class="usersList">
+            <% users.forEach(users => { %>
+
+                <li class="users">
+                    <% if (users.avatar) { %>
+                        <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
+                             alt="House Image" width="<%= users.width %>"
+                             height="<%= users.height %>" class="users__avatars">
+
+                    <% } else { %>
+                        <p>er is geen user avatar</p>
+                    <% } %>
+                    <span class="username"><%= users.name %></span>
+                </li>
+
+            <% }) %>
+
+
+        </ul>
+        <div class="container">
       <div class="grid-container">
         <% alleHuizen.forEach((huis, index) => { %>
         <div class="card-favorites">
@@ -27,23 +45,22 @@
               height="400"
               class="card-image" />
           </picture>
- 
+
           <article>
-            <ol>
-              <h2><a class="card-link" href="./huis/<%= huis.id %>"><%= huis.street %> <%= huis.house_nr %></a></h2>
-              <li>€ <%- huis.price %></li>
+              <ol>
+              <h2><a class="card-link" href="./huis/<%= huis.id %>"><%= huis.street %> <%= huis.house_nr %></a></h2><li>€ <%- huis.price %></li>
               <li><%- huis.postal_code %> <%- huis.city %></li>
               <li><%- huis.m2 %> m² • <%- huis.rooms %> Kamers</li>
               <li><%- huis.m2 %></li>
               <li><%- huis.agent %></li>
- 
+
               <div class="btn__container">
                 <a class="btn-popup" href="#popup1_<%= huis.id %>">Rate dit huis</a>
               </div>
-            </ol>
+              </ol>
           </article>
         </div>
- 
+
         <!-- Popup for each house -->
         <div id="popup1_<%= huis.id %>" class="overlay">
           <article class="popup">
@@ -64,8 +81,8 @@
         </div>
         <% }) %>
       </div>
-    </div>
+        </div> 
   </main>
 </body>
- 
+
 <%- include('./partials/foot') %>
