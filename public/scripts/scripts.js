@@ -82,6 +82,12 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
           .then(function (responseHTML) {
             //haal de laoder weg
             loading_element.classList.remove('loader');
+            // todo als de loader weg is voeg dan de successtae toe en haal die dan ook weer weg
+            // todo het weghalen van de succcestate is met een animatie
+
+            // todo het laten zien en verbegen van de animaite is met keyframes
+            // todo de eventlistner die moet al klaar staan op de pagina als de pagina laad
+            // todo vervolgens komt er een addeventlistener op de animatie waarin gecheckt word of de animatie klaar is
 
             // Update de DOM met de HTML
             if (document.startViewTransition) {

@@ -83,10 +83,7 @@
         <section class="formRatingItem">
             <h2>Ratings:</h2>
             <ul>
-                <li>keuken:<%= rating.kitchen %></li>
-                <li>badkamer:<%= rating.bathroom %></li>
-                <li>algemeneem:<%= rating.general %></li>
-                <li>tuin:<%= rating.garden %></li>
+
             </ul>
 
         </section>
@@ -147,11 +144,9 @@
             <% } %>
             <span class="username"><%= users.name %></span>
             <div class="score_div">
+
                 <span class="score">score</span>
-                <span>keuken: <%= rating.kitchen %></span>
-                <span>badkamer: <%= rating.bathroom %></span>
-                <span>algemeen: <%= rating.general %></span>
-                <span>tuin: <%= rating.garden %></span>
+<!--                todo toevoegen score users-->
             </div>
 
         </li>
@@ -281,6 +276,7 @@
 
     <input type="submit" value="Rate" />
 </form>
+
 
 <section class="sectionScore">
     <ul class="sectionScore">

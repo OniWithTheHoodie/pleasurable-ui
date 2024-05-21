@@ -87,7 +87,8 @@ app.get('/huis/:id', function (request, response) {
 })
 
 app.get('/score/:id', function (request, response) {
-    const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?fields=`;
+    const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+    // hier moet een
     const houseUrl = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*`;
 
     // use a promise.all because the tables are not connected to each other
@@ -103,22 +104,25 @@ app.get('/score/:id', function (request, response) {
             // const filteredFeedback = feedback.filter(item => item.house === house.id);
 
 
-          // for (const obj of feedbackdetails.data) {
-          //     for (const data of feedbackdetails.data) {
-          //         if (data.data.rating) {
-          //             data.rating.kitchen
-          //             data.rating.general
-          //             data.rating.bathroom
-          //             data.rating.garden
+          // for (const obj of feedbackdetails) {
+          //     for (const data of feedbackdetails) {
+          //         if (data.rating) {
+          //             data.kitchen
+          //             data.general
+          //             data.bathroom
+          //             data.garden
           //         }
           //     }
           //
           // }
-            console.log(JSON.stringify(feedbackdetails[2].rating))
+
+
+            console.log(JSON.parse(feedback))
+            // console.log(JSON.stringify(feedbackdetails[2].rating))
             response.render('score', {
                 house: house,
                 feedback: feedback[0].data,
-                rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
+                // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
                 notities: feedbackdetails[2].note,
                 succed: gelukt,
                 users: usersUrl.data,
