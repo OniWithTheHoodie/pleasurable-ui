@@ -101,7 +101,7 @@ body {
   .nav-icons a > svg {
     display: none;
   }
-}
+
 
 /********** tablet  **********/
 @media (min-width: 45rem) {
@@ -468,6 +468,7 @@ input
   top: 5px;
   /* transition: 0.2s all linear; */
 }
+
 label
 {
   font-size: 1.5em;

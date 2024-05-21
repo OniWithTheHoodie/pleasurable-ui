@@ -30,11 +30,12 @@
 // });
 
 
+
 // user parameters for the forms that the code is dry
 // using this is neccessary because the 2 forms must have the exact same function
 FormsEnhanced('.scorefield', '.showscore','enhanced', '.loading-state');
 FormsEnhanced('.notesForm', '.show_notes', 'notesEnhanced', '.loading-state');
-//
+
 // here i define that this is the laoding state
 let loading_element = document.querySelector('.loading-state');
 
@@ -81,7 +82,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
           .then(function (responseHTML) {
             //haal de laoder weg
             loading_element.classList.remove('loader');
-//
+
             // Update de DOM met de HTML
             if (document.startViewTransition) {
               document.startViewTransition(function () {
@@ -105,3 +106,4 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
     });
   });
 }
+
