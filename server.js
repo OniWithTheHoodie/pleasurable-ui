@@ -159,10 +159,9 @@ app.post('/score/:id',  function (request, response) {
                 fetchJson(feedbackUrl)
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
-                        console.log(feedback.data)
+                        // console.log(feedback.data)
                         response.render('partials/ShowScore', {
                                 result: apiResponse,
-                                succed: gelukt,
                                 note: noteUser,
                                 feedback: feedback.data
                                 // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
@@ -170,6 +169,7 @@ app.post('/score/:id',  function (request, response) {
                             }
                         )
                     })
+
 
             }
             // the else is commented because if it is not working the full page is show in the beoordeling
