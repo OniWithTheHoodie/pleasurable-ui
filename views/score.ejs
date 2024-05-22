@@ -96,16 +96,22 @@
             <h2>Ratings:</h2>
 <!--            todo als je op submit drukt dan moet dit komen te staan de partial anders is het effect weg-->
 <!--            dit staat vast ook zonder post-->
-            <ul>
-                <%- include('partials/ShowScore', {result: house}); -%>
+            <ul class="output_other_users">
+                <li>uw score</li>
+                <% if (feedback.length > 0) { %>
+                    <% if (feedback[feedback.length - 1].rating) { %>
+                        <li>Kitchen : <%= feedback[feedback.length - 1].rating.kitchen %></li>
+                        <li>general : <%= feedback[feedback.length - 1].rating.general %></li>
+                        <li>badkamer: <%= feedback[feedback.length - 1].rating.bathroom %></li>
+                        <li>tuin: <%= feedback[feedback.length - 1].rating.garden %></li>
+                    <% } else { %>
+                        <p class="successtate">er is geens core ingevoerd</p>
+                    <% } %>
+                <% } else { %>
+                    <p>No feedback available.</p>
+                <% } %>
             </ul>
-
         </section>
-
-<!--        dit hier is de post partial-->
-        <ul class="showscore">
-        </ul>
-
     </div>
 
     <section class=" formRatingItem">
@@ -127,7 +133,21 @@
 
     <section class=" formRatingItem ">
         <h2>notitie</h2>
-        <%- include('partials/showNotes', {result: house}); -%>
+        <ul class="output_other_users">
+            <li>uw score</li>
+            <% if (feedback.length > 0) { %>
+                <% if (feedback[feedback.length - 1].rating) { %>
+                    <li>Kitchen : <%= feedback[feedback.length - 1].rating.kitchen %></li>
+                    <li>general : <%= feedback[feedback.length - 1].rating.general %></li>
+                    <li>badkamer: <%= feedback[feedback.length - 1].rating.bathroom %></li>
+                    <li>tuin: <%= feedback[feedback.length - 1].rating.garden %></li>
+                <% } else { %>
+                    <p class="successtate">er is geens core ingevoerd</p>
+                <% } %>
+            <% } else { %>
+                <p>No feedback available.</p>
+            <% } %>
+        </ul>
 
     </section>
     <section class="show_notes">

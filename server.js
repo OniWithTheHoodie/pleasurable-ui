@@ -159,6 +159,7 @@ app.post('/score/:id',  function (request, response) {
                 fetchJson(feedbackUrl)
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
+                        console.log(feedback.data)
                         response.render('partials/ShowScore', {
                                 result: apiResponse,
                                 succed: gelukt,
