@@ -4,8 +4,8 @@
 
 <section class="houseInfo">
     <h1>score pagina</h1>
-    <p class="houseInfo__moreInfo">hier kunt u een score geven over het huis en een eigen score toevoegen en de score van uw teamleden zien
-        ga naar <a href="#users">score teamleden</a>
+    <p class="houseInfo__moreInfo">hier kunt u een score geven over het huis en de score
+        van uw teamleden zien ga naar <a href="#users">score teamleden</a>
     </p>
     <hr class="orangeLine">
     <ul class="">
@@ -25,8 +25,8 @@
                 <% } %>
             </picture>
         </li>
-        <li class=""><%= house.street %> <%= house.house_nr %> </li>
-        <li class=""><%= house.city %> <%= house.postal_code %></li>
+        <li class="link_address"><%= house.street %> <%= house.house_nr %> </li>
+        <li class=""> <%= house.postal_code %><%= house.city %></li>
         <li class="">€<%= new Intl.NumberFormat("de-DE").format(house.price) %></li>
 
 
@@ -44,10 +44,10 @@
         <form method="POST" action="/score/<%= house.id %>" class="scorefield">
 
 
-<!--         algemeen-->
+            <!--         algemeen-->
             <fieldset class="fieldsetRating">
                 <legend class="titleRating">algemeen</legend>
-                    <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="1">
+                <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="1">
                 <label aria-label="1 " for="algemeen1" class="labelRating"></label>
 
                 <input class="inputRating" id="algemeen2" name="algemeenNumber" type="radio" value="2">
@@ -66,10 +66,10 @@
                 <label aria-label="5 sterren" for="algeemn5" class="labelRating"></label>
             </fieldset>
 
-<!--            keuken-->
+            <!--            keuken-->
             <fieldset class="fieldsetRating">
                 <legend class="titleRating">keuken</legend>
-                    <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="1">
+                <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="1">
                 <label aria-label="1 " for="keuken1" class="labelRating"></label>
 
 
@@ -91,7 +91,7 @@
 
             <fieldset class="fieldsetRating">
                 <legend class="titleRating">badkamer</legend>
-                    <input class="inputRating" id="badkamer1" name="badkamerNumber" type="radio" value="1">
+                <input class="inputRating" id="badkamer1" name="badkamerNumber" type="radio" value="1">
                 <label aria-label="1 " for="badkamer1" class="labelRating"></label>
 
 
@@ -113,7 +113,7 @@
 
             <fieldset class="fieldsetRating">
                 <legend class="titleRating">Tuin</legend>
-                    <input class="inputRating" id="Tuin1" name="tuinNumber" type="radio" value="1">
+                <input class="inputRating" id="Tuin1" name="tuinNumber" type="radio" value="1">
                 <label aria-label="1 " for="Tuin1" class="labelRating"></label>
 
 
@@ -132,7 +132,7 @@
                 <input class="inputRating" id="Tuin5" name="tuinNumber" type="radio" value="5">
                 <label aria-label="5 sterren" for="Tuin5" class="labelRating"></label>
             </fieldset>
-<!--            todo hier moet een interactie komen dat de button van kleur veranderd-->
+            <!--            todo hier moet een interactie komen dat de button van kleur veranderd-->
             <button type="submit" class="savebutton">submit</button>
         </form>
         <p class="loading-state"></p>
@@ -142,10 +142,10 @@
         <!--             this ul must be here becuase it has other css than the ul of the partial-->
         <section class="formRatingItem ">
             <h2>Ratings:</h2>
-<!--            todo als je op submit drukt dan moet dit komen te staan de
-todo partial anders is het effect weg en de partial moet geupdate worden-->
-<!--            dit staat vast ook zonder post en dit moet denk ik beter want result is niks-->
-                <%- include('partials/ShowScore', {result: house}); -%>
+            <!--            todo als je op submit drukt dan moet dit komen te staan de
+            todo partial anders is het effect weg en de partial moet geupdate worden-->
+            <!--            dit staat vast ook zonder post en dit moet denk ik beter want result is niks-->
+            <%- include('partials/ShowScore', {result: house}); -%>
 
         </section>
     </div>
@@ -167,7 +167,6 @@ todo partial anders is het effect weg en de partial moet geupdate worden-->
     </section>
 
 
-
     <section class=" formRatingItem formRatingItem__NoteShow ">
         <h2>notitie</h2>
         <%- include('partials/showNotes', {result: house}); -%>
@@ -175,18 +174,20 @@ todo partial anders is het effect weg en de partial moet geupdate worden-->
     </section>
 
 
-
-
-
 </div>
 
+<!--de ul kan niet in de sction de users niet meer naast elkaar komen te staan-->
 <section class="sectionUsers" id="users">
     <hr class="orangeLine">
-    <h2>users</h2>
+    <h2>score teamleden</h2>
 
 
 </section>
-<ul class="usersList">
+<section class="section__users">
+
+    <p>hier kunt u de score van uw teamleden zien</p>
+</section>
+<ul class="usersListScore">
     <% users.forEach(users => { %>
 
         <li class="usersScore">
@@ -199,15 +200,15 @@ todo partial anders is het effect weg en de partial moet geupdate worden-->
                 <p>er is geen user avatar</p>
             <% } %>
 
-<!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
+            <!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
             <span class="username"><%= users.name %></span>
-                <span class="score">score</span>
-                <ul class="">
-                    <li>general: <%=ratings.general %></li>
-                    <li>keuken: <%=ratings.kitchen %></li>
-                    <li>badkamer: <%=ratings.bathroom %></li>
-                    <li>tuin: <%=ratings.garden %></li>
-                </ul>
+            <span class="score">score</span>
+            <ul class="">
+                <li>general: <%= ratings.general %></li>
+                <li>keuken: <%= ratings.kitchen %></li>
+                <li>badkamer: <%= ratings.bathroom %></li>
+                <li>tuin: <%= ratings.garden %></li>
+            </ul>
         </li>
 
     <% }) %>
