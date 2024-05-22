@@ -120,25 +120,7 @@ app.post('/score/:id',  function (request, response) {
 
     // dit staat dubbel in de post route
     // use a promise.all because the tables are not connected to each other
-    // Promise.all([
-    //     fetchJson(feedbackUrl),
-    //     fetchJson(houseUrl)
-    // ])
-    //
-    //     // dit staat volgensmij dubbel in de get route
-    //     .then(async (feedback) => {
-    //     const feedbackdetails = feedback[0].data; // Assuming feedback is directly an array of objects
-    //     const house = feedback[1].data; // Assuming house data is in the second response
-    //     // console.log(JSON.parse(feedbackdetails))
-    //     // console.log(JSON.stringify(feedbackdetails[2].rating))
-    //     response.render('partials/showScore', {
-    //         house: house,
-    //         feedback: feedback[0].data,
-    //         // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
-    //         succed: gelukt,
-    //         users: usersUrl.data,
-    //     });
-    // })
+
 
 
     const newScore = {
@@ -152,8 +134,8 @@ app.post('/score/:id',  function (request, response) {
     console.log(JSON.stringify(newScore))
 
 // make the post route
-    fetch(`https://fdnd-agency.directus.app/items/f_feedback/?fields=*.*.*.*`, {
-        method: 'post',
+    fetch(`https://fdnd-agency.directus.app/items/f_feedback`, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json', // Set appropriate header
         },
@@ -167,27 +149,36 @@ app.post('/score/:id',  function (request, response) {
     })
 
         // hier word denk ik aleen iets terggeven
-        .then(async (apiResponse,feedback) => {
+        .then(async (apiResponse) => {
+
             // if the enhanced is true do this en the render is the partial
             // todo navragen waarom ik een error heb in de partial en hoe ik dit kan oplossen
             if (request.body.enhanced) {
-                response.render('partials/testscore', {
-                        result: apiResponse,
-                        succed: gelukt,
-                    note: noteUser,
-                    feed:feedback
-                    // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
+                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+                // use a promise.all because the tables are not connected to each other
+                fetchJson(feedbackUrl)
+                    // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
+                    .then(async (feedback) => {
+                        response.render('partials/ShowScore', {
+                                result: apiResponse,
+                                succed: gelukt,
+                                note: noteUser,
+                                feedback: feedback.data
+                                // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
 
-                    }
-                )
+                            }
+                        )
+                    })
+
             }
             // the else is commented because if it is not working the full page is show in the beoordeling
 
-            else {
-                response.redirect(303, '/score/' + request.params.id)
-            }
+            // else {
+            //     response.redirect(303, '/score/' + request.params.id)
+            // }
 
         })
+
 
 })
 // Stel het poortnummer in waar express op moet gaan luisteren
@@ -198,3 +189,6 @@ app.listen(app.get('port'), function () {
     // Toon een bericht in de console en geef het poortnummer door
     console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
+
+

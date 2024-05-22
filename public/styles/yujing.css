@@ -191,8 +191,9 @@ dit word hergebruiks users
     }
 }
 .successtae{
-    background-color: green;
+    /*background-color: green;*/
     content: ✅;
+    font-size: 1.5em;
 }
 
 /*usrs score*/

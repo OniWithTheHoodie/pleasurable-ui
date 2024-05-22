@@ -66,6 +66,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
       // Gebruik een client-side fetch om een POST te doen naar de server
       // Als URL gebruiken we this.action
       // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+      console.log(this)
       // de loading state blijft hangen op deze fetch maar in de database staat het al
       fetch(this.action, {
         // Als method gebruiken we this.method (waarschijnlijk POST)
@@ -82,8 +83,8 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
           })
           .then(function (responseHTML) {
             //haal de laoder weg
+            console.log('terug!')
             loadingElement.classList.remove('loader');
-            succeState.classList.add('successtae');
             // todo als de loader weg is voeg dan de successtae toe en haal die dan ook weer weg
             // todo het weghalen van de succcestate is met een animatie
 
