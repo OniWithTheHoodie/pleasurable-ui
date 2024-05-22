@@ -99,13 +99,14 @@ app.get('/score/:id', function (request, response) {
         .then(async (feedback) => {
             // console.log(JSON.parse(feedbackdetails))
             // console.log(JSON.stringify(feedbackdetails[2].rating))
+            // console.log(feedback[0].data[3].rating)
             response.render('score', {
                 house: feedback[1].data,
                 feedback: feedback[0].data,
                 // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
                 succed: gelukt,
                 users: usersUrl.data,
-                ratings: feedback[0].data[3].rating,
+                ratings: feedback[0].data[34].rating,
             });
         })
 })
@@ -169,9 +170,9 @@ app.post('/score/:id',  function (request, response) {
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
                         // console.log(JSON.parse(feedback.data.note))
-                        console.log(feedback.data.note)
-                        // console.log(feedback.data)
 
+                        // bijs tringfy is dit undefind en bij parse is het een object en ook undefined
+                        // console.log(JSON.stringify(feedback.data.note))
 
                         response.render('partials/ShowNotes', {
                                 result: apiResponse,
