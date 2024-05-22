@@ -37,7 +37,8 @@ FormsEnhanced('.scorefield', '.showscore','enhanced', '.loading-state');
 FormsEnhanced('.notesForm', '.show_notes', 'notesEnhanced', '.loading-state');
 
 // here i define that this is the laoding state
-let loading_element = document.querySelector('.loading-state');
+let loadingElement = document.querySelector('.loading-state');
+let succeState = document.querySelector('.successtae');
 
 // todo uitzoeken waarom de loading state met parameters niet werkt
 
@@ -61,7 +62,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
       data.append(enhancedName, true);
 
       // Toon de laadstatus
-      loading_element.classList.add('loader');
+      loadingElement.classList.add('loader');
       // Gebruik een client-side fetch om een POST te doen naar de server
       // Als URL gebruiken we this.action
       // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
@@ -81,7 +82,8 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
           })
           .then(function (responseHTML) {
             //haal de laoder weg
-            loading_element.classList.remove('loader');
+            loadingElement.classList.remove('loader');
+            loadingElement.classList.add('successtae');
             // todo als de loader weg is voeg dan de successtae toe en haal die dan ook weer weg
             // todo het weghalen van de succcestate is met een animatie
 
@@ -98,9 +100,9 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
               document.querySelector(ShowResultsData).innerHTML = responseHTML;
             }
 
-            // Scroll naar de bijgewerkte pagina
-            const scoreNumbersElement = document.querySelector(ShowResultsData);
-            scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
+            // // Scroll naar de bijgewerkte pagina
+            // const scoreNumbersElement = document.querySelector(ShowResultsData);
+            // scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
           });
 
       // Voorkom de standaard submit van de browser

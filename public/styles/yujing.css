@@ -190,7 +190,10 @@ dit word hergebruiks users
         transform: rotate(1turn)
     }
 }
-
+.successtae{
+    background-color: green;
+    content: ✅;
+}
 
 /*usrs score*/
 .usersScore{

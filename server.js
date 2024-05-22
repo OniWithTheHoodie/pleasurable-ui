@@ -114,13 +114,30 @@ app.get('/score/:id', function (request, response) {
 
 app.post('/score/:id',  function (request, response) {
 //this is the empty object
-    const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?fields=`;
+    const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+    // hier moet een
     const houseUrl = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*`;
 
+    // use a promise.all because the tables are not connected to each other
     Promise.all([
         fetchJson(feedbackUrl),
         fetchJson(houseUrl)
     ])
+
+        // dit staat volgensmij dubbel in de get route
+        .then(async (feedback) => {
+        const feedbackdetails = feedback[0].data; // Assuming feedback is directly an array of objects
+        const house = feedback[1].data; // Assuming house data is in the second response
+        // console.log(JSON.parse(feedbackdetails))
+        // console.log(JSON.stringify(feedbackdetails[2].rating))
+        response.render('partials/showScore', {
+            house: house,
+            feedback: feedback[0].data,
+            // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
+            succed: gelukt,
+            users: usersUrl.data,
+        });
+    })
     const newScore = {
         general: request.body.algemeenNumber,
         kitchen: request.body.keukenNumber,
@@ -146,7 +163,7 @@ app.post('/score/:id',  function (request, response) {
         }),
     })
 
-        .then(async (apiResponse) => {
+        .then(async (apiResponse,feedback) => {
             // if the enhanced is true do this en the render is the partial
             // todo navragen waarom ik een error heb in de partial en hoe ik dit kan oplossen
             if (request.body.enhanced) {
@@ -154,6 +171,7 @@ app.post('/score/:id',  function (request, response) {
                         result: apiResponse,
                         succed: gelukt,
                     note: noteUser,
+                    feedback: feedback[0].data,
                     // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
 
                     }
