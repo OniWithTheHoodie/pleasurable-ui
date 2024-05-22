@@ -118,26 +118,29 @@ app.post('/score/:id',  function (request, response) {
     // hier moet een
     const houseUrl = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*`;
 
+    // dit staat dubbel in de post route
     // use a promise.all because the tables are not connected to each other
-    Promise.all([
-        fetchJson(feedbackUrl),
-        fetchJson(houseUrl)
-    ])
+    // Promise.all([
+    //     fetchJson(feedbackUrl),
+    //     fetchJson(houseUrl)
+    // ])
+    //
+    //     // dit staat volgensmij dubbel in de get route
+    //     .then(async (feedback) => {
+    //     const feedbackdetails = feedback[0].data; // Assuming feedback is directly an array of objects
+    //     const house = feedback[1].data; // Assuming house data is in the second response
+    //     // console.log(JSON.parse(feedbackdetails))
+    //     // console.log(JSON.stringify(feedbackdetails[2].rating))
+    //     response.render('partials/showScore', {
+    //         house: house,
+    //         feedback: feedback[0].data,
+    //         // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
+    //         succed: gelukt,
+    //         users: usersUrl.data,
+    //     });
+    // })
 
-        // dit staat volgensmij dubbel in de get route
-        .then(async (feedback) => {
-        const feedbackdetails = feedback[0].data; // Assuming feedback is directly an array of objects
-        const house = feedback[1].data; // Assuming house data is in the second response
-        // console.log(JSON.parse(feedbackdetails))
-        // console.log(JSON.stringify(feedbackdetails[2].rating))
-        response.render('partials/showScore', {
-            house: house,
-            feedback: feedback[0].data,
-            // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
-            succed: gelukt,
-            users: usersUrl.data,
-        });
-    })
+
     const newScore = {
         general: request.body.algemeenNumber,
         kitchen: request.body.keukenNumber,
@@ -163,15 +166,16 @@ app.post('/score/:id',  function (request, response) {
         }),
     })
 
+        // hier word denk ik aleen iets terggeven
         .then(async (apiResponse,feedback) => {
             // if the enhanced is true do this en the render is the partial
             // todo navragen waarom ik een error heb in de partial en hoe ik dit kan oplossen
             if (request.body.enhanced) {
-                response.render('partials/showScore', {
+                response.render('partials/testscore', {
                         result: apiResponse,
                         succed: gelukt,
                     note: noteUser,
-                    feedback: feedback[0].data,
+                    feed:feedback
                     // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
 
                     }
@@ -179,9 +183,9 @@ app.post('/score/:id',  function (request, response) {
             }
             // the else is commented because if it is not working the full page is show in the beoordeling
 
-            // else {
-            //     response.redirect(303, '/score/' + request.params.id)
-            // }
+            else {
+                response.redirect(303, '/score/' + request.params.id)
+            }
 
         })
 

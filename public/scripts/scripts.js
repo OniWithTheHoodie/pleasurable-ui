@@ -83,7 +83,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
           .then(function (responseHTML) {
             //haal de laoder weg
             loadingElement.classList.remove('loader');
-            loadingElement.classList.add('successtae');
+            succeState.classList.add('successtae');
             // todo als de loader weg is voeg dan de successtae toe en haal die dan ook weer weg
             // todo het weghalen van de succcestate is met een animatie
 

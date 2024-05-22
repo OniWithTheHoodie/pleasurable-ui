@@ -36,48 +36,6 @@
 
 
 <div class="formsRating ">
-
-
-    <section class="formRatingItem">
-
-
-        <h2>beoordeling</h2>
-        <p>geef een beoordeling op bestaande of nieuwe beoordelingen</p>
-        <form method="POST" action="/score/<%= house.id %>" class="scorefield">
-
-            <!--                inputfields niet aanpassen vanwege de client side javascript-->
-
-
-            <label for="algemeen" class="form_inputfields__label-inputfield"><span>algemeen:</span>
-                <input class="input_numbers" type="number" id="algemeen" name="algemeenNumber" value=""
-                       placeholder="0">
-            </label>
-            <label for="keuken" class="form_inputfields__label-inputfield"><span>keuken:</span>
-                <input class="input_numbers" type="number" id="keuken" name="keukenNumber" value="" placeholder="0">
-            </label>
-            <label for="Badkamer" class="form_inputfields__label-inputfield"><span>Badkamer:</span>
-                <input class="input_numbers" type="number" id="Badkamer" name="badkamerNumber" value=""
-                       placeholder="0">
-            </label>
-            <label for="tuin" class="form_inputfields__label-inputfield"><span>tuin:</span>
-                <input class="input_numbers" type="number" id="tuin" name="tuinNumber" value="" placeholder="0 ">
-            </label>
-            <label for="new" class="form_inputfields__label-inputfield"><span>nieuwe naam:</span>
-                <input class="input_numbers" type="text" id="tuin" name="new" value="" placeholder=" ">
-            </label>
-            <label for="new_score"
-                   class="form_inputfields__label-inputfield"><span>geeef een cijfer op:</span>
-                <input class="input_numbers" type="number" id="tuin" name="new_score" value="" placeholder="0">
-            </label>
-            <button type="submit" class="savebutton">submit</button>
-            <!--                <div class="loader hide_loader"></div>-->
-
-        </form>
-
-
-
-
-    </section>
     <section class="formRatingItem">
         <form method="POST" action="/score/<%= house.id %>" class="scorefield">
 
@@ -100,7 +58,7 @@
                 <label aria-label="4 sterren" for="algemeen4" class="labelRating"></label>
 
 
-                <input class="inputRating" id="algeemn5" name="algemeenNumber" type="radio" value="5 sterren">
+                <input class="inputRating" id="algeemn5" name="algemeenNumber" type="radio" value="5">
                 <label aria-label="5 sterren" for="algeemn5" class="labelRating"></label>
             </fieldset>
 
