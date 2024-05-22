@@ -4,7 +4,7 @@
 
 <section class="houseInfo">
     <h1>score pagina</h1>
-    <p class="houseInfo">hier kunt u een score geven over het huis en een eigen score toevoegen en de score van uw teamleden zien
+    <p class="houseInfo__moreInfo">hier kunt u een score geven over het huis en een eigen score toevoegen en de score van uw teamleden zien
         ga naar <a href="#users">score teamleden</a>
     </p>
     <hr class="orangeLine">
@@ -36,7 +36,11 @@
 
 
 <div class="formsRating ">
-    <section class="formRatingItem">
+    <section class="formRatingItem__header">
+        <h2>rate dit huis</h2>
+        <p>hier kunt u een beoordeling geven over het huis of een notitie achterlaten</p>
+    </section>
+    <section class="formRatingItem formRatingItem__ratings">
         <form method="POST" action="/score/<%= house.id %>" class="scorefield">
 
 
@@ -134,9 +138,9 @@
         <p class="loading-state"></p>
         <p class="successtae"></p>
     </section>
-    <div class=" formRatingItem">
+    <div class=" formRatingItem formRatingItem__ratingsShow">
         <!--             this ul must be here becuase it has other css than the ul of the partial-->
-        <section class="formRatingItem">
+        <section class="formRatingItem ">
             <h2>Ratings:</h2>
 <!--            todo als je op submit drukt dan moet dit komen te staan de
 todo partial anders is het effect weg en de partial moet geupdate worden-->
@@ -146,7 +150,7 @@ todo partial anders is het effect weg en de partial moet geupdate worden-->
         </section>
     </div>
 
-    <section class=" formRatingItem">
+    <section class=" formRatingItem formRatingItem__Note">
         <h2 class="">Notities</h2>
         <p>Hier kunt u een notitie achterlaten.</p>
 
@@ -164,7 +168,7 @@ todo partial anders is het effect weg en de partial moet geupdate worden-->
 
 
 
-    <section class=" formRatingItem ">
+    <section class=" formRatingItem formRatingItem__NoteShow ">
         <h2>notitie</h2>
         <%- include('partials/showNotes', {result: house}); -%>
 

@@ -124,6 +124,14 @@ dit word hergebruiks users
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 1em;
+}
+.houseInfo__moreInfo{
+    display: grid;
+    text-align: start;
+    padding: 1.5em  2em;
+    line-height: 1.5em;
+    width: 80%;
 }
 .orangeLine {
     background-color: var(--web-orange-primary-color);
@@ -139,11 +147,41 @@ dit word hergebruiks users
     display: grid;
     justify-content: center;
     margin-left: 5em;
-    grid-template-rows: auto auto auto auto;
+    /*grid-template-rows: auto auto auto auto;*/
     grid-row-gap: 3em;
 
     margin-bottom: 2em;
     padding-right: 5em;
+}
+.formRatingItem__header{
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.formRatingItem__ratings{
+    display: grid;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-column-end: 1;
+}
+.formRatingItem__ratingsShow{
+    display: grid;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-column-end: 2;
+}
+.formRatingItem__Note{
+    display: grid;
+    grid-column-start: 1;
+    grid-row-start: 4;
+    grid-column-end: 1;
+}
+.formRatingItem__NoteShow{
+    display: grid;
+    grid-column-start: 2;
+    grid-row-start: 4;
+    grid-column-end: 2;
+
 }
 .formRatingItem {
     background-color: var(--regent-blue-primary-color);
@@ -211,7 +249,7 @@ dit word hergebruiks users
 @media (min-width: 45em) {
     .formsRating{
         /*grid-template-columns: repeat( auto-fit, minmax(319px, 1fr) ) ;*/
-        grid-template-columns: auto auto;
+        /*grid-template-columns: auto auto;*/
         grid-column-gap: 3em;
     }
     .formRatingItem{
