@@ -34,7 +34,6 @@ app.get('/', function (request, response) {
     response.render('index', {
       alleHuizen: huizenHome.data,
       alleRatings : feedbackUrl.data,
-      ratings: ratings,
         users: usersUrl.data,
     })
     // console.log(huizenHome.data);
@@ -98,32 +97,21 @@ app.get('/score/:id', function (request, response) {
     ])
         // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
         .then(async (feedback) => {
-            const feedbackdetails = feedback[0].data; // Assuming feedback is directly an array of objects
-            const house = feedback[1].data; // Assuming house data is in the second response
             // console.log(JSON.parse(feedbackdetails))
             // console.log(JSON.stringify(feedbackdetails[2].rating))
             response.render('score', {
-                house: house,
+                house: feedback[1].data,
                 feedback: feedback[0].data,
                 // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
                 succed: gelukt,
                 users: usersUrl.data,
-                ratings: feedbackdetails[3].rating,
+                ratings: feedback[0].data[3].rating,
             });
         })
 })
 
 app.post('/score/:id',  function (request, response) {
-//this is the empty object
-    const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
-    // hier moet een
-    const houseUrl = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*`;
-
-    // dit staat dubbel in de post route
-    // use a promise.all because the tables are not connected to each other
-
-
-
+//this is the empty object that is going to be filled with the new score
     const newScore = {
         general: request.body.algemeenNumber,
         kitchen: request.body.keukenNumber,
@@ -131,6 +119,8 @@ app.post('/score/:id',  function (request, response) {
         garden: request.body.tuinNumber,
         new: request.body.new,
     };
+
+
     const noteUser = {note: request.body.note}
     console.log(JSON.stringify(newScore))
 
@@ -145,6 +135,7 @@ app.post('/score/:id',  function (request, response) {
             "list": 7,
             "user": 5,
             rating: newScore,
+            note: noteUser,
         }),
     })
 
