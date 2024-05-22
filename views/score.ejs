@@ -76,7 +76,7 @@
 
 
 
-        <p class="loading-state"></p>
+
     </section>
     <section class="formRatingItem">
         <form method="POST" action="/score/<%= house.id %>" class="scorefield">
@@ -85,14 +85,14 @@
 <!--         algemeen-->
             <fieldset class="fieldsetRating">
                 <legend class="titleRating">algemeen</legend>
-                    <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="">
+                    <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="1">
                 <label aria-label="1 " for="algemeen1" class="labelRating"></label>
 
                 <input class="inputRating" id="algemeen2" name="algemeenNumber" type="radio" value="2">
                 <label aria-label="2 sterren" for="algemeen2" class="labelRating"></label>
 
 
-                <input class="inputRating" id="algemeen3" name="algemeenNumber" type="radio" value="3 ">
+                <input class="inputRating" id="algemeen3" name="algemeenNumber" type="radio" value="3">
                 <label aria-label="3 sterren" for="algemeen3" class="labelRating"></label>
 
 
@@ -107,7 +107,7 @@
 <!--            keuken-->
             <fieldset class="fieldsetRating">
                 <legend class="titleRating">keuken</legend>
-                    <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="">
+                    <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="1">
                 <label aria-label="1 " for="keuken1" class="labelRating"></label>
 
 
@@ -126,8 +126,11 @@
                 <input class="inputRating" id="keuken5" name="keukenNumber" type="radio" value="5 sterren">
                 <label aria-label="5 sterren" for="keuken5" class="labelRating"></label>
             </fieldset>
+<!--            todo hier moet een interactie komen dat de button van kleur veranderd-->
             <button type="submit" class="savebutton">submit</button>
         </form>
+        <p class="loading-state"></p>
+        <p class="successtae"></p>
     </section>
     <div class=" formRatingItem">
         <!--             this ul must be here becuase it has other css than the ul of the partial-->
