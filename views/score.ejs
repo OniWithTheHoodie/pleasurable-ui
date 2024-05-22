@@ -150,11 +150,10 @@
         </section>
     </div>
 
-    <section class=" formRatingItem formRatingItem__Note">
-        <h2 class="">Notities</h2>
-        <p>Hier kunt u een notitie achterlaten.</p>
+    <section class="formRatingItem formRatingItem__Note">
+        <h2 class="centerText">Notities</h2>
 
-        <form method="POST" action="/score/<%= house.id %>" class="notesForm">
+        <form method="POST" action="/score/<%= house.id %>" class="notesForm centerText">
             <input type="hidden" value="<%= house.id %>">
             <label for="bericht" aria-label="laat uw noitite achter">
                 <textarea id="note" name="note"></textarea>
@@ -168,7 +167,7 @@
 
 
     <section class=" formRatingItem formRatingItem__NoteShow ">
-        <h2>notitie</h2>
+        <h2 class="centerText">notitie</h2>
         <%- include('partials/showNotes', {result: house}); -%>
 
     </section>

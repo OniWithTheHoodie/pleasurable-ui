@@ -183,8 +183,8 @@ dit word hergebruiks users
 .formRatingItem {
     background-color: var(--regent-blue-primary-color);
     /*width: 30em;*/
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    justify-content: center;
     align-items: center;
 }
 
@@ -227,8 +227,16 @@ dit word hergebruiks users
     content: ✅;
     font-size: 5em;
 }
+.centerText{
+    display: grid;
+    justify-content: center;
+}
 
-/*usrs score*/
+/****************************************************************
+                                                                *
+                     yujing toegevoegde code users            *
+
+*/
 .usersScore{
     display: grid;
     justify-content: flex-start;
@@ -242,7 +250,11 @@ dit word hergebruiks users
     /*repeat( auto-fit, minmax(150px, 1fr) )*/
 
 }
+/****************************************************************
+                                                                *
+                     yujing toegevoegde media query            *
 
+*/
 @media (min-width: 45em) {
     .formsRating{
         /*grid-template-columns: repeat( auto-fit, minmax(319px, 1fr) ) ;*/
