@@ -108,6 +108,7 @@ app.get('/score/:id', function (request, response) {
                 // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
                 succed: gelukt,
                 users: usersUrl.data,
+                ratings: feedbackdetails[3].rating,
             });
         })
 })
@@ -144,7 +145,6 @@ app.post('/score/:id',  function (request, response) {
             "list": 7,
             "user": 5,
             rating: newScore,
-            note: noteUser,
         }),
     })
 
@@ -162,7 +162,28 @@ app.post('/score/:id',  function (request, response) {
                         // console.log(feedback.data)
                         response.render('partials/ShowScore', {
                                 result: apiResponse,
-                                note: noteUser,
+                                feedback: feedback.data
+                                // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
+
+                            }
+                        )
+                    })
+
+
+            }
+            if (request.body.notesEnhanced) {
+                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+                fetchJson(feedbackUrl)
+
+                    // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
+                    .then(async (feedback) => {
+                        // console.log(JSON.parse(feedback.data.note))
+                        console.log(feedback.data.note)
+                        // console.log(feedback.data)
+
+
+                        response.render('partials/ShowNotes', {
+                                result: apiResponse,
                                 feedback: feedback.data
                                 // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
 

@@ -102,10 +102,7 @@ dit word hergebruiks users
     grid-row: 1;
     display: grid;
 }
-.score_div{
-    display: grid;
-    grid-template-rows: auto auto auto auto;
-}
+
 
 /*einde herbgerbuiken*/
 

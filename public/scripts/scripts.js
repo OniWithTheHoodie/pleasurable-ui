@@ -102,8 +102,8 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
             }
 
             // // Scroll naar de bijgewerkte pagina
-            // const scoreNumbersElement = document.querySelector(ShowResultsData);
-            // scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
+            const scoreNumbersElement = document.querySelector(ShowResultsData);
+            scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
           });
 
       // Voorkom de standaard submit van de browser

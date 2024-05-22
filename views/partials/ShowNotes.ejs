@@ -2,13 +2,17 @@
     <% if (feedback.length > 0) { %>
         <li>House ID: <%= feedback[feedback.length - 1].house %></li>
         <% if (feedback[feedback.length - 1].note) { %>
-            <li>Note : <%= feedback[feedback.length - 1].note %></li>
-        <% } else { %>
+            <li>Note: <%= parseInt(feedback[feedback.length - 1].note) %></li>
+        <% }
+
+
+        else { %>
             <p>No note for this house.</p>
         <% } %>
-    <% } else { %>
+    <% }
+
+    else { %>
         <p>No feedback available.</p>
     <% } %>
-    <p>uw notite is toegevoeged</p>
 </ul>
 

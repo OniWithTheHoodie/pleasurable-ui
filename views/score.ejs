@@ -125,9 +125,6 @@ todo partial anders is het effect weg en de partial moet geupdate worden-->
         <%- include('partials/showNotes', {result: house}); -%>
 
     </section>
-    <section class="show_notes">
-
-    </section>
 
 
 
@@ -153,31 +150,18 @@ todo partial anders is het effect weg en de partial moet geupdate worden-->
             <% } else { %>
                 <p>er is geen user avatar</p>
             <% } %>
+
+<!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
             <span class="username"><%= users.name %></span>
-            <div class="score_div">
-
                 <span class="score">score</span>
-<!--                todo toevoegen score users-->
-            </div>
-
+                <ul class="">
+                    <li>general: <%=ratings.general %></li>
+                    <li>keuken: <%=ratings.kitchen %></li>
+                    <li>badkamer: <%=ratings.bathroom %></li>
+                    <li>tuin: <%=ratings.garden %></li>
+                </ul>
         </li>
 
     <% }) %>
 
 </ul>
-
-<section class="sectionScore">
-    <ul class="sectionScore">
-        <% for (const obj of feedback) { %>
-            <li>House ID: <%= obj.house %></li>
-            <% if (obj.rating) { %>
-                <li>Kitchen : <%= obj.rating.kitchen %></li>
-                <li>general : <%= obj.rating.general %></li>
-                <li>badkamer: <%= obj.rating.bathroom %></li>
-                <li>tuin: <%= obj.rating.garden %></li>
-            <% } else { %>
-                <p>er is geens core ingevoerd</p>
-            <% } %>
-        <% } %>
-    </ul>
-</section>
