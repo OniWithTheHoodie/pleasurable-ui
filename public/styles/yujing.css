@@ -53,12 +53,19 @@ input:not(input:checked ~ input)
 .sectionUsers{
      display: grid;
     justify-content: center;
-    place-items: center;
+    align-items: center;
+    /*place-items: center;*/
 
-    /*display: grid;*/
-    /*justify-content: center;*/
 }
-
+.sectionUsers h2{
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+.sectionUsers p{
+    text-align: center;
+}
 /*    usrers tablet  toegevoegd*/
 .users{
     display: grid;
@@ -112,20 +119,23 @@ dit word hergebruiks users
 
 /*score pagina*/
 .section__users{
-    display: grid;
-    justify-content: center;
+    /*display: grid;*/
+    /*justify-content: center;*/
 }
 /*todo navragen waarom de ul niet in de breedte gaat als het in een seciton staat met justicy content center*/
 .usersListScore{
     display: grid;
-    grid-template-columns:repeat( auto-fit, minmax(192px, 1fr) ) ;
+    grid-template-columns:repeat( auto-fit, minmax(214px, 14em) ) ;
     /*background-color: #31cfec;*/
     justify-items: center;  /* Center items horizontally */
     align-items: center;
     place-items: center;
     grid-column-gap: 3em;
-    padding: 2em;
+    gap: 43px;
     place-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 2em 2em;
 }
 /*dit is index*/
 .index-favorite-header{
@@ -137,14 +147,19 @@ dit word hergebruiks users
 
 /*image*/
 .house_details_img__image{
-    width: 250px;
+    max-width: 54%;
     height: auto;
 }
 .link_address{
     color: var(--lochmara-primary-color);
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 1.35em;
     font-weight: bold;
+}
+.priceHouse{
+    font-size: 1.2em;
+    font-weight: bold;
+
 }
 .houseInfo{
     margin-bottom: 2em;
@@ -153,6 +168,10 @@ dit word hergebruiks users
     align-items: center;
     padding-top: 1em;
 }
+.houseInfo h1{
+    font-size: 2.5em;
+    font-weight: bold;
+}
 .houseInfo__moreInfo{
     display: grid;
     text-align: start;
@@ -160,6 +179,7 @@ dit word hergebruiks users
     justify-items: center;
     padding: 1em 2em 1em 2em;
     row-gap: 2em;
+    font-size: 1.1em;
 
     line-height: 1.5em;
     max-width: 24em;
@@ -235,6 +255,12 @@ dit word hergebruiks users
 .formRatingItem__header p {
     padding:  1em;
 }
+.formRatingItem__header h2{
+    display: grid;
+    place-items: center;
+    font-size: 2em;
+    font-weight: bold;
+}
 .score_field_numbers__form_inputfields{
     display: grid;
     justify-content: center;
@@ -290,8 +316,12 @@ dit word hergebruiks users
     background-color: var(--regent-blue-primary-color);
     padding: 2em;
     margin: 1em;
+    column-gap: 2em;
     row-gap: 1em;
+    width: 13em;
 
+    place-items: center;
+    place-content: center;
     grid-template-columns: 1fr;
     grid-template-rows: 6em;
     /*repeat( auto-fit, minmax(150px, 1fr) )*/
@@ -362,6 +392,7 @@ dit word hergebruiks users
 
 
 
+
 }
 
 @media (min-width: 1200px) {
@@ -414,6 +445,9 @@ dit word hergebruiks users
 .labelRating{
     color: #a4a2a2;
     /*background-color: #0071B3;*/
+}
+.fieldsetRating:checked{
+    border-color: #0071B3;
 }
 
 /*hier word gecheckt of de input checked is en het bijbehorende label*/

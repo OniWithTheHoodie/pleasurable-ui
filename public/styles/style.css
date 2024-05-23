@@ -150,7 +150,7 @@ body {
     }
 
     .tablet-desktop a {
-      color: var(--white-primary-color);
+      color: var(--color-main-text);
     }
 
     .nav-icons a > svg {
@@ -158,7 +158,7 @@ body {
     }
 
     .nav-icons > a{
-      padding-right: auto;
+      padding-right:  auto;
     }
 
     .nav-icons a > svg {
@@ -249,7 +249,7 @@ main {
   
     & img {
       border-radius: 5px 5px 0 0;
-      object-fit: fill;
+      object-fit: cover;
     /*    todo kijken naar object fit*/
     }
   
@@ -304,10 +304,11 @@ main {
         width: 100%;
         height: auto;
       }
+      /*dit moet op een class*/
 
-      img {
-        width: 100%;
-      }
+      /*img {*/
+      /*  width: 100%;*/
+      /*}*/
 
   }
 

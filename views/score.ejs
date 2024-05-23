@@ -4,11 +4,17 @@
 
 <section class="houseInfo">
     <h1>score pagina</h1>
-    <p class="houseInfo__moreInfo">hier kunt u een score geven over het huis en de score
-        van uw teamleden zien ga naar
-        <a href="#beoordeeling" class="link">beoordeling</a><a href="#users" class="link">score teamleden</a>
-
+    <p class="houseInfo__moreInfo">Hier kunt u een beoordling geven over het huis of de score van anderen zien
     </p>
+    <ul>
+        <li>
+         ga naar :
+        <li>
+            <a href="#beoordeeling" class="link"> Beeordeling </a>
+        </li>
+        <li>
+            <a href="#users" class="link">Score teamleden</a></li>
+    </ul>
     <hr class="orangeLine">
     <ul class="">
         <% if (house.poster_image) { %>
@@ -29,7 +35,7 @@
         </li>
         <li class="link_address"><%= house.street %> <%= house.house_nr %> </li>
         <li class=""> <%= house.postal_code %><%= house.city %></li>
-        <li class="">€<%= new Intl.NumberFormat("de-DE").format(house.price) %></li>
+        <li class="priceHouse">€ <%= new Intl.NumberFormat("nl-NL").format(house.price) %></li>
 
 
     </ul>
@@ -49,7 +55,7 @@
 
             <!--         algemeen-->
             <fieldset class="fieldsetRating">
-                <legend class="titleRating">algemeen</legend>
+                <legend class="titleRating">Algemeen</legend>
                 <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="1">
                 <label aria-label="1 " for="algemeen1" class="labelRating"></label>
 
@@ -71,7 +77,7 @@
 
             <!--            keuken-->
             <fieldset class="fieldsetRating">
-                <legend class="titleRating">keuken</legend>
+                <legend class="titleRating">Keuken</legend>
                 <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="1">
                 <label aria-label="1 " for="keuken1" class="labelRating"></label>
 
@@ -93,7 +99,7 @@
             </fieldset>
 
             <fieldset class="fieldsetRating">
-                <legend class="titleRating">badkamer</legend>
+                <legend class="titleRating">Badkamer</legend>
                 <input class="inputRating" id="badkamer1" name="badkamerNumber" type="radio" value="1">
                 <label aria-label="1 " for="badkamer1" class="labelRating"></label>
 
@@ -182,6 +188,7 @@
 <section class="sectionUsers" id="users">
     <hr class="orangeLine">
     <h2>score teamleden</h2>
+    <p>hier kunt u de score van uw teamleden zien</p>
 
     <ul class="usersListScore">
         <% users.forEach(users => { %>
@@ -213,6 +220,5 @@
 </section>
 <section class="section__users">
 
-    <p>hier kunt u de score van uw teamleden zien</p>
 
 </section>
