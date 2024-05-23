@@ -38,11 +38,11 @@ app.get('/', function (request, response) {
     })
     // console.log(huizenHome.data);
     // console.log(feedback.data);
-    console.log(ratings);
+    // console.log(ratings);
 })
 
 app.post('/', function (request, response) {
-  console.log(request.body)
+  // console.log(request.body)
 
   // posten naar directus..
   fetch(`${apiUrl}f_feedback/`, {
@@ -59,7 +59,7 @@ app.post('/', function (request, response) {
       'Content-Type': 'application/json; charset=UTF-8',
     },
   }).then((postResponse) => {
-    console.log(postResponse)
+    // console.log(postResponse)
     response.redirect(303, '/')
   })
 })
@@ -76,7 +76,7 @@ app.get('/huis/:id', function (request, response) {
         response.render('huis', { house: apiData.data })
         // console.log(apiData)
       } else {
-        console.log('No data found for house with id: ' + request.params.id)
+        // console.log('No data found for house with id: ' + request.params.id)
         //     laat de error zien als de data al niet gevonden word
       }
     })
@@ -97,9 +97,9 @@ app.get('/score/:id', function (request, response) {
     ])
         // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
         .then(async (feedback) => {
-            // console.log(JSON.parse(feedbackdetails))
+            // console.log(JSON.parse(feedback[0].data[23].note))
             // console.log(JSON.stringify(feedbackdetails[2].rating))
-            // console.log(feedback[0].data[3].rating)
+            // console.log(feedback[0].data[23].note)
             response.render('score', {
                 house: feedback[1].data,
                 feedback: feedback[0].data,
@@ -122,8 +122,8 @@ app.post('/score/:id',  function (request, response) {
     };
 
 
-    const noteUser = {note: request.body.note}
-    console.log(JSON.stringify(newScore))
+    const noteUser = request.body.note
+    // console.log(noteUser)
 
 // make the post route
     fetch(`https://fdnd-agency.directus.app/items/f_feedback`, {
@@ -169,7 +169,7 @@ app.post('/score/:id',  function (request, response) {
 
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
-                        // console.log(JSON.parse(feedback.data.note))
+                        // console.log(feedback.data)
 
                         // bijs tringfy is dit undefind en bij parse is het een object en ook undefined
                         // console.log(JSON.stringify(feedback.data.note))
