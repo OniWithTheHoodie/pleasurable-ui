@@ -63,7 +63,7 @@ body {
   nav {
     padding: 0.8em;
     background-color: var(--web-orange-primary-color);
-    color: var(--white-primary-color);
+    color: var(--color-main-text);
   }
 
   nav > h3 {
@@ -90,7 +90,8 @@ body {
   }
 
   li a:hover{
-    background-color: #FFE2FF;
+    /*dit moet in een aparte class*/
+    /*background-color: #FFE2FF;*/
   }
 
   #toggle:checked ~ ul {
@@ -123,7 +124,8 @@ body {
     }
     
     li a:hover{
-      background-color: #FFE2FF;
+      /*dit moet in een aparte class*/
+      /*background-color: #FFE2FF;*/
     }
 
     nav > ul {
@@ -154,11 +156,11 @@ body {
     }
 
     .nav-icons a > svg {
-      fill: var(--white-primary-color);
+      fill: var(--color-main-text);
     }
 
     .nav-icons > a{
-      padding-right:  auto;
+      /*padding-right:  auto;*/
     }
 
     .nav-icons a > svg {
@@ -258,7 +260,8 @@ main {
     }
   
     & ul > a:hover {
-      color: white;
+      /*dit moet in een apart class*/
+      /*color: white;*/
     }
   
     & article > ul,li {

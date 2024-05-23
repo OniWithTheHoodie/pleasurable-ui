@@ -26,14 +26,14 @@
                         type="image/avif"
                 >
                 <img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover"
-                     width="<%= house.poster_image.width %>"
-                     height="<%= house.poster_image.height %>"
+                     width="200px"
+                     height="100px"
                      class="house_details_img__image"
                      alt="image-house">
                 <% } %>
             </picture>
         </li>
-        <li class="link_address"><%= house.street %> <%= house.house_nr %> </li>
+        <li class="link_address"><a class="link" href="/huis/<%= house.id %>"> <%= house.street %> <%= house.house_nr %></a> </li>
         <li class=""> <%= house.postal_code %><%= house.city %></li>
         <li class="priceHouse">€ <%= new Intl.NumberFormat("nl-NL").format(house.price) %></li>
 
@@ -196,8 +196,7 @@
             <li class="usersScore">
                 <% if (users.avatar) { %>
                     <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
-                         alt="House Image" width="<%= users.width %>"
-                         height="<%= users.height %>" class="users__avatars">
+                         alt="House Image" width="200xp" height="180px" class="users__avatars">
 
                 <% } else { %>
                     <p>er is geen user avatar</p>

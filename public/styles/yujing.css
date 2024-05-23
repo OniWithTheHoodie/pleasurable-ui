@@ -147,14 +147,22 @@ dit word hergebruiks users
 
 /*image*/
 .house_details_img__image{
-    max-width: 54%;
+    /*max-width: 54%;*/
     height: auto;
+    width: 17em;
 }
 .link_address{
     color: var(--lochmara-primary-color);
     text-decoration: none;
     font-size: 1.35em;
     font-weight: bold;
+}
+.link{
+    color: #0071B3;
+
+}
+.link:hover{
+    color: var(--web-orange-primary-color);
 }
 .priceHouse{
     font-size: 1.2em;
@@ -388,6 +396,9 @@ dit word hergebruiks users
 
     .houseInfo__moreInfo{
         max-width: 80%;
+    }
+    .house_details_img__image{
+        width: 25em;
     }
 
 
