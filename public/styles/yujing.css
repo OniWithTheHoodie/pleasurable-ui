@@ -51,9 +51,10 @@ input:not(input:checked ~ input)
 /*dit moet op de index komen te staan in de juiste volgorde yujing*/
 
 .sectionUsers{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+     display: grid;
+    justify-content: center;
+    place-items: center;
+
     /*display: grid;*/
     /*justify-content: center;*/
 }
@@ -124,6 +125,7 @@ dit word hergebruiks users
     place-items: center;
     grid-column-gap: 3em;
     padding: 2em;
+    place-content: center;
 }
 /*dit is index*/
 .index-favorite-header{
@@ -192,6 +194,14 @@ dit word hergebruiks users
     margin-bottom: 2em;
     padding-right: 5em;
 }
+.titleRating{
+    text-align: center;
+}
+.labelRating:hover{
+    scale: 2;
+    transition: 0.5s;
+}
+
 .formRatingItem {
     background-color: var(--regent-blue-primary-color);
     /*width: 30em;*/
@@ -378,7 +388,10 @@ dit word hergebruiks users
     place-items: center;
     padding: 11px 11px 1em;
     margin-bottom: 1.5em;
-}
+}.savebutton:hover{
+    background-color: var(--web-orange-primary-color);
+    color: var(--color-main-text);
+ }
 .sectionScore{
     max-width: 320px;
 }
@@ -405,23 +418,24 @@ dit word hergebruiks users
 
 /*hier word gecheckt of de input checked is en het bijbehorende label*/
 .fieldsetRating input:checked + label {
-    color: #0071B3;
+    color: #eea02e;
 }
 
 /*door deze code worden de andere sterren daarachter ook groen door het sibling selectord */
 .fieldsetRating label:has(~ :checked) {
-    color: #0071B3;
+    color: #eea02e;
+    transition: 1s;
 }
 
 /*hier worden de sterren geel als er op gehoverd word behalve de sterren die gechekt zijn*/
 .fieldsetRating label:hover:not(input:checked + label) {
     cursor: pointer;
-    color: yellow;
+    color: #fafa21;
 }
 
 /*hier worden de sterren geel en overgenomen op label vanwege het sibling selector*/
 .fieldsetRating label:has(~ label:hover):not(input:checked + label) {
-    color: yellow;
+    color: #fafa21;
 }
 
 .scorefield{

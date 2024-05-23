@@ -5,8 +5,9 @@
 <section class="houseInfo">
     <h1>score pagina</h1>
     <p class="houseInfo__moreInfo">hier kunt u een score geven over het huis en de score
-        van uw teamleden zien ga naar <a href="#users" class="link">score teamleden</a>
-        <a href="#beoordeeling" class="link">beoordeling</a>
+        van uw teamleden zien ga naar
+        <a href="#beoordeeling" class="link">beoordeling</a><a href="#users" class="link">score teamleden</a>
+
     </p>
     <hr class="orangeLine">
     <ul class="">
@@ -135,7 +136,7 @@
                 <label aria-label="5 sterren" for="Tuin5" class="labelRating"></label>
             </fieldset>
             <!--            todo hier moet een interactie komen dat de button van kleur veranderd-->
-            <button type="submit" class="savebutton">submit</button>
+            <button type="submit" class="savebutton">Opslaan</button>
         </form>
         <p class="loading-state"></p>
         <p class="successtae"></p>
@@ -169,7 +170,7 @@
 
 
     <section class=" formRatingItem formRatingItem__NoteShow ">
-        <h2 class="buttonSaveNotes">notitie</h2>
+        <h2 class="buttonSaveNotes">Uw notitie</h2>
         <%- include('partials/showNotes', {result: house}); -%>
 
     </section>
@@ -182,35 +183,36 @@
     <hr class="orangeLine">
     <h2>score teamleden</h2>
 
+    <ul class="usersListScore">
+        <% users.forEach(users => { %>
+
+            <li class="usersScore">
+                <% if (users.avatar) { %>
+                    <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
+                         alt="House Image" width="<%= users.width %>"
+                         height="<%= users.height %>" class="users__avatars">
+
+                <% } else { %>
+                    <p>er is geen user avatar</p>
+                <% } %>
+
+                <!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
+                <span class="username"><%= users.name %></span>
+                <ul class="">
+                    <li>general: <%= ratings.general %></li>
+                    <li>keuken: <%= ratings.kitchen %></li>
+                    <li>badkamer: <%= ratings.bathroom %></li>
+                    <li>tuin: <%= ratings.garden %></li>
+                </ul>
+            </li>
+
+        <% }) %>
+
+    </ul>
 
 </section>
 <section class="section__users">
 
     <p>hier kunt u de score van uw teamleden zien</p>
+
 </section>
-<ul class="usersListScore">
-    <% users.forEach(users => { %>
-
-        <li class="usersScore">
-            <% if (users.avatar) { %>
-                <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
-                     alt="House Image" width="<%= users.width %>"
-                     height="<%= users.height %>" class="users__avatars">
-
-            <% } else { %>
-                <p>er is geen user avatar</p>
-            <% } %>
-
-            <!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
-            <span class="username"><%= users.name %></span>
-            <ul class="">
-                <li>general: <%= ratings.general %></li>
-                <li>keuken: <%= ratings.kitchen %></li>
-                <li>badkamer: <%= ratings.bathroom %></li>
-                <li>tuin: <%= ratings.garden %></li>
-            </ul>
-        </li>
-
-    <% }) %>
-
-</ul>
