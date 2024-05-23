@@ -203,12 +203,12 @@
                     <% if (users.avatar) { %>
 
                     <picture>
-                        <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=200&height=80&fit=cover&format=webp"
+                        <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=200&height=130&fit=cover&format=webp"
                                 type="image/webp">
-                        <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=200&height=80&fit=cover&format=avif"
+                        <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=200&height=130&fit=cover&format=avif"
                                 type="image/avif"
                         >
-                        <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=200&height=80&fit=cover"
+                        <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=200&height=130&fit=cover"
                              alt="House Image" width="<%= users.avatar.width %>" height="<%= users.avatar.width %>" class="userListScore__image">
                     </picture>
 
