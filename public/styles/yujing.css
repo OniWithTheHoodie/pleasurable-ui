@@ -156,11 +156,11 @@ dit word hergebruiks users
     text-align: start;
     justify-content: center;
     justify-items: center;
-    padding: 1em 0em 1em 1em;
+    padding: 1em 2em 1em 2em;
     row-gap: 2em;
 
     line-height: 1.5em;
-    width: 80%;
+    max-width: 24em;
 }
 .link{
     color: var(--lochmara-primary-color);
@@ -184,7 +184,7 @@ dit word hergebruiks users
 
     display: grid;
     justify-content: center;
-    grid-template-columns: 1fr;
+    grid-template-columns: 20em;
     margin-left: 5em;
     grid-template-rows: auto auto auto auto;
     grid-row-gap: 3em;
@@ -197,9 +197,34 @@ dit word hergebruiks users
     /*width: 30em;*/
     display: grid;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
+    /*place-items: center;*/
 }
-
+.formRatingItem h2 {
+    padding-top: 1em;
+    display: grid;
+    place-items: center;
+}
+.formRatingItem__ratingsShow h2{
+    justify-content: center;
+    justify-self: center;
+    /*place-items: center;*/
+}
+.formRatingItem__ratingsShow{
+    height: 15em;
+}
+.showscore{
+    height: 27em;
+}
+.formRatingItem__header{
+    place-items: center;
+    display: grid;
+    /*text-align: center;*/
+    /*row-gap: 1em;*/
+}
+.formRatingItem__header p {
+    padding:  1em;
+}
 .score_field_numbers__form_inputfields{
     display: grid;
     justify-content: center;
@@ -238,9 +263,10 @@ dit word hergebruiks users
     /*background-color: green;*/
     font-size: .5em;
 }
-.centerText{
+.buttonSaveNotes{
     display: grid;
     justify-content: center;
+    place-items: center;
 }
 
 /****************************************************************
@@ -291,11 +317,20 @@ dit word hergebruiks users
         grid-row-end: 2;
         grid-column-end: 1;
     }
+    .formRatingItem__ratings  h2{
+        display: grid;
+       justify-content: center;
+        /*font-size: 1.2em;*/
+        font-weight: bold;
+    }
     .formRatingItem__ratingsShow{
         display: grid;
         grid-column-start: 2;
         grid-row-start: 2;
         grid-column-end: 2;
+        height: 100%;
+
+
     }
     .formRatingItem__Note{
         display: grid;
@@ -309,6 +344,10 @@ dit word hergebruiks users
         grid-row-start: 4;
         grid-column-end: 2;
 
+    }
+
+    .houseInfo__moreInfo{
+        max-width: 80%;
     }
 
 
@@ -329,12 +368,16 @@ dit word hergebruiks users
 .savebutton{
     background-color: var(--lochmara-primary-color);
     color: white;
-    padding: 11px;
     border-radius: 8px;
     border: none;
     text-align: center;
     font-size: 14px;
     width: 7em;
+    display: grid;
+    justify-content: center;
+    place-items: center;
+    padding: 11px 11px 1em;
+    margin-bottom: 1.5em;
 }
 .sectionScore{
     max-width: 320px;
@@ -385,4 +428,5 @@ dit word hergebruiks users
     display: grid;
     grid-template-rows: 5em 5em 5em 5em;
     row-gap: 1em;
+    place-items: center;
 }

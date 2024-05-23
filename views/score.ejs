@@ -39,9 +39,10 @@
 <div class="formsRating ">
     <section class="formRatingItem__header" id="beoordeeling">
         <h2>beoordeling</h2>
-        <p>hier kunt u een beoordeling geven over het huis of een notitie achterlaten</p>
+        <p class="">hier kunt u een beoordeling geven over het huis tussen de 0 en 5 of een notitie achterlaten</p>
     </section>
     <section class="formRatingItem formRatingItem__ratings">
+        <h2> score</h2>
         <form method="POST" action="/score/<%= house.id %>" class="scorefield">
 
 
@@ -141,20 +142,19 @@
     </section>
     <div class=" formRatingItem formRatingItem__ratingsShow">
         <!--             this ul must be here becuase it has other css than the ul of the partial-->
-        <section class="formRatingItem ">
-            <h2>Ratings:</h2>
+
+            <h2>uw score:</h2>
             <!--            todo als je op submit drukt dan moet dit komen te staan de
             todo partial anders is het effect weg en de partial moet geupdate worden-->
             <!--            dit staat vast ook zonder post en dit moet denk ik beter want result is niks-->
             <%- include('partials/ShowScore', {result: house}); -%>
 
-        </section>
     </div>
 
     <section class="formRatingItem formRatingItem__Note">
-        <h2 class="centerText">Notities</h2>
+        <h2 class="buttonSaveNotes">Notities</h2>
 
-        <form method="POST" action="/score/<%= house.id %>" class="notesForm centerText">
+        <form method="POST" action="/score/<%= house.id %>" class="notesForm buttonSaveNotes">
             <input type="hidden" value="<%= house.id %>">
             <label for="bericht" aria-label="laat uw noitite achter">
                 <textarea id="note" name="note"></textarea>
@@ -169,7 +169,7 @@
 
 
     <section class=" formRatingItem formRatingItem__NoteShow ">
-        <h2 class="centerText">notitie</h2>
+        <h2 class="buttonSaveNotes">notitie</h2>
         <%- include('partials/showNotes', {result: house}); -%>
 
     </section>
