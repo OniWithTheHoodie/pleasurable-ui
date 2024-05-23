@@ -24,14 +24,14 @@
             <% if (house.poster_image) { %>
             <li>
                 <picture>
-                    <source srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover&format=webp"
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=600&height=400&fit=cover&format=webp"
                             type="image/webp">
-                    <source srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover&format=avif"
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=600&height=400&fit=cover&format=avif"
                             type="image/avif"
                     >
-                    <img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover"
-                         width="200px"
-                         height="100px"
+                    <img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=600&height=400&fit=cover"
+                         width="<%= house.poster_image.width %>"
+                         height="<%= house.poster_image.height %>"
                          class="houseImage"
                          alt="image-house">
                     <% } %>
@@ -182,7 +182,7 @@
             <!--        <p class="successtae">uw score is toegevoegd ✅</p>-->
         </section>
         <section class=" formRatingItem formRatingItem__NoteShow ">
-            <h2 class="">Uw notitie</h2>
+            <h2 class="">Uw notitie:</h2>
             <%- include('partials/showNotes', {result: house}); -%>
 
         </section>
@@ -201,8 +201,16 @@
 
                 <li class="usersListscore__li">
                     <% if (users.avatar) { %>
+
+                    <picture>
+                        <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=600&height=400&fit=cover&format=webp"
+                                type="image/webp">
+                        <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=600&height=400&fit=cover&format=avif"
+                                type="image/avif"
+                        >
                         <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
-                             alt="House Image" width="200xp" height="180px" class="userListScore__image">
+                             alt="House Image" width="<%= users.width %>" height="<%= users.width %>" class="userListScore__image">
+                    </picture>
 
                     <% } else { %>
                         <p>Er is geen user avatar</p>

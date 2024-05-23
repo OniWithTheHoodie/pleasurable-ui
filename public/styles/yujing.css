@@ -113,8 +113,8 @@ dit word hergebruiks users op index en score pagina
 }
 
 .userListScore__image{
-    width: 133px;
-    height: 95px;
+    width: 100%;
+    height: auto;
     grid-row: 1;
     display: grid;
 }
@@ -193,9 +193,9 @@ einde hergebruiken op de pagina zelf
 
 /*image*/
 .houseImage{
-    /*max-width: 54%;*/
+    width: 100%;
     height: auto;
-    width: 17em;
+    /*width: 17em;*/
 }
 .linkToHouse{
     color: var(--lochmara-primary-color);
@@ -330,6 +330,14 @@ einde hergebruiken op de pagina zelf
 .formRatingItem__ratingsShow{
     height: 15em;
 }
+.notesForm{
+    display: grid;
+    place-items: center;
+}
+.show_notes{
+    display: grid;
+    place-items: center;
+}
 .formRatingItem__NoteShow h2{
     padding-top: 0.3em;
 }
@@ -459,7 +467,7 @@ einde hergebruiken op de pagina zelf
         max-width: 80%;
     }
     .houseImage{
-        width: 25em;
+        /*width:70%;*/
     }
 
 
