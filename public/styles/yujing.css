@@ -15,11 +15,6 @@ ul {
     /*display: none;*/
 }
 
-/*toegevoegd*/
-.starRating{
-    color: black;
-
-}
 
 
 /*@media (min-width: 20rem) {*/
@@ -75,7 +70,17 @@ input:not(input:checked ~ input)
 }
 /*
 dit word hergebruiks users op index en score pagina
+
+
 */
+
+/*dit is index*/
+.index-favorite-header{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
 .usersList{
     display: grid;
     grid-template-columns:repeat( auto-fit, minmax(192px, 1fr) ) ;
@@ -233,6 +238,90 @@ einde hergebruiken op de pagina zelf
     font-size: 2em;
     font-weight: bold;
 }
+
+/*hier being het form met de sterren*/
+
+.scorefield{
+    display: grid;
+    grid-template-rows: 5em 5em 5em 5em;
+    row-gap: 1em;
+    place-items: center;
+}
+
+.fieldsetRating {
+    text-weight: bold;
+    border-color: var(--color-main-text);
+    display: flex;
+    /*background-color: deepskyblue;*/
+}
+
+
+.titleRating{
+    text-align: center;
+    font-weight: bold;
+}
+.labelRating:hover{
+    scale: 2;
+    transition: 0.5s;
+}
+.labelRating:after{
+    width: 1.5em;
+    content: "★";
+    font-size: 2em;
+    display: grid;
+    place-items: center;
+}
+
+.labelRating{
+    color: #a4a2a2;
+    /*background-color: #0071B3;*/
+}
+.fieldsetRating:checked{
+    border-color: #0071B3;
+}
+
+/*hier word gecheckt of de input checked is en het bijbehorende label*/
+.fieldsetRating input:checked + label {
+    color: #eea02e;
+}
+
+/*door deze code worden de andere sterren daarachter ook groen door het sibling selectord */
+.fieldsetRating label:has(~ :checked) {
+    color: #eea02e;
+    transition: 1s;
+}
+
+/*hier worden de sterren geel als er op gehoverd word behalve de sterren die gechekt zijn*/
+.fieldsetRating label:hover:not(input:checked + label) {
+    cursor: pointer;
+    color: #fafa21;
+}
+
+/*hier worden de sterren geel en overgenomen op label vanwege het sibling selector*/
+.fieldsetRating label:has(~ label:hover):not(input:checked + label) {
+    color: #fafa21;
+}
+
+
+.savebutton{
+    background-color: var(--lochmara-primary-color);
+    color: white;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    width: 7em;
+    display: grid;
+    justify-content: center;
+    place-items: center;
+    padding: 11px 11px 1em;
+    margin-bottom: 1.5em;
+}.savebutton:hover{
+     background-color: var(--web-orange-primary-color);
+     color: var(--color-main-text);
+ }
+
+/*dit is het einde van de form en daarna de section*/
 .formRatingItem__ratingsShow h2{
     justify-content: center;
     justify-self: center;
@@ -280,48 +369,12 @@ einde hergebruiken op de pagina zelf
     /*repeat( auto-fit, minmax(150px, 1fr) )*/
 
 }
-/*dit is index*/
-.index-favorite-header{
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-}
+
 /*dit is op score */
 
 
 
 
-.titleRating{
-    text-align: center;
-    font-weight: bold;
-}
-.labelRating:hover{
-    scale: 2;
-    transition: 0.5s;
-}
-
-
-
-.score_field_numbers__form_inputfields{
-    display: grid;
-    justify-content: center;
-
-    /*padding-right: 7em;*/
-    grid-template-columns: 1fr;
-    grid-gap: 10px;
-}
-.form_inputfields__label-inputfield{
-    display: grid;
-    /*grid-template-columns: 6em 8em;*/
-    padding-left: 2em;
-    padding-bottom: 0.5em;
-
-    /*width: 10em;*/
-}
-
-.input_numbers{
-
-}
 .loader {
     width: 50px;
     aspect-ratio: 1;
@@ -336,17 +389,12 @@ einde hergebruiken op de pagina zelf
         transform: rotate(1turn)
     }
 }
+/*dit werkt nog niet de successtea*/
 .successtate{
     /*background-color: green;*/
     font-size: 1.5em;
 }
 
-
-/****************************************************************
-                                                                *
-                     yujing toegevoegde code users            *
-
-*/
 
 /****************************************************************
                                                                 *
@@ -424,83 +472,5 @@ einde hergebruiken op de pagina zelf
             max-width: 1400px;
         }
 }
-.output_other_users{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 320px;
-}
-.savebutton{
-    background-color: var(--lochmara-primary-color);
-    color: white;
-    border-radius: 8px;
-    border: none;
-    text-align: center;
-    font-size: 14px;
-    width: 7em;
-    display: grid;
-    justify-content: center;
-    place-items: center;
-    padding: 11px 11px 1em;
-    margin-bottom: 1.5em;
-}.savebutton:hover{
-    background-color: var(--web-orange-primary-color);
-    color: var(--color-main-text);
- }
-.sectionScore{
-    max-width: 320px;
-}
 
 
-
-/*hier being het form met de sterren*/
-.fieldsetRating {
-    text-weight: bold;
-    border-color: var(--color-main-text);
-    display: flex;
-    /*background-color: deepskyblue;*/
-}
-.labelRating:after{
-    width: 1.5em;
-    content: "★";
-    font-size: 2em;
-    display: grid;
-    place-items: center;
-}
-
-.labelRating{
-    color: #a4a2a2;
-    /*background-color: #0071B3;*/
-}
-.fieldsetRating:checked{
-    border-color: #0071B3;
-}
-
-/*hier word gecheckt of de input checked is en het bijbehorende label*/
-.fieldsetRating input:checked + label {
-    color: #eea02e;
-}
-
-/*door deze code worden de andere sterren daarachter ook groen door het sibling selectord */
-.fieldsetRating label:has(~ :checked) {
-    color: #eea02e;
-    transition: 1s;
-}
-
-/*hier worden de sterren geel als er op gehoverd word behalve de sterren die gechekt zijn*/
-.fieldsetRating label:hover:not(input:checked + label) {
-    cursor: pointer;
-    color: #fafa21;
-}
-
-/*hier worden de sterren geel en overgenomen op label vanwege het sibling selector*/
-.fieldsetRating label:has(~ label:hover):not(input:checked + label) {
-    color: #fafa21;
-}
-
-.scorefield{
-    display: grid;
-    grid-template-rows: 5em 5em 5em 5em;
-    row-gap: 1em;
-    place-items: center;
-}
