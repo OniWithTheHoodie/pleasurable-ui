@@ -95,6 +95,8 @@ dit word hergebruiks users
 .username{
     display: grid;
     grid-row: 2;
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
 .users__avatars{
@@ -153,9 +155,19 @@ dit word hergebruiks users
     display: grid;
     text-align: start;
     justify-content: center;
-    padding: 1.5em  2em;
+    justify-items: center;
+    padding: 1em 0em 1em 1em;
+    row-gap: 2em;
+
     line-height: 1.5em;
     width: 80%;
+}
+.link{
+    color: var(--lochmara-primary-color);
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
 }
 .orangeLine {
     background-color: var(--web-orange-primary-color);
@@ -224,8 +236,7 @@ dit word hergebruiks users
 }
 .successtae{
     /*background-color: green;*/
-    content: ✅;
-    font-size: 5em;
+    font-size: .5em;
 }
 .centerText{
     display: grid;
@@ -344,17 +355,18 @@ dit word hergebruiks users
 }
 
 .labelRating{
-    color: gray;
+    color: #a4a2a2;
+    /*background-color: #0071B3;*/
 }
 
 /*hier word gecheckt of de input checked is en het bijbehorende label*/
 .fieldsetRating input:checked + label {
-    color: green;
+    color: #0071B3;
 }
 
 /*door deze code worden de andere sterren daarachter ook groen door het sibling selectord */
 .fieldsetRating label:has(~ :checked) {
-    color: green;
+    color: #0071B3;
 }
 
 /*hier worden de sterren geel als er op gehoverd word behalve de sterren die gechekt zijn*/
@@ -366,4 +378,9 @@ dit word hergebruiks users
 /*hier worden de sterren geel en overgenomen op label vanwege het sibling selector*/
 .fieldsetRating label:has(~ label:hover):not(input:checked + label) {
     color: yellow;
+}
+
+.scorefield{
+    display: grid;
+    grid-template-columns: 5em 5em 5em 5em 5em;
 }

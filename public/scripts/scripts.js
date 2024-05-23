@@ -1,34 +1,8 @@
-// // Ik heb de form een class mee gegeven waarbij ik alle formulieren selecteer met de class ratingsFavorieten deze zit in een variable genaamd allRatings
-// const allRatings = document.querySelectorAll('.ratingsFavorieten')
-// // hier schrijf ik een if statement waarbij ik de variable allRatings oproep waarbij de class .ratingsFavoriten in zit en maak ik een forEach loop mee
-// // En maak ik een variable waarbij ik alle input radio oproep
-// if(allRatings){
-//   allRatings.forEach(function(formRating){
-//   const radioButtons = formRating.querySelectorAll('input[type=radio]')
-//
-//   // hier maak ik een een forEach loop waar ik een nieuwe funcite maak met een eventListener waarbij ik zeg activeer als er een verandering komt in de input radio's
-//   radioButtons.forEach(function(radioButton){
-//     radioButton.addEventListener('change', function(){
-//       // const value = radioButton.value
-//
-//       // nu haal ik formRating op met de functie submit
-//       formRating.submit()
-//     })
-//   })
-//
-//
-//   })
-// }
-//
-//
-// // confirm rating
-// var radioStar = document.querySelector("input");
-// var element = document.querySelector(".disabled-rating");
-//
-// input.addEventListener("click", function() {
-//   element.classList.toggle(".confirm-rating")
-// });
 
+
+// here i define that this is the laoding state
+let loadingElement = document.querySelector('.loading-state');
+let succeState = document.querySelector('.successtae');
 
 
 // user parameters for the forms that the code is dry
@@ -36,9 +10,6 @@
 FormsEnhanced('.scorefield', '.showscore','enhanced', '.loading-state');
 FormsEnhanced('.notesForm', '.show_notes', 'notesEnhanced', '.loading-state');
 
-// here i define that this is the laoding state
-let loadingElement = document.querySelector('.loading-state');
-let succeState = document.querySelector('.successtae');
 
 // todo uitzoeken waarom de loading state met parameters niet werkt
 
@@ -85,6 +56,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
             //haal de laoder weg
             console.log('terug!')
             loadingElement.classList.remove('loader');
+            succeState.classList.add('successtae')
             // todo als de loader weg is voeg dan de successtae toe en haal die dan ook weer weg
             // todo het weghalen van de succcestate is met een animatie
 
@@ -104,6 +76,8 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
             // // Scroll naar de bijgewerkte pagina
             const scoreNumbersElement = document.querySelector(ShowResultsData);
             scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
+
+            succeState.classList.remove('successtae')
           });
 
       // Voorkom de standaard submit van de browser

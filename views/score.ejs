@@ -5,7 +5,8 @@
 <section class="houseInfo">
     <h1>score pagina</h1>
     <p class="houseInfo__moreInfo">hier kunt u een score geven over het huis en de score
-        van uw teamleden zien ga naar <a href="#users">score teamleden</a>
+        van uw teamleden zien ga naar <a href="#users" class="link">score teamleden</a>
+        <a href="#beoordeeling" class="link">beoordeling</a>
     </p>
     <hr class="orangeLine">
     <ul class="">
@@ -36,8 +37,8 @@
 
 
 <div class="formsRating ">
-    <section class="formRatingItem__header">
-        <h2>rate dit huis</h2>
+    <section class="formRatingItem__header" id="beoordeeling">
+        <h2>beoordeling</h2>
         <p>hier kunt u een beoordeling geven over het huis of een notitie achterlaten</p>
     </section>
     <section class="formRatingItem formRatingItem__ratings">
@@ -162,7 +163,8 @@
 
         </form>
         <p class="loading-state"></p>
-        <p class="successtae"></p>
+
+<!--        <p class="successtae">uw score is toegevoegd ✅</p>-->
     </section>
 
 
@@ -201,7 +203,6 @@
 
             <!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
             <span class="username"><%= users.name %></span>
-            <span class="score">score</span>
             <ul class="">
                 <li>general: <%= ratings.general %></li>
                 <li>keuken: <%= ratings.kitchen %></li>
