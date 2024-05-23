@@ -334,6 +334,7 @@ dit word hergebruiks users
     border: none;
     text-align: center;
     font-size: 14px;
+    width: 7em;
 }
 .sectionScore{
     max-width: 320px;
@@ -382,5 +383,6 @@ dit word hergebruiks users
 
 .scorefield{
     display: grid;
-    grid-template-columns: 5em 5em 5em 5em 5em;
+    grid-template-rows: 5em 5em 5em 5em;
+    row-gap: 1em;
 }
