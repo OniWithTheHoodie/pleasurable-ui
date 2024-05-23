@@ -5,7 +5,7 @@
 
     <section class="houseInfo">
         <h1>score pagina</h1>
-        <p class="houseInfo__p">Hier kunt u een beoordling geven over het huis of de score van anderen zien
+        <p class="houseInfo__p">Hier kunt u een beoordeling geven over het huis of de score van anderen zien.
         </p>
         <ul>
             <li>
@@ -51,7 +51,7 @@
     <div class="formsRating ">
         <section class="formRatingItem__header" id="beoordeeling">
             <h2>beoordeling</h2>
-            <p class="">Geef een beoordeling tussen de 0 en 5 sterren of laat een notitie achtier</p>
+            <p class="">Geef een beoordeling tussen de 0 en 5 sterren of laat een notitie achter.</p>
         </section>
 
         <section class="formRatingItem formRatingItem__ratings">
@@ -73,7 +73,7 @@
                     <label aria-label="3 sterren" for="algemeen3" class="labelRating"></label>
 
 
-                    <input class="inputRating" id="algemeen4" name="algmeen" type="radio" value="4">
+                    <input class="inputRating" id="algemeen4" name="algemeenNumber" type="radio" value="4">
                     <label aria-label="4 sterren" for="algemeen4" class="labelRating"></label>
 
 
@@ -194,7 +194,7 @@
     <section class="sectionUsers" id="users">
         <hr class="orangeLine">
         <h2>score teamleden</h2>
-        <p>hier kunt u de score van uw teamleden zien</p>
+        <p>Hier kunt u de score van uw teamleden zien.</p>
 
         <ul class="usersListScore">
             <% users.forEach(users => { %>
@@ -205,16 +205,16 @@
                              alt="House Image" width="200xp" height="180px" class="userListScore__image">
 
                     <% } else { %>
-                        <p>er is geen user avatar</p>
+                        <p>Er is geen user avatar</p>
                     <% } %>
 
                     <!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
                     <span class="userListScore__span"><%= users.name %></span>
                     <ul class="">
-                        <li>general: <%= ratings.general %></li>
-                        <li>keuken: <%= ratings.kitchen %></li>
-                        <li>badkamer: <%= ratings.bathroom %></li>
-                        <li>tuin: <%= ratings.garden %></li>
+                        <li>Algemeen: <%= ratings.general %></li>
+                        <li>Keuken: <%= ratings.kitchen %></li>
+                        <li>Badkamer: <%= ratings.bathroom %></li>
+                        <li>Tuin: <%= ratings.garden %></li>
                     </ul>
                 </li>
 
