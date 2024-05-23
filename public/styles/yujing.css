@@ -4,11 +4,11 @@ html {
 }
 
 /*aangepaast*/
-label.hamburger {
-    font-size: 20px;
-    right: 7px;
-    bottom: 5px;
-}
+/*label.hamburger {*/
+/*    font-size: 20px;*/
+/*    right: 7px;*/
+/*    bottom: 5px;*/
+/*}*/
 
 /*dit stond eerst op display none en nu op zichtbaar*/
 ul {
