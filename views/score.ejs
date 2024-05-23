@@ -144,7 +144,7 @@
             <!--            todo hier moet een interactie komen dat de button van kleur veranderd-->
             <button type="submit" class="savebutton">Opslaan</button>
         </form>
-        <p class="loading-state"></p>
+        <p class="loading"></p>
         <p class="successtate"></p>
     </section>
     <div class=" formRatingItem formRatingItem__ratingsShow">
@@ -161,7 +161,7 @@
     <section class="formRatingItem formRatingItem__Note">
         <h2 class="">Notities</h2>
 
-        <form method="POST" action="/score/<%= house.id %>" class="notesForm buttonSaveNotes">
+        <form method="POST" action="/score/<%= house.id %>" class="notesForm">
             <input type="hidden" value="<%= house.id %>">
             <label for="bericht" aria-label="laat uw noitite achter">
                 <textarea id="note" name="note"></textarea>
@@ -169,7 +169,7 @@
             <button type="submit" class="savebutton">Opslaan</button>
 
         </form>
-        <p class="loading-state"></p>
+        <p class="loading"></p>
 
 <!--        <p class="successtae">uw score is toegevoegd ✅</p>-->
     </section>
@@ -213,9 +213,5 @@
         <% }) %>
 
     </ul>
-
-</section>
-<section class="section__users">
-
 
 </section>

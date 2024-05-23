@@ -1,15 +1,15 @@
 
 
 // here i define that this is the laoding state
-let loadingElement = document.querySelector('.loading-state');
+let loadingElement = document.querySelector('.loading');
 // de successtae werrkt nog niet
 let succeState = document.querySelector('.successtate');
 
 
 // user parameters for the forms that the code is dry
 // using this is neccessary because the 2 forms must have the exact same function
-FormsEnhanced('.scorefield', '.showscore','enhanced', '.loading-state');
-FormsEnhanced('.notesForm', '.show_notes', 'notesEnhanced', '.loading-state');
+FormsEnhanced('.scorefield', '.showscore','enhanced', '.loading');
+FormsEnhanced('.notesForm', '.show_notes', 'notesEnhanced', '.loading');
 
 
 // todo uitzoeken waarom de loading state met parameters niet werkt
@@ -57,7 +57,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
             //haal de laoder weg
             console.log('terug!')
             loadingElement.classList.remove('loader');
-            succeState.classList.add('successtae')
+            succeState.classList.add('successtate')
             // todo als de loader weg is voeg dan de successtae toe en haal die dan ook weer weg
             // todo het weghalen van de succcestate is met een animatie
 
@@ -78,7 +78,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
             const scoreNumbersElement = document.querySelector(ShowResultsData);
             scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
 
-            succeState.classList.remove('successtae')
+            succeState.classList.remove('successtate')
           });
 
       // Voorkom de standaard submit van de browser

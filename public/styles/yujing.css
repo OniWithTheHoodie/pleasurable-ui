@@ -74,7 +74,7 @@ input:not(input:checked ~ input)
 
 }
 /*
-dit word hergebruiks users
+dit word hergebruiks users op index en score pagina
 */
 .usersList{
     display: grid;
@@ -115,13 +115,140 @@ dit word hergebruiks users
 }
 
 
-/*einde herbgerbuiken*/
+/*einde herbgerbuiken */
+
+/*
+hergebruiken op de pagina zelf
+*/
+.orangeLine {
+    background-color: var(--web-orange-primary-color);
+    /*margin-bottom: 10px;*/
+    /*width: 80%;*/
+    width: calc(80vw); /* Adjust for smaller screens */
+    height: 5px;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-bottom: 2em;
+    /*  dit is de breedte van de hr lijn*/
+}
+
+.link:hover{
+    color: var(--web-orange-primary-color);
+}
+
+
+.link{
+    color: var(--lochmara-primary-color);
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+
+}
+
+.formRatingItem {
+    background-color: var(--regent-blue-primary-color);
+    display: grid;
+    justify-content: center;
+}
+.formRatingItem h2 {
+    padding-top: 1em;
+    display: grid;
+    place-items: center;
+}
+/*
+einde hergebruiken op de pagina zelf
+*/
 
 /*score pagina*/
-.section__users{
-    /*display: grid;*/
-    /*justify-content: center;*/
+.houseInfo{
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
 }
+.houseInfo h1{
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.houseInfo__moreInfo{
+    display: grid;
+    text-align: start;
+    justify-content: center;
+    justify-items: center;
+    padding: 1em 2em 1em 2em;
+    row-gap: 2em;
+    font-size: 1.1em;
+
+    line-height: 1.5em;
+    max-width: 24em;
+}
+
+
+/*image*/
+.house_details_img__image{
+    /*max-width: 54%;*/
+    height: auto;
+    width: 17em;
+}
+.link_address{
+    color: var(--lochmara-primary-color);
+    text-decoration: none;
+    font-size: 1.35em;
+    font-weight: bold;
+}
+.priceHouse{
+    font-size: 1.2em;
+    font-weight: bold;
+
+}
+
+
+.formsRating{
+
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 20em;
+    margin-left: 5em;
+    grid-template-rows: auto auto auto auto;
+    grid-row-gap: 3em;
+
+    margin-bottom: 2em;
+    padding-right: 5em;
+}
+
+.formRatingItem__header{
+    place-items: center;
+    display: grid;
+    /*text-align: center;*/
+    /*row-gap: 1em;*/
+}
+.formRatingItem__header p {
+    padding:  1em;
+}
+.formRatingItem__header h2{
+    display: grid;
+    place-items: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+.formRatingItem__ratingsShow h2{
+    justify-content: center;
+    justify-self: center;
+    /*place-items: center;*/
+}
+.formRatingItem__ratingsShow{
+    height: 15em;
+}
+.formRatingItem__NoteShow h2{
+    padding-top: 0.3em;
+}
+.showscore{
+    height: 27em;
+}
+
+/*dit is alleen op de score pagina deze class*/
 .usersListScore{
     display: grid;
     grid-template-columns:repeat( auto-fit, minmax(214px, 14em) ) ;
@@ -161,83 +288,9 @@ dit word hergebruiks users
 }
 /*dit is op score */
 
-/*image*/
-.house_details_img__image{
-    /*max-width: 54%;*/
-    height: auto;
-    width: 17em;
-}
-.link_address{
-    color: var(--lochmara-primary-color);
-    text-decoration: none;
-    font-size: 1.35em;
-    font-weight: bold;
-}
-.link{
-    color: #0071B3;
 
-}
-.link:hover{
-    color: var(--web-orange-primary-color);
-}
-.priceHouse{
-    font-size: 1.2em;
-    font-weight: bold;
 
-}
-.houseInfo{
-    margin-bottom: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1em;
-}
-.houseInfo h1{
-    font-size: 2.5em;
-    font-weight: bold;
-}
-.houseInfo__moreInfo{
-    display: grid;
-    text-align: start;
-    justify-content: center;
-    justify-items: center;
-    padding: 1em 2em 1em 2em;
-    row-gap: 2em;
-    font-size: 1.1em;
 
-    line-height: 1.5em;
-    max-width: 24em;
-}
-.link{
-    color: var(--lochmara-primary-color);
-    text-decoration: none;
-    font-size: 1.2em;
-    font-weight: bold;
-
-}
-.orangeLine {
-    background-color: var(--web-orange-primary-color);
-    /*margin-bottom: 10px;*/
-    /*width: 80%;*/
-    width: calc(80vw); /* Adjust for smaller screens */
-    height: 5px;
-    margin-left: 2em;
-    margin-right: 2em;
-    margin-bottom: 2em;
-    /*  dit is de breedte van de hr lijn*/
-}
-.formsRating{
-
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 20em;
-    margin-left: 5em;
-    grid-template-rows: auto auto auto auto;
-    grid-row-gap: 3em;
-
-    margin-bottom: 2em;
-    padding-right: 5em;
-}
 .titleRating{
     text-align: center;
     font-weight: bold;
@@ -247,48 +300,8 @@ dit word hergebruiks users
     transition: 0.5s;
 }
 
-.formRatingItem {
-    background-color: var(--regent-blue-primary-color);
-    /*width: 30em;*/
-    display: grid;
-    justify-content: center;
-    /*align-items: center;*/
-    /*place-items: center;*/
-}
-.formRatingItem h2 {
-    padding-top: 1em;
-    display: grid;
-    place-items: center;
-}
-.formRatingItem__ratingsShow h2{
-    justify-content: center;
-    justify-self: center;
-    /*place-items: center;*/
-}
-.formRatingItem__ratingsShow{
-    height: 15em;
-}
-.formRatingItem__NoteShow h2{
-    padding-top: 0.3em;
-}
-.showscore{
-    height: 27em;
-}
-.formRatingItem__header{
-    place-items: center;
-    display: grid;
-    /*text-align: center;*/
-    /*row-gap: 1em;*/
-}
-.formRatingItem__header p {
-    padding:  1em;
-}
-.formRatingItem__header h2{
-    display: grid;
-    place-items: center;
-    font-size: 2em;
-    font-weight: bold;
-}
+
+
 .score_field_numbers__form_inputfields{
     display: grid;
     justify-content: center;
@@ -325,13 +338,9 @@ dit word hergebruiks users
 }
 .successtate{
     /*background-color: green;*/
-    font-size: .5em;
+    font-size: 1.5em;
 }
-.buttonSaveNotes{
-    display: grid;
-    justify-content: center;
-    place-items: center;
-}
+
 
 /****************************************************************
                                                                 *
