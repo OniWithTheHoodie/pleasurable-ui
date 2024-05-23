@@ -105,14 +105,14 @@ dit word hergebruiks users op index en score pagina
     /*repeat( auto-fit, minmax(150px, 1fr) )*/
 
 }
-.username{
+.userListScore__span{
     display: grid;
     grid-row: 2;
     font-size: 1.1em;
     font-weight: bold;
 }
 
-.users__avatars{
+.userListScore__image{
     width: 133px;
     height: 95px;
     grid-row: 1;
@@ -177,7 +177,7 @@ einde hergebruiken op de pagina zelf
     font-weight: bold;
 }
 
-.houseInfo__moreInfo{
+.houseInfo__p{
     display: grid;
     text-align: start;
     justify-content: center;
@@ -192,12 +192,12 @@ einde hergebruiken op de pagina zelf
 
 
 /*image*/
-.house_details_img__image{
+.houseImage{
     /*max-width: 54%;*/
     height: auto;
     width: 17em;
 }
-.link_address{
+.linkToHouse{
     color: var(--lochmara-primary-color);
     text-decoration: none;
     font-size: 1.35em;
@@ -303,7 +303,7 @@ einde hergebruiken op de pagina zelf
 }
 
 
-.savebutton{
+.NotesForm__button{
     background-color: var(--lochmara-primary-color);
     color: white;
     border-radius: 8px;
@@ -316,7 +316,7 @@ einde hergebruiken op de pagina zelf
     place-items: center;
     padding: 11px 11px 1em;
     margin-bottom: 1.5em;
-}.savebutton:hover{
+}.NotesForm__button:hover{
      background-color: var(--web-orange-primary-color);
      color: var(--color-main-text);
  }
@@ -352,7 +352,7 @@ einde hergebruiken op de pagina zelf
     align-items: center;
     padding: 2em 2em 2em;
 }
-.usersScore{
+.usersListscore__li{
     display: grid;
     justify-content: flex-start;
     background-color: var(--regent-blue-primary-color);
@@ -455,10 +455,10 @@ einde hergebruiken op de pagina zelf
 
     }
 
-    .houseInfo__moreInfo{
+    .houseInfo__p{
         max-width: 80%;
     }
-    .house_details_img__image{
+    .houseImage{
         width: 25em;
     }
 

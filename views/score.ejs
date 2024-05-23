@@ -1,154 +1,162 @@
 <%- include('./partials/head') %>
 <%- include('./partials/navigation') %>
 
+<main>
 
-<section class="houseInfo">
-    <h1>score pagina</h1>
-    <p class="houseInfo__moreInfo">Hier kunt u een beoordling geven over het huis of de score van anderen zien
-    </p>
-    <ul>
-        <li>
-         ga naar:
-        <li>
-            <a href="#beoordeeling" class="link"> Beeordeling </a>
-        </li>
-        <li>
-            <a href="#users" class="link">Score teamleden</a></li>
-    </ul>
-    <hr class="orangeLine">
-    <ul class="">
-        <% if (house.poster_image) { %>
-        <li>
-            <picture>
-                <source srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover&format=webp"
-                        type="image/webp">
-                <source srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover&format=avif"
-                        type="image/avif"
-                >
-                <img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover"
-                     width="200px"
-                     height="100px"
-                     class="house_details_img__image"
-                     alt="image-house">
-                <% } %>
-            </picture>
-        </li>
-        <li class="link_address"><a class="link" href="/huis/<%= house.id %>"> <%= house.street %> <%= house.house_nr %></a> </li>
-        <li class=""> <%= house.postal_code %><%= house.city %></li>
-        <li class="priceHouse">€ <%= new Intl.NumberFormat("nl-NL").format(house.price) %></li>
-
-
-    </ul>
-    <hr class="orangeLine">
-</section>
-
-
-<div class="formsRating ">
-    <section class="formRatingItem__header" id="beoordeeling">
-        <h2>beoordeling</h2>
-        <p class="">Geef een beoordeling tussen de 0 en 5 sterren of laat een notitie achtier</p>
+    <section class="houseInfo">
+        <h1>score pagina</h1>
+        <p class="houseInfo__p">Hier kunt u een beoordling geven over het huis of de score van anderen zien
+        </p>
+        <ul>
+            <li>
+                ga naar:
+            <li>
+                <a href="#beoordeeling" class="link"> Beeordeling </a>
+            </li>
+            <li>
+                <a href="#users" class="link">Score teamleden</a></li>
+        </ul>
+        <hr class="orangeLine">
     </section>
-    <section class="formRatingItem formRatingItem__ratings">
-        <h2> score</h2>
-        <form method="POST" action="/score/<%= house.id %>" class="scorefield">
+
+    <section class="houseInfo">
+        <ul class="">
+            <% if (house.poster_image) { %>
+            <li>
+                <picture>
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover&format=webp"
+                            type="image/webp">
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover&format=avif"
+                            type="image/avif"
+                    >
+                    <img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?width=200&height=200&fit=cover"
+                         width="200px"
+                         height="100px"
+                         class="houseImage"
+                         alt="image-house">
+                    <% } %>
+                </picture>
+            </li>
+            <li class="linkToHouse"><a class="link"
+                                       href="/huis/<%= house.id %>"> <%= house.street %> <%= house.house_nr %></a></li>
+            <li class=""> <%= house.postal_code %><%= house.city %></li>
+            <li class="priceHouse">€ <%= new Intl.NumberFormat("nl-NL").format(house.price) %></li>
 
 
-            <!--         algemeen-->
-            <fieldset class="fieldsetRating">
-                <legend class="titleRating">Algemeen</legend>
-                <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="1">
-                <label aria-label="1 " for="algemeen1" class="labelRating"></label>
-
-                <input class="inputRating" id="algemeen2" name="algemeenNumber" type="radio" value="2">
-                <label aria-label="2 sterren" for="algemeen2" class="labelRating"></label>
-
-
-                <input class="inputRating" id="algemeen3" name="algemeenNumber" type="radio" value="3">
-                <label aria-label="3 sterren" for="algemeen3" class="labelRating"></label>
-
-
-                <input class="inputRating" id="algemeen4" name="algmeen" type="radio" value="4">
-                <label aria-label="4 sterren" for="algemeen4" class="labelRating"></label>
-
-
-                <input class="inputRating" id="algeemn5" name="algemeenNumber" type="radio" value="5">
-                <label aria-label="5 sterren" for="algeemn5" class="labelRating"></label>
-            </fieldset>
-
-            <!--            keuken-->
-            <fieldset class="fieldsetRating">
-                <legend class="titleRating">Keuken</legend>
-                <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="1">
-                <label aria-label="1 " for="keuken1" class="labelRating"></label>
-
-
-                <input class="inputRating" id="keuken2" name="keukenNumber" type="radio" value="2">
-                <label aria-label="2 sterren" for="keuken2" class="labelRating"></label>
-
-
-                <input class="inputRating" id="keuken3" name="keukenNumber" type="radio" value="3 ">
-                <label aria-label="3 sterren" for="keuken3" class="labelRating"></label>
-
-
-                <input class="inputRating" id="keuken4" name="keukenNumber" type="radio" value="4">
-                <label aria-label="4 sterren" for="keuken4" class="labelRating"></label>
-
-
-                <input class="inputRating" id="keuken5" name="keukenNumber" type="radio" value="5">
-                <label aria-label="5 sterren" for="keuken5" class="labelRating"></label>
-            </fieldset>
-
-            <fieldset class="fieldsetRating">
-                <legend class="titleRating">Badkamer</legend>
-                <input class="inputRating" id="badkamer1" name="badkamerNumber" type="radio" value="1">
-                <label aria-label="1 " for="badkamer1" class="labelRating"></label>
-
-
-                <input class="inputRating" id="badkamer2" name="badkamerNumber" type="radio" value="2">
-                <label aria-label="2 sterren" for="badkamer2" class="labelRating"></label>
-
-
-                <input class="inputRating" id="badkamer3" name="badkamerNumber" type="radio" value="3 ">
-                <label aria-label="3 sterren" for="badkamer3" class="labelRating"></label>
-
-
-                <input class="inputRating" id="badkamer4" name="badkamerNumber" type="radio" value="4">
-                <label aria-label="4 sterren" for="badkamer4" class="labelRating"></label>
-
-
-                <input class="inputRating" id="badkamer5" name="badkamerNumber" type="radio" value="5">
-                <label aria-label="5 sterren" for="badkamer5" class="labelRating"></label>
-            </fieldset>
-
-            <fieldset class="fieldsetRating">
-                <legend class="titleRating">Tuin</legend>
-                <input class="inputRating" id="Tuin1" name="tuinNumber" type="radio" value="1">
-                <label aria-label="1 " for="Tuin1" class="labelRating"></label>
-
-
-                <input class="inputRating" id="Tuin2" name="tuinNumber" type="radio" value="2">
-                <label aria-label="2 sterren" for="Tuin2" class="labelRating"></label>
-
-
-                <input class="inputRating" id="Tuin3" name="tuinNumber" type="radio" value="3 ">
-                <label aria-label="3 sterren" for="Tuin3" class="labelRating"></label>
-
-
-                <input class="inputRating" id="Tuin4" name="tuinNumber" type="radio" value="4">
-                <label aria-label="4 sterren" for="Tuin4" class="labelRating"></label>
-
-
-                <input class="inputRating" id="Tuin5" name="tuinNumber" type="radio" value="5">
-                <label aria-label="5 sterren" for="Tuin5" class="labelRating"></label>
-            </fieldset>
-            <!--            todo hier moet een interactie komen dat de button van kleur veranderd-->
-            <button type="submit" class="savebutton">Opslaan</button>
-        </form>
-        <p class="loading"></p>
-        <p class="successtate"></p>
+        </ul>
+        <hr class="orangeLine">
     </section>
-    <div class=" formRatingItem formRatingItem__ratingsShow">
-        <!--             this ul must be here becuase it has other css than the ul of the partial-->
+
+
+    <div class="formsRating ">
+        <section class="formRatingItem__header" id="beoordeeling">
+            <h2>beoordeling</h2>
+            <p class="">Geef een beoordeling tussen de 0 en 5 sterren of laat een notitie achtier</p>
+        </section>
+
+        <section class="formRatingItem formRatingItem__ratings">
+            <h2> score</h2>
+            <form method="POST" action="/score/<%= house.id %>" class="scorefield">
+
+
+                <!--         algemeen-->
+                <fieldset class="fieldsetRating">
+                    <legend class="titleRating">Algemeen</legend>
+                    <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="1">
+                    <label aria-label="1 " for="algemeen1" class="labelRating"></label>
+
+                    <input class="inputRating" id="algemeen2" name="algemeenNumber" type="radio" value="2">
+                    <label aria-label="2 sterren" for="algemeen2" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="algemeen3" name="algemeenNumber" type="radio" value="3">
+                    <label aria-label="3 sterren" for="algemeen3" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="algemeen4" name="algmeen" type="radio" value="4">
+                    <label aria-label="4 sterren" for="algemeen4" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="algeemn5" name="algemeenNumber" type="radio" value="5">
+                    <label aria-label="5 sterren" for="algeemn5" class="labelRating"></label>
+                </fieldset>
+
+                <!--            keuken-->
+                <fieldset class="fieldsetRating">
+                    <legend class="titleRating">Keuken</legend>
+                    <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="1">
+                    <label aria-label="1 " for="keuken1" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="keuken2" name="keukenNumber" type="radio" value="2">
+                    <label aria-label="2 sterren" for="keuken2" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="keuken3" name="keukenNumber" type="radio" value="3 ">
+                    <label aria-label="3 sterren" for="keuken3" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="keuken4" name="keukenNumber" type="radio" value="4">
+                    <label aria-label="4 sterren" for="keuken4" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="keuken5" name="keukenNumber" type="radio" value="5">
+                    <label aria-label="5 sterren" for="keuken5" class="labelRating"></label>
+                </fieldset>
+
+                <fieldset class="fieldsetRating">
+                    <legend class="titleRating">Badkamer</legend>
+                    <input class="inputRating" id="badkamer1" name="badkamerNumber" type="radio" value="1">
+                    <label aria-label="1 " for="badkamer1" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="badkamer2" name="badkamerNumber" type="radio" value="2">
+                    <label aria-label="2 sterren" for="badkamer2" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="badkamer3" name="badkamerNumber" type="radio" value="3 ">
+                    <label aria-label="3 sterren" for="badkamer3" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="badkamer4" name="badkamerNumber" type="radio" value="4">
+                    <label aria-label="4 sterren" for="badkamer4" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="badkamer5" name="badkamerNumber" type="radio" value="5">
+                    <label aria-label="5 sterren" for="badkamer5" class="labelRating"></label>
+                </fieldset>
+
+                <fieldset class="fieldsetRating">
+                    <legend class="titleRating">Tuin</legend>
+                    <input class="inputRating" id="Tuin1" name="tuinNumber" type="radio" value="1">
+                    <label aria-label="1 " for="Tuin1" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="Tuin2" name="tuinNumber" type="radio" value="2">
+                    <label aria-label="2 sterren" for="Tuin2" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="Tuin3" name="tuinNumber" type="radio" value="3 ">
+                    <label aria-label="3 sterren" for="Tuin3" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="Tuin4" name="tuinNumber" type="radio" value="4">
+                    <label aria-label="4 sterren" for="Tuin4" class="labelRating"></label>
+
+
+                    <input class="inputRating" id="Tuin5" name="tuinNumber" type="radio" value="5">
+                    <label aria-label="5 sterren" for="Tuin5" class="labelRating"></label>
+                </fieldset>
+                <!--            todo hier moet een interactie komen dat de button van kleur veranderd-->
+                <button type="submit" class="NotesForm__button">Opslaan</button>
+            </form>
+
+            <p class="loading"></p>
+            <p class="successtate"></p>
+        </section>
+
+        <div class=" formRatingItem formRatingItem__ratingsShow">
+            <!--             this ul must be here becuase it has other css than the ul of the partial-->
 
             <h2>uw score:</h2>
             <!--            todo als je op submit drukt dan moet dit komen te staan de
@@ -156,62 +164,63 @@
             <!--            dit staat vast ook zonder post en dit moet denk ik beter want result is niks-->
             <%- include('partials/ShowScore', {result: house}); -%>
 
+        </div>
+
+        <section class="formRatingItem formRatingItem__Note">
+            <h2 class="">Notities</h2>
+
+            <form method="POST" action="/score/<%= house.id %>" class="notesForm">
+                <input type="hidden" value="<%= house.id %>">
+                <label for="bericht" aria-label="laat uw noitite achter">
+                    <textarea id="note" name="note"></textarea>
+                </label>
+                <button type="submit" class="NotesForm__button">Opslaan</button>
+
+            </form>
+            <p class="loading"></p>
+
+            <!--        <p class="successtae">uw score is toegevoegd ✅</p>-->
+        </section>
+        <section class=" formRatingItem formRatingItem__NoteShow ">
+            <h2 class="">Uw notitie</h2>
+            <%- include('partials/showNotes', {result: house}); -%>
+
+        </section>
+
+
     </div>
 
-    <section class="formRatingItem formRatingItem__Note">
-        <h2 class="">Notities</h2>
+    <!--de ul kan niet in de sction de users niet meer naast elkaar komen te staan-->
+    <section class="sectionUsers" id="users">
+        <hr class="orangeLine">
+        <h2>score teamleden</h2>
+        <p>hier kunt u de score van uw teamleden zien</p>
 
-        <form method="POST" action="/score/<%= house.id %>" class="notesForm">
-            <input type="hidden" value="<%= house.id %>">
-            <label for="bericht" aria-label="laat uw noitite achter">
-                <textarea id="note" name="note"></textarea>
-            </label>
-            <button type="submit" class="savebutton">Opslaan</button>
+        <ul class="usersListScore">
+            <% users.forEach(users => { %>
 
-        </form>
-        <p class="loading"></p>
+                <li class="usersListscore__li">
+                    <% if (users.avatar) { %>
+                        <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
+                             alt="House Image" width="200xp" height="180px" class="userListScore__image">
 
-<!--        <p class="successtae">uw score is toegevoegd ✅</p>-->
+                    <% } else { %>
+                        <p>er is geen user avatar</p>
+                    <% } %>
+
+                    <!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
+                    <span class="userListScore__span"><%= users.name %></span>
+                    <ul class="">
+                        <li>general: <%= ratings.general %></li>
+                        <li>keuken: <%= ratings.kitchen %></li>
+                        <li>badkamer: <%= ratings.bathroom %></li>
+                        <li>tuin: <%= ratings.garden %></li>
+                    </ul>
+                </li>
+
+            <% }) %>
+
+        </ul>
+
     </section>
-    <section class=" formRatingItem formRatingItem__NoteShow ">
-        <h2 class="">Uw notitie</h2>
-        <%- include('partials/showNotes', {result: house}); -%>
-
-    </section>
-
-
-</div>
-
-<!--de ul kan niet in de sction de users niet meer naast elkaar komen te staan-->
-<section class="sectionUsers" id="users">
-    <hr class="orangeLine">
-    <h2>score teamleden</h2>
-    <p>hier kunt u de score van uw teamleden zien</p>
-
-    <ul class="usersListScore">
-        <% users.forEach(users => { %>
-
-            <li class="usersScore">
-                <% if (users.avatar) { %>
-                    <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
-                         alt="House Image" width="200xp" height="180px" class="users__avatars">
-
-                <% } else { %>
-                    <p>er is geen user avatar</p>
-                <% } %>
-
-                <!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
-                <span class="username"><%= users.name %></span>
-                <ul class="">
-                    <li>general: <%= ratings.general %></li>
-                    <li>keuken: <%= ratings.kitchen %></li>
-                    <li>badkamer: <%= ratings.bathroom %></li>
-                    <li>tuin: <%= ratings.garden %></li>
-                </ul>
-            </li>
-
-        <% }) %>
-
-    </ul>
-
-</section>
+</main>

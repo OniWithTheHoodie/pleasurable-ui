@@ -15,12 +15,12 @@
                     <% if (users.avatar) { %>
                         <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
                              alt="House Image" width="<%= users.width %>"
-                             height="<%= users.height %>" class="users__avatars">
+                             height="<%= users.height %>" class="userListScore__image">
 
                     <% } else { %>
                         <p>er is geen user avatar</p>
                     <% } %>
-                    <span class="username"><%= users.name %></span>
+                    <span class="userListScore__span"><%= users.name %></span>
 
                 </li>
 
