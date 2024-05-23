@@ -90,6 +90,13 @@ app.get('/score/:id', function (request, response) {
     // hier moet een
     const houseUrl = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*`;
 
+    // deze data blijft staan omdat ikk het niet dynamisch krijg
+    const staticData = {
+        general: 5,
+        kitchen: 5,
+        bathroom: 5,
+        garden: 5,
+    }
     // use a promise.all because the tables are not connected to each other
     Promise.all([
         fetchJson(feedbackUrl),
@@ -99,14 +106,14 @@ app.get('/score/:id', function (request, response) {
         .then(async (feedback) => {
             // console.log(JSON.parse(feedback[0].data[23].note))
             // console.log(JSON.stringify(feedbackdetails[2].rating))
-            // console.log(feedback[0].data[23].note)
+            // console.log(feedback[0].data[23].ratings)
             response.render('score', {
                 house: feedback[1].data,
                 feedback: feedback[0].data,
                 // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
                 succed: gelukt,
                 users: usersUrl.data,
-                ratings: feedback[0].data[34].rating,
+                ratings: staticData,
             });
         })
 })

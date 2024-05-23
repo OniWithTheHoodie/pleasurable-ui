@@ -8,7 +8,7 @@
     </p>
     <ul>
         <li>
-         ga naar :
+         ga naar:
         <li>
             <a href="#beoordeeling" class="link"> Beeordeling </a>
         </li>
@@ -46,7 +46,7 @@
 <div class="formsRating ">
     <section class="formRatingItem__header" id="beoordeeling">
         <h2>beoordeling</h2>
-        <p class="">hier kunt u een beoordeling geven over het huis tussen de 0 en 5 of een notitie achterlaten</p>
+        <p class="">Geef een beoordeling tussen de 0 en 5 sterren of laat een notitie achtier</p>
     </section>
     <section class="formRatingItem formRatingItem__ratings">
         <h2> score</h2>
@@ -145,7 +145,7 @@
             <button type="submit" class="savebutton">Opslaan</button>
         </form>
         <p class="loading-state"></p>
-        <p class="successtae"></p>
+        <p class="successtate"></p>
     </section>
     <div class=" formRatingItem formRatingItem__ratingsShow">
         <!--             this ul must be here becuase it has other css than the ul of the partial-->
@@ -159,7 +159,7 @@
     </div>
 
     <section class="formRatingItem formRatingItem__Note">
-        <h2 class="buttonSaveNotes">Notities</h2>
+        <h2 class="">Notities</h2>
 
         <form method="POST" action="/score/<%= house.id %>" class="notesForm buttonSaveNotes">
             <input type="hidden" value="<%= house.id %>">
@@ -173,10 +173,8 @@
 
 <!--        <p class="successtae">uw score is toegevoegd ✅</p>-->
     </section>
-
-
     <section class=" formRatingItem formRatingItem__NoteShow ">
-        <h2 class="buttonSaveNotes">Uw notitie</h2>
+        <h2 class="">Uw notitie</h2>
         <%- include('partials/showNotes', {result: house}); -%>
 
     </section>

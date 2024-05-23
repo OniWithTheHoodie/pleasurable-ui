@@ -2,7 +2,8 @@
 
 // here i define that this is the laoding state
 let loadingElement = document.querySelector('.loading-state');
-let succeState = document.querySelector('.successtae');
+// de successtae werrkt nog niet
+let succeState = document.querySelector('.successtate');
 
 
 // user parameters for the forms that the code is dry
@@ -74,8 +75,8 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
             }
 
             // // Scroll naar de bijgewerkte pagina
-            // const scoreNumbersElement = document.querySelector(ShowResultsData);
-            // scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
+            const scoreNumbersElement = document.querySelector(ShowResultsData);
+            scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
 
             succeState.classList.remove('successtae')
           });

@@ -122,7 +122,6 @@ dit word hergebruiks users
     /*display: grid;*/
     /*justify-content: center;*/
 }
-/*todo navragen waarom de ul niet in de breedte gaat als het in een seciton staat met justicy content center*/
 .usersListScore{
     display: grid;
     grid-template-columns:repeat( auto-fit, minmax(214px, 14em) ) ;
@@ -136,6 +135,23 @@ dit word hergebruiks users
     justify-content: center;
     align-items: center;
     padding: 2em 2em 2em;
+}
+.usersScore{
+    display: grid;
+    justify-content: flex-start;
+    background-color: var(--regent-blue-primary-color);
+    padding: 2em;
+    margin: 1em;
+    column-gap: 2em;
+    row-gap: 1em;
+    width: 13em;
+
+    place-items: center;
+    place-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 6em;
+    /*repeat( auto-fit, minmax(150px, 1fr) )*/
+
 }
 /*dit is index*/
 .index-favorite-header{
@@ -224,6 +240,7 @@ dit word hergebruiks users
 }
 .titleRating{
     text-align: center;
+    font-weight: bold;
 }
 .labelRating:hover{
     scale: 2;
@@ -250,6 +267,9 @@ dit word hergebruiks users
 }
 .formRatingItem__ratingsShow{
     height: 15em;
+}
+.formRatingItem__NoteShow h2{
+    padding-top: 0.3em;
 }
 .showscore{
     height: 27em;
@@ -303,7 +323,7 @@ dit word hergebruiks users
         transform: rotate(1turn)
     }
 }
-.successtae{
+.successtate{
     /*background-color: green;*/
     font-size: .5em;
 }
@@ -318,23 +338,7 @@ dit word hergebruiks users
                      yujing toegevoegde code users            *
 
 */
-.usersScore{
-    display: grid;
-    justify-content: flex-start;
-    background-color: var(--regent-blue-primary-color);
-    padding: 2em;
-    margin: 1em;
-    column-gap: 2em;
-    row-gap: 1em;
-    width: 13em;
 
-    place-items: center;
-    place-content: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: 6em;
-    /*repeat( auto-fit, minmax(150px, 1fr) )*/
-
-}
 /****************************************************************
                                                                 *
                      yujing toegevoegde media query            *
@@ -442,6 +446,8 @@ dit word hergebruiks users
 
 /*hier being het form met de sterren*/
 .fieldsetRating {
+    text-weight: bold;
+    border-color: var(--color-main-text);
     display: flex;
     /*background-color: deepskyblue;*/
 }

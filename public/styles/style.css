@@ -148,7 +148,7 @@ body {
     }
 
     .nav-icons a {
-      color: var(--white-primary-color);
+      color: var(--color-main-text);
     }
 
     .tablet-desktop a {
