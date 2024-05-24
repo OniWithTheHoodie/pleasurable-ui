@@ -482,3 +482,27 @@ einde hergebruiken op de pagina zelf
 }
 
 
+.NotesForm__button{
+    transform: translateY(3px);
+    animation: bounce 5s ease-in-out 1;
+}
+
+.NotesForm__button :active {
+    transform: translateY(3px);
+    animation: bounce 0.8s ease-in-out 1;
+}
+@keyframes NotesForm__button {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.NotesForm__button:hover {
+    text-decoration: underline;
+}
