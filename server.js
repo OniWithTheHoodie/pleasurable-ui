@@ -183,9 +183,10 @@ app.post('/score/:id', function (request, response) {
             }
             // the else is commented because if it is not working the full page is show in the beoordeling
 
-            else {
-                response.redirect(303, '/score/' + request.params.id)
-            }
+            // todo  door deze else werkt het wel met aleeen html en niet met css en javascript
+            // else {
+            //     response.redirect(303, '/score/' + request.params.id)
+            // }
 
         })
 
