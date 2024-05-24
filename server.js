@@ -145,6 +145,9 @@ app.post('/score/:id', function (request, response) {
         }),
     })
 
+
+        // todo als javascript uit staat werkt de interactie niet en moet je de pagina refreshen
+        // todo dit moet je met een redirect oplossen voor als javascript uit staat
         // hier word de data omgezet naar een object en met render word het weergegeven
         .then(async (apiResponse) => {
             // if the enhanced is true do this en the render is the partial
