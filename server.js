@@ -182,7 +182,7 @@ app.post('/score/:id', function (request, response) {
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
                         // console.log(feedback.data)
-                        response.render('partials/ShowNotes', {
+                        response.render('partials/ShowScore', {
                                 result: apiResponse,
                                 feedback: feedback.data
                                 // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
