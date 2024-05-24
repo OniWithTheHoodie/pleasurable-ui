@@ -118,6 +118,30 @@ app.get('/score/:id', function (request, response) {
         })
 })
 
+
+
+app.get('/succes', function (request, response) {
+    const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+    // hier moet een
+
+    // use a promise.all because the tables are not connected to each other
+    Promise.all([
+        fetchJson(feedbackUrl),
+    ])
+        // hier word de data omgezet naar een object en met render word het weergegeven
+        .then(async (feedback) => {
+            response.render('succes', {
+                house: feedback.data,
+                feedback: feedback.data,
+                // rating: feedbackdetails[73].rating,//de rating klopt bij het huis maar is nu handmatig gedaan maar dit moet dynamisch
+                succed: gelukt,
+                users: usersUrl.data,
+            });
+        })
+})
+
+
+
 app.post('/score/:id', function (request, response) {
 //this is the empty object that is going to be filled with the new score
     const newScore = {
@@ -158,7 +182,7 @@ app.post('/score/:id', function (request, response) {
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
                         // console.log(feedback.data)
-                        response.render('partials/ShowScore', {
+                        response.render('partials/ShowNotes', {
                                 result: apiResponse,
                                 feedback: feedback.data
                                 // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route
@@ -169,6 +193,10 @@ app.post('/score/:id', function (request, response) {
 
 
             }
+
+
+
+
             // dit is voor de notitie omdat ik2x een enhanced gebruik
             if (request.body.notesEnhanced) {
                 const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
@@ -181,14 +209,19 @@ app.post('/score/:id', function (request, response) {
                         )
                     })
             }
+            else {
+                console.log('dit word redicted')
+                // response.redirect(303, '/score/' + request.params.id)
+                response.redirect(303, '/succes')
+            }
+
             // the else is commented because if it is not working the full page is show in the beoordeling
 
             // todo  door deze else werkt het wel met aleeen html en niet met css en javascript
-            // else {
-            //     response.redirect(303, '/score/' + request.params.id)
-            // }
 
         })
+
+
 
 
 })
