@@ -183,9 +183,9 @@ app.post('/score/:id', function (request, response) {
             }
             // the else is commented because if it is not working the full page is show in the beoordeling
 
-            // else {
-            //     response.redirect(303, '/score/' + request.params.id)
-            // }
+            else {
+                response.redirect(303, '/score/' + request.params.id)
+            }
 
         })
 
