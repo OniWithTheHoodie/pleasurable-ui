@@ -153,10 +153,7 @@
                 <!--            todo hier moet een interactie komen dat de button van kleur veranderd-->
                 <button type="submit" class="NotesForm__button">Opslaan</button>
             </form>
-
-            <p class="loading"></p>
-            <p class="showscore"></p>
-            <p class="successtate"></p>
+            <%- include('partials/succes_partial', {result: feedback}); -%>
 
 
         </section>
@@ -179,7 +176,7 @@
             </section>
             <section class=" formRatingItem formRatingItem__NoteShow ">
                 <h2 class="">Uw notitie:</h2>
-                <%- include('partials/showNotes', {result: house}); -%>
+                <%- include('partials/showNotes', {result: feedback}); -%>
 
             </section>
 

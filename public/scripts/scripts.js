@@ -88,6 +88,13 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
       // een error en wordt de volgende regel nooit uitgevoerd. De browser valt dan
       // automatisch terug naar de standaard POST, wat prima is.
       event.preventDefault();
+
+      setTimeout(function() {
+        succes.classList.remove("success");
+        succes.textContent = "";
+      }, 2000);
+
+
     });
   });
 }
