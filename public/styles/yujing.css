@@ -659,3 +659,43 @@ einde hergebruiken op de pagina zelf
     scale: 1 1;
     transform-origin: left center;
 }
+
+
+/*git status
+
+checkt de status van de git*/
+
+
+/*git add .
+
+ voegt alle bestanden toe*/
+
+
+/*git commit -m "message"
+
+
+ message is de commit message*/
+
+/*git push origin main
+
+
+of git push origin master als je op de main branch zit*/
+/**/
+/* git remote branche
+
+dit laat alle branches zien*/
+
+/*
+git remote -v
+
+ dit laat alle remote repos zien
+ */
+
+/*git branch -a
+
+dit laat alle branches zien*/
+
+
+/* git checkout my-branch-name
+
+dit switcht naar de branch*/
