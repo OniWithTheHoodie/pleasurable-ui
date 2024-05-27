@@ -102,14 +102,16 @@ label.hamburger {
 /*}*/
 
   ul {
+
+    /*dit gaat mist met de users*/
     /*display: none;*/
-    padding: 0.5em;
+    /*padding: 0.5em;*/
   }
 
   li {
     list-style-type: none;
     margin-bottom: 0.5em;
-    text-align: center;
+    /*text-align: center;*/
   }
 
   li a {

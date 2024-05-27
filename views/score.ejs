@@ -16,7 +16,7 @@
             <li>
                 <a href="#users" class="link">Bekijk score teamleden</a></li>
         </ul>
-        <hr class="orangeLine">
+<!--        <hr class="orangeLine">-->
     </section>
 
     <section class="houseInfo">
@@ -40,11 +40,17 @@
             <li class="linkToHouse"><a class="link"
                                        href="/huis/<%= house.id %>"> <%= house.street %> <%= house.house_nr %></a></li>
             <li class=""> <%= house.postal_code %><%= house.city %></li>
+            <li class="">kamers<%= house.rooms %></li>
+            <li class="">
+              <span> <%= house.m2 %> </span>
+            </li>
+            <li class="">oppervalkte tuin<%= house.m2_garden %></li>
+            <li class=""><%= house.agent %></li>
             <li class="priceHouse">€ <%= new Intl.NumberFormat("nl-NL").format(house.price) %></li>
 
 
         </ul>
-        <hr class="orangeLine">
+<!--        <hr class="orangeLine">-->
     </section>
 
 
@@ -180,7 +186,7 @@
     </div>
 
     <section class="sectionUsers" id="users">
-        <hr class="orangeLine">
+<!--        <hr class="orangeLine">-->
         <h2>Bekijk score teamleden</h2>
         <p>Hier kunt u de score van uw teamleden zien.</p>
 
