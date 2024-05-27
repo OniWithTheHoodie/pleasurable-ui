@@ -572,27 +572,28 @@ einde hergebruiken op de pagina zelf
         }
 }
 
+
+
+
 .NotesForm__button {
-    transform: translateY(3px);
-    animation: bounce 5s ease-in-out 1;
+    cursor: pointer;
 }
 
 .NotesForm__button:active {
-    transform: translateY(3px);
-    animation: bounce 0.8s ease-in-out 2;
+    transform: translateY(-10px); /* Verplaats de knop 5 pixels naar beneden */
+    animation: spring 0.2s ease-in-out 10; /* Start de animatie */
+    cursor: pointer;
 }
 
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);  /* Adjust bounce height here */
-    }
-    100% {
-        transform: translateY(0);
-    }
+
+
+@keyframes spring {
+    /* Animatie voor het springen */
+    0% { transform: translateY(0); } /* Beginpositie */
+    50% { transform: translateY(-35px); } /* Spring omhoog */
+    100% { transform: translateY(0); } /* Terug naar beginpositie */
 }
+
 
 .NotesForm__button:hover {
     text-decoration: underline;
