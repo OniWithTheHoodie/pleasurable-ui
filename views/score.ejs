@@ -40,11 +40,9 @@
             <li class="linkToHouse"><a class="link"
                                        href="/huis/<%= house.id %>"> <%= house.street %> <%= house.house_nr %></a></li>
             <li class=""> <%= house.postal_code %><%= house.city %></li>
-            <li class="">kamers<%= house.rooms %></li>
-            <li class="">
-              <span> <%= house.m2 %> </span>
+            <li class="detailsHouse"><span>kamers: <%= house.rooms %>• </span> <span>oppervalkte huis <%= house.m2 %> m² • </span> <span>
+                    oppervalkte tuin<%= house.m2_garden %></span>
             </li>
-            <li class="">oppervalkte tuin<%= house.m2_garden %></li>
             <li class=""><%= house.agent %></li>
             <li class="priceHouse">€ <%= new Intl.NumberFormat("nl-NL").format(house.price) %></li>
 
@@ -159,28 +157,35 @@
 
             <p class="loading"></p>
             <p class="successtate"></p>
-        </section>
-
-        <section class="formRatingItem formRatingItem__Note">
-            <h2 class="">Notities</h2>
-
-            <form method="POST" action="/score/<%= house.id %>" class="notesForm">
-                <input type="hidden" value="<%= house.id %>">
-                <label for="bericht" aria-label="laat uw noitite achter">
-                    <textarea id="note" name="note"></textarea>
-                </label>
-                <button type="submit" class="NotesForm__button">Opslaan</button>
-
-            </form>
-            <p class="loading"></p>
-
-            <!--        <p class="successtae">uw score is toegevoegd ✅</p>-->
-        </section>
-        <section class=" formRatingItem formRatingItem__NoteShow ">
-            <h2 class="">Uw notitie:</h2>
-            <%- include('partials/showNotes', {result: house}); -%>
+            <p class="showscore"></p>
 
         </section>
+        <div class="notesScore">
+            <section class="formRatingItem formRatingItem__Note">
+                <h2 class="">Notities</h2>
+
+                <form method="POST" action="/score/<%= house.id %>" class="notesForm">
+                    <input type="hidden" value="<%= house.id %>">
+                    <label for="bericht" aria-label="laat uw noitite achter">
+                        <textarea id="note" name="note"></textarea>
+                    </label>
+                    <button type="submit" class="NotesForm__button">Opslaan</button>
+
+                </form>
+                <p class="loading"></p>
+
+
+                <!--        <p class="successtae">uw score is toegevoegd ✅</p>-->
+            </section>
+            <section class=" formRatingItem formRatingItem__NoteShow ">
+                <h2 class="">Uw notitie:</h2>
+                <%- include('partials/showNotes', {result: house}); -%>
+
+            </section>
+
+        </div>
+
+
 
 
     </div>
