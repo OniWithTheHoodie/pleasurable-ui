@@ -212,7 +212,7 @@ app.post('/score/:id', function (request, response) {
                     })
             }
 
-            // todo navragen waarom deze pagina word ingeladen terwijl dat niet moet
+            // todo navragen waarom deze pagina word ingeladen terwijl dat niet moet en alleen als de html werkt gebruik je dit
             else {
                 console.log('dit word redicted')
                 // response.redirect(303, '/score/' + request.params.id)

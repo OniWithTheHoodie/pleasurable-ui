@@ -623,3 +623,39 @@ einde hergebruiken op de pagina zelf
 .NotesForm__button:hover {
     text-decoration: underline;
 }
+
+
+.animationLink a {
+    /*aanpassen positie en weghalen van de focus en de border*/
+    position: relative;
+    text-decoration: none;
+    outline: none;
+}
+
+.animationLink a::after {
+    /*contenet moet leeg zijn*/
+    content: "";
+
+    /*positioneren*/
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    /*hoogte en breedte*/
+    height: 0.25em;
+    background-color: var(--web-orange-primary-color);
+    /*schaal de grootte*/
+    scale: 0 1;
+    /*transform-origin: right center;*/
+    transition: scale 0.3s;
+}
+
+/*hier zeg ik de animatie heeft een schaal van 1 bij 1 hoogte x breedte en gaat van links naar recths de lijnn*/
+
+.animationLink a:hover:after,
+.animationLink a:focus-visible:after {
+    /* JOUW CODE HIER */
+    scale: 1 1;
+    transform-origin: left center;
+}
