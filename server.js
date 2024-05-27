@@ -3,7 +3,16 @@ import express from 'express'
 // Importeerd de zelfgemaakte functie fetchJson uit de ./helpers map
 import fetchJson from './helpers/fetch-json.js'
 
-
+// variable voor de index route
+const apiUrl = 'https://fdnd-agency.directus.app/items/'
+const huizenHome = await fetchJson(apiUrl + 'f_houses')
+const feedbackUrl = await fetchJson(apiUrl + 'f_feedback')
+const lists = await fetchJson(apiUrl + `f_list/?fields=*.*.*.*`)
+const usersUrl = await fetchJson(apiUrl + `f_users/?fields=*.*`)
+const gelukt = 'uw score is toegevoegd';
+//
+// let ratings = ''
+let ratings = []
 // hier maak ik een nieuwe express app aan
 const app = express()
 
@@ -29,16 +38,7 @@ app.listen(app.get('port'), function () {
 })
 
 
-// variable voor de index route
-const apiUrl = 'https://fdnd-agency.directus.app/items/'
-const huizenHome = await fetchJson(apiUrl + 'f_houses')
-const feedbackUrl = await fetchJson(apiUrl + 'f_feedback')
-const lists = await fetchJson(apiUrl + `f_list/?fields=*.*.*.*`)
-const usersUrl = await fetchJson(apiUrl + `f_users/?fields=*.*`)
-const gelukt = 'uw score is toegevoegd';
-//
-// let ratings = ''
-let ratings = []
+
 
 // Get Route voor de index
 app.get('/', function (request, response) {
@@ -182,7 +182,7 @@ app.post('/score/:id', function (request, response) {
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
                         // console.log(feedback.data)
-                        response.render('partials/ShowScore', {
+                        response.render('/ShowScore', {
                                 result: apiResponse,
                                 feedback: feedback.data
                                 // feedback hier toevoegen lukt niet ant het omzetten gebeurt in de get route

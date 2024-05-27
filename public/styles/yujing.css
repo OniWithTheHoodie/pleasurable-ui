@@ -294,12 +294,12 @@ einde hergebruiken op de pagina zelf
 /*hier worden de sterren geel als er op gehoverd word behalve de sterren die gechekt zijn*/
 .fieldsetRating label:hover:not(input:checked + label) {
     cursor: pointer;
-    color: #fafa21;
+    color: #eea02e;
 }
 
 /*hier worden de sterren geel en overgenomen op label vanwege het sibling selector*/
 .fieldsetRating label:has(~ label:hover):not(input:checked + label) {
-    color: #fafa21;
+    color: #eea02e;
 }
 
 
