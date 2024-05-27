@@ -3,7 +3,12 @@ html {
     scroll-behavior: smooth;
     line-height: 1.5em;
 }
-
+body {
+    font-family: "Proxima Nova", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-main-text);
+}
 /*aangepaast*/
 /*label.hamburger {*/
 /*    font-size: 20px;*/
@@ -26,6 +31,8 @@ main {
 
         margin-left: calc(44% - (80% / 2));
         margin-right: calc(50% - (80% / 2));
+
+
 
     grid-row-gap: 3em;
     & hr {
@@ -55,6 +62,8 @@ input:not(input:checked ~ input)
 
 .sectionUsers{
      display: grid;
+    border-top: 2px solid hsl(0 0% 90% / 1);
+    padding-top: 2em;
     /*justify-content: center;*/
     /*align-items: center;*/
     /*place-items: center;*/
@@ -133,6 +142,14 @@ dit word hergebruiks users op index en score pagina
 
 /*einde herbgerbuiken */
 
+/*herbgeruiken streep*/
+.houseInfo,.houseDetailsSection,.sectionUsers{
+    border-bottom:  2px solid hsl(0 0% 90% / 1);
+    padding-bottom: 2em;
+}
+
+/*herbgeruiken streep*/
+
 /*
 hergebruiken op de pagina zelf
 */
@@ -176,13 +193,10 @@ einde hergebruiken op de pagina zelf
 
 /*score pagina*/
 .houseInfo{
-    margin-bottom: 2em;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*align-items: center;*/
-    /*margin-left: 2em;*/
+
     padding-top: 1em;
-    /*margin-left: calc(50% - (80% / 2));*/
+
+    /*background-color: red;*/
 }
 .houseInfo h1{
     font-size: 2.5em;
@@ -237,12 +251,12 @@ einde hergebruiken op de pagina zelf
     /*margin-left: 5em;*/
     /*grid-template-rows: auto auto auto auto;*/
     /*grid-template-columns: auto auto auto;*/
-
+    max-width: 100%;
     grid-column-gap: 2em;
     grid-row-gap: 2em;
-    max-width: 16em;
+    /*max-width: 16em;*/
 
-    margin-bottom: 2em;
+    /*padding: 2em;*/
     /*padding-right: 5em;*/
 }
 
@@ -367,9 +381,17 @@ einde hergebruiken op de pagina zelf
 }
 
 
-.notesForm{
+.notesForm,.show_notes{
+    padding-top: 1em;
     /*display: grid;*/
     /*place-items: center;*/
+}
+#note{
+    min-width: 18em;
+    height: 8em;
+    max-width: 800px;
+    overflow: hidden;
+    resize: vertical;
 }
 
 
@@ -468,7 +490,7 @@ einde hergebruiken op de pagina zelf
 
     .detailsHouse{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        /*grid-template-columns: 1fr 1fr;*/
     }
     .formRatingItem{
         /*max-width: 30em;*/
@@ -525,7 +547,15 @@ einde hergebruiken op de pagina zelf
 
 
 }
+@media (min-width: 880px) {
 
+    .formsRating{
+        max-width: 800px;
+    }
+
+
+
+}
 @media (min-width: 1200px) {
 
     .formsRating{

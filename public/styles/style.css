@@ -297,7 +297,8 @@ main {
   
     & article > ul,li {
       display: block;
-      padding: 3px;
+      /*padding: 3px;*/
+      padding-bottom: 3px;
     }
 
   

@@ -8,8 +8,7 @@
         <p class="houseInfo__p">Hier kunt u een beoordeling geven over het huis of de score van anderen zien.
         </p>
         <ul>
-            <li>
-                ga naar:
+            <li>ga naar:</li>
             <li>
                 <a href="#beoordeeling" class="link"> Beoordeel dit huis </a>
             </li>
@@ -19,7 +18,7 @@
 <!--        <hr class="orangeLine">-->
     </section>
 
-    <section class="houseInfo">
+    <section class="houseDetailsSection">
         <ul class="">
             <% if (house.poster_image) { %>
             <li>
@@ -167,7 +166,7 @@
                 <form method="POST" action="/score/<%= house.id %>" class="notesForm">
                     <input type="hidden" value="<%= house.id %>">
                     <label for="bericht" aria-label="laat uw noitite achter">
-                        <textarea id="note" name="note"></textarea>
+                        <textarea id="note" name="note" placeholder="Voeg hier je persoonlijke notities toe, zoals een eerste indruk van het huis, belangrijke informatie zoals een energielabel of opmerkingen over de buurt."></textarea>
                     </label>
                     <button type="submit" class="NotesForm__button">Opslaan</button>
 
