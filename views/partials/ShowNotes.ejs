@@ -1,17 +1,14 @@
 <ul class="show_notes">
-    <% if (feedback.length > 0) { %>
-        <% if (feedback[feedback.length - 1].note) { %>
-            <li> <%=(feedback[feedback.length - 1].note) %></li>
-        <% }
+    <% if (feedback) { %>
 
 
-        else { %>
-            <li>Er is geen notitie.</li>
-        <% } %>
-    <% }
+        <% feedback.forEach(function(item, index) { %>
+            <p>Item: <%= item.note %></p>
+    <% })
 
-    else { %>
+    } else { %>
         <li>No feedback available.</li>
+
     <% } %>
 </ul>
 

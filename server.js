@@ -198,11 +198,12 @@ app.post('/score/:id', function (request, response) {
 
 
             // dit is voor de notitie omdat ik2x een enhanced gebruik
-          else  if (request.body.notesEnhanced) {
+            if (request.body.notesEnhanced) {
                 const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
                 fetchJson(feedbackUrl)
                     .then(async (feedback) => {
-                        console.log('data notes ')
+                        console.log('feedback.data["0"].note')
+                        console.log(JSON.stringify(feedback.data.note))
                         response.render('partials/ShowNotes', {
                                 result: apiResponse,
                                 feedback: feedback.data
