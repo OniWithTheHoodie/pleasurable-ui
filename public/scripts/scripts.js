@@ -2,16 +2,15 @@
 
 // here i define that this is the laoding state
 let loadingElement = document.querySelector('.loading');
+let succes = document.querySelector('.successtate');
 // de successtae werrkt nog niet
-let succeState = document.querySelector('.successtate');
-
 
 // user parameters for the forms that the code is dry
 // using this is neccessary because the 2 forms must have the exact same function
 FormsEnhanced('.scorefield', '.showscore','enhanced', '.loading');
 FormsEnhanced('.notesForm', '.show_notes', 'notesEnhanced', '.loading');
 
-
+// updateButtonColor()
 // todo uitzoeken waarom de loading state met parameters niet werkt
 
 
@@ -35,6 +34,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
 
       // Toon de laadstatus
       loadingElement.classList.add('loader');
+
       // Gebruik een client-side fetch om een POST te doen naar de server
       // Als URL gebruiken we this.action
       // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
@@ -57,7 +57,8 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
             //haal de laoder weg
             console.log('terug!')
             loadingElement.classList.remove('loader');
-            succeState.classList.add('successtate')
+            succes.classList.add('success')
+            succes.textContent = '✓';
             // todo als de loader weg is voeg dan de successtae toe en haal die dan ook weer weg
             // todo het weghalen van de succcestate is met een animatie
 
@@ -78,7 +79,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
             const scoreNumbersElement = document.querySelector(ShowResultsData);
             scoreNumbersElement.scrollIntoView({behavior: 'smooth'});
 
-            succeState.classList.remove('successtate')
+            // succeState.classList.remove('successtate')
           });
 
       // Voorkom de standaard submit van de browser
@@ -91,3 +92,40 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
   });
 }
 
+
+function updateButtonColor() {
+  const checkedLabels = allLabels.filter(label => label.querySelector("input").checked);
+  const allChecked = checkedLabels.length === allLabels.length; // Check if all labels are checked
+
+  if (allChecked) {
+    button.style.backgroundColor = "green"; // Change button color to green
+  } else {
+    button.style.backgroundColor = ""; // Reset button color if not all checked
+  }
+}
+
+
+function addSuccessCheckmark(buttonSelector, successElementSelector, delay = 1000) {
+  const button = document.querySelector(buttonSelector);
+  const element = document.querySelector(successElementSelector);
+
+  if (!button || !element) {
+    console.error("Error: Button or success element not found.");
+    return; // Handle potential errors gracefully
+  }
+
+  button.addEventListener("click", function() {
+
+
+    setTimeout(function() {
+      element.classList.add("success");
+      element.textContent = "✓";
+    }, delay);
+  });
+}
+
+// Usage:
+// addSuccessCheckmark(".NotesForm__button", ".successtate");
+
+
+// Assuming your selectors are correct

@@ -444,25 +444,50 @@ einde hergebruiken op de pagina zelf
 
 
 
-
+/* LOADER LOADING STATE */
 .loader {
     width: 50px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 8px solid lightblue;
-    border-right-color: orange;
-    animation: l2 1s infinite linear;
+    border: 8px solid #0000;
+    border-right-color: #ffa50097;
+    position: relative;
+    animation: l24 1s infinite linear;
+    opacity: 1;
 }
 
-@keyframes l2 {
-    to {
-        transform: rotate(1turn)
-    }
+.loader:before,
+.loader:after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: inherit;
+    animation: inherit;
+    animation-duration: 2s;
 }
-/*dit werkt nog niet de successtea*/
-.successtate{
-    /*background-color: green;*/
-    font-size: 1.5em;
+
+.loader:after {
+    animation-duration: 4s;
+}
+
+@keyframes l24 {
+    100% {transform: rotate(1turn)}
+}
+
+/* SUCCESS STATE */
+.success {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    animation: none;
+    content: "✓";
 }
 
 
@@ -587,12 +612,12 @@ einde hergebruiken op de pagina zelf
 
 
 
-@keyframes spring {
-    /* Animatie voor het springen */
-    0% { transform: translateY(0); } /* Beginpositie */
-    50% { transform: translateY(-35px); } /* Spring omhoog */
-    100% { transform: translateY(0); } /* Terug naar beginpositie */
-}
+/*@keyframes spring {*/
+/*    !* Animatie voor het springen *!*/
+/*    0% { transform: translateY(0); } !* Beginpositie *!*/
+/*    50% { transform: translateY(-35px); } !* Spring omhoog *!*/
+/*    100% { transform: translateY(0); } !* Terug naar beginpositie *!*/
+/*}*/
 
 
 .NotesForm__button:hover {
