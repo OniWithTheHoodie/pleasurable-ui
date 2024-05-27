@@ -212,7 +212,7 @@ app.post('/score/:id', function (request, response) {
             else {
                 console.log('dit word redicted')
                 // response.redirect(303, '/score/' + request.params.id)
-                response.redirect(303, '/succes')
+                response.redirect(303, '/succes' )
             }
 
             // the else is commented because if it is not working the full page is show in the beoordeling

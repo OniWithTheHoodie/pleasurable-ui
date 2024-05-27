@@ -11,10 +11,10 @@
             <li>
                 ga naar:
             <li>
-                <a href="#beoordeeling" class="link"> Beeordeling </a>
+                <a href="#beoordeeling" class="link"> Beoordeel dit huis </a>
             </li>
             <li>
-                <a href="#users" class="link">Score teamleden</a></li>
+                <a href="#users" class="link">Bekijk score teamleden</a></li>
         </ul>
         <hr class="orangeLine">
     </section>
@@ -50,7 +50,7 @@
 
     <div class="formsRating ">
         <section class="formRatingItem__header" id="beoordeeling">
-            <h2>beoordeling</h2>
+            <h2>Beoordeel dit huis</h2>
             <p class="">Geef een beoordeling tussen de 0 en 5 sterren of laat een notitie achter.</p>
         </section>
 
@@ -155,17 +155,6 @@
             <p class="successtate"></p>
         </section>
 
-        <div class=" formRatingItem formRatingItem__ratingsShow">
-            <!--             this ul must be here becuase it has other css than the ul of the partial-->
-
-            <h2>uw score:</h2>
-            <!--            todo als je op submit drukt dan moet dit komen te staan de
-            todo partial anders is het effect weg en de partial moet geupdate worden-->
-            <!--            dit staat vast ook zonder post en dit moet denk ik beter want result is niks-->
-            <%- include('partials/ShowScore', {result: house}); -%>
-
-        </div>
-
         <section class="formRatingItem formRatingItem__Note">
             <h2 class="">Notities</h2>
 
@@ -190,10 +179,9 @@
 
     </div>
 
-    <!--de ul kan niet in de sction de users niet meer naast elkaar komen te staan-->
     <section class="sectionUsers" id="users">
         <hr class="orangeLine">
-        <h2>score teamleden</h2>
+        <h2>Bekijk score teamleden</h2>
         <p>Hier kunt u de score van uw teamleden zien.</p>
 
         <ul class="usersListScore">

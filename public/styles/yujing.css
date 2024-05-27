@@ -167,9 +167,10 @@ einde hergebruiken op de pagina zelf
 /*score pagina*/
 .houseInfo{
     margin-bottom: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    margin-left: 2em;
     padding-top: 1em;
 }
 .houseInfo h1{
@@ -178,11 +179,11 @@ einde hergebruiken op de pagina zelf
 }
 
 .houseInfo__p{
-    display: grid;
-    text-align: start;
-    justify-content: center;
-    justify-items: center;
-    padding: 1em 2em 1em 2em;
+    /*display: grid;*/
+    /*text-align: start;*/
+    /*justify-content: center;*/
+    /*justify-items: center;*/
+    /*padding: 1em 2em 1em 2em;*/
     row-gap: 2em;
     font-size: 1.1em;
 
@@ -481,22 +482,22 @@ einde hergebruiken op de pagina zelf
         }
 }
 
-
-.NotesForm__button{
+.NotesForm__button {
     transform: translateY(3px);
     animation: bounce 5s ease-in-out 1;
 }
 
-.NotesForm__button :active {
+.NotesForm__button:active {
     transform: translateY(3px);
-    animation: bounce 0.8s ease-in-out 1;
+    animation: bounce 0.8s ease-in-out 2;
 }
-@keyframes NotesForm__button {
+
+@keyframes bounce {
     0% {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-5px);  /* Adjust bounce height here */
     }
     100% {
         transform: translateY(0);
