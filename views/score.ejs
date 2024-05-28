@@ -187,26 +187,29 @@
 
     </div>
 
+
+<!--    dit is de 2de met daarin de forms-->
+
     <section class="sectionUsers" id="users">
-<!--        <hr class="orangeLine">-->
+        <!--        <hr class="orangeLine">-->
         <h2>Bekijk score teamleden</h2>
         <p>Hier kunt u de score van uw teamleden zien.</p>
 
-        <ul class="usersListScore">
+        <ul class="usersListScore__second">
             <% users.forEach(users => { %>
 
-                <li class="usersListscore__li">
+                <li class="usersListscore__li__second">
                     <% if (users.avatar) { %>
 
-                    <picture>
-                        <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=200&height=130&fit=cover&format=webp"
-                                type="image/webp">
-                        <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=200&height=130&fit=cover&format=avif"
-                                type="image/avif"
-                        >
-                        <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=200&height=130&fit=cover"
-                             alt="House Image" width="<%= users.avatar.width %>" height="<%= users.avatar.width %>" class="userListScore__image">
-                    </picture>
+                        <picture>
+                            <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=200&height=130&fit=cover&format=webp"
+                                    type="image/webp">
+                            <source srcset="https://fdnd-agency.directus.app/assets/<%= users.avatar.id  %>?width=200&height=130&fit=cover&format=avif"
+                                    type="image/avif"
+                            >
+                            <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=200&height=130&fit=cover"
+                                 alt="House Image" width="<%= users.avatar.width %>" height="<%= users.avatar.width %>" class="userListScore__image">
+                        </picture>
 
                     <% } else { %>
                         <p>Er is geen user avatar</p>
@@ -214,12 +217,98 @@
 
                     <!--                deze span meot hier staan als container dat alles mooi meebeweegt-->
                     <span class="userListScore__span"><%= users.name %></span>
-                    <ul class="">
-                        <li>Algemeen: <%= ratings.general %></li>
-                        <li>Keuken: <%= ratings.kitchen %></li>
-                        <li>Badkamer: <%= ratings.bathroom %></li>
-                        <li>Tuin: <%= ratings.garden %></li>
-                    </ul>
+                        <form method="POST" action="/score/<%= house.id %>" class="scorefield">
+
+
+                            <!--         algemeen-->
+                            <fieldset class="fieldsetRating">
+                                <legend class="titleRating">Algemeen</legend>
+                                <input class="inputRating" id="algemeen1" name="algemeenNumber" type="radio" value="1">
+                                <label aria-label="1 " for="algemeen1" class="labelRating__second"></label>
+
+                                <input class="inputRating" id="algemeen2" name="algemeenNumber" type="radio" value="2">
+                                <label aria-label="2 sterren" for="algemeen2" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="algemeen3" name="algemeenNumber" type="radio" value="3">
+                                <label aria-label="3 sterren" for="algemeen3" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="algemeen4" name="algemeenNumber" type="radio" value="4">
+                                <label aria-label="4 sterren" for="algemeen4" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="algeemn5" name="algemeenNumber" type="radio" value="5">
+                                <label aria-label="5 sterren" for="algeemn5" class="labelRating"></label>
+                            </fieldset>
+
+                            <!--            keuken-->
+                            <fieldset class="fieldsetRating">
+                                <legend class="titleRating">Keuken</legend>
+                                <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="1">
+                                <label aria-label="1 " for="keuken1" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="keuken2" name="keukenNumber" type="radio" value="2">
+                                <label aria-label="2 sterren" for="keuken2" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="keuken3" name="keukenNumber" type="radio" value="3 ">
+                                <label aria-label="3 sterren" for="keuken3" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="keuken4" name="keukenNumber" type="radio" value="4">
+                                <label aria-label="4 sterren" for="keuken4" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="keuken5" name="keukenNumber" type="radio" value="5">
+                                <label aria-label="5 sterren" for="keuken5" class="labelRating"></label>
+                            </fieldset>
+
+                            <fieldset class="fieldsetRating">
+                                <legend class="titleRating">Badkamer</legend>
+                                <input class="inputRating" id="badkamer1" name="badkamerNumber" type="radio" value="1">
+                                <label aria-label="1 " for="badkamer1" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="badkamer2" name="badkamerNumber" type="radio" value="2">
+                                <label aria-label="2 sterren" for="badkamer2" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="badkamer3" name="badkamerNumber" type="radio" value="3 ">
+                                <label aria-label="3 sterren" for="badkamer3" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="badkamer4" name="badkamerNumber" type="radio" value="4">
+                                <label aria-label="4 sterren" for="badkamer4" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="badkamer5" name="badkamerNumber" type="radio" value="5">
+                                <label aria-label="5 sterren" for="badkamer5" class="labelRating"></label>
+                            </fieldset>
+
+                            <fieldset class="fieldsetRating">
+                                <legend class="titleRating">Tuin</legend>
+                                <input class="inputRating" id="Tuin1" name="tuinNumber" type="radio" value="1">
+                                <label aria-label="1 " for="Tuin1" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="Tuin2" name="tuinNumber" type="radio" value="2">
+                                <label aria-label="2 sterren" for="Tuin2" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="Tuin3" name="tuinNumber" type="radio" value="3 ">
+                                <label aria-label="3 sterren" for="Tuin3" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="Tuin4" name="tuinNumber" type="radio" value="4">
+                                <label aria-label="4 sterren" for="Tuin4" class="labelRating"></label>
+
+
+                                <input class="inputRating" id="Tuin5" name="tuinNumber" type="radio" value="5">
+                                <label aria-label="5 sterren" for="Tuin5" class="labelRating"></label>
+                            </fieldset>
+                        </form>
                 </li>
 
             <% }) %>
@@ -227,8 +316,6 @@
         </ul>
 
     </section>
-
-
 
 
 

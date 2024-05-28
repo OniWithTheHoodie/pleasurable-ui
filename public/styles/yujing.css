@@ -133,7 +133,7 @@ dit word hergebruiks users op index en score pagina
 }
 
 .userListScore__image{
-    width: 100%;
+    width: 200px;
     height: auto;
     grid-row: 1;
     display: grid;
@@ -328,6 +328,18 @@ einde hergebruiken op de pagina zelf
     color: #a4a2a2;
     /*background-color: #0071B3;*/
 }
+
+.labelRating__second:after{
+    width: 1.5em;
+    content: "★";
+    font-size: 2em;
+    display: grid;
+    place-items: center;
+}
+
+.labelRating__second{
+    color:var(--web-orange-primary-color);
+}
 .fieldsetRating:checked{
     border-color: #0071B3;
 }
@@ -428,6 +440,17 @@ einde hergebruiken op de pagina zelf
 
     /*padding: 2em 2em 2em;*/
 }
+
+.usersListScore__second{
+    display: grid;
+    grid-template-columns:repeat( auto-fit, minmax(300px, 14em) ) ;
+    /*background-color: #31cfec;*/
+    /*justify-items: center;  !* Center items horizontally *!*/
+    /*align-items: center;*/
+    /*place-items: center;*/
+    grid-column-gap: 3em;
+    gap: 43px;
+}
 .usersListscore__li{
     display: grid;
     justify-content: flex-start;
@@ -444,6 +467,22 @@ einde hergebruiken op de pagina zelf
     /*place-content: center;*/
     grid-template-columns: 1fr;
     grid-template-rows: 6em;
+    /*repeat( auto-fit, minmax(150px, 1fr) )*/
+
+}
+
+
+.usersListscore__li__second{
+    display: grid;
+    justify-content: flex-start;
+    background-color: var(--regent-blue-primary-color);
+    padding: 2em;
+    margin: 1em;
+    column-gap: 2em;
+    row-gap: 1em;
+    width: max-content;
+
+
     /*repeat( auto-fit, minmax(150px, 1fr) )*/
 
 }
