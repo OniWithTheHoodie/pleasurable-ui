@@ -98,7 +98,7 @@ dit word hergebruiks users op index en score pagina
     /*place-items: center;*/
     grid-column-gap: 3em;
     /*padding: 2em;*/
-    margin-left: calc(50% - (80% / 2));
+    /*margin-left: calc(50% - (80% / 2));*/
 
 }
 .users{
