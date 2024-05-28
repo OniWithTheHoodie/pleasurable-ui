@@ -205,7 +205,7 @@ app.post('/score/:id', function (request, response) {
     const noteUser = request.body.note
 
 // make the post route
-    fetch(`https://fdnd-agency.directus.app/items/f_feedback`, {
+    fetch(`https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json', // Set appropriate header
