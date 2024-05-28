@@ -203,6 +203,7 @@ einde hergebruiken op de pagina zelf
     padding-top: 1em;
     display: grid;
     row-gap: 0.5em;
+    /*font-size: 1.1em;*/
 
     /*background-color: red;*/
 }
@@ -219,7 +220,7 @@ einde hergebruiken op de pagina zelf
     /*justify-items: center;*/
     /*padding: 1em 2em 1em 2em;*/
     row-gap: 2em;
-    font-size: 1.4em;
+    font-size: 1.2em;
 
     line-height: 1.5em;
     max-width: 24em;
