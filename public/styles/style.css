@@ -156,7 +156,12 @@ body {
       height: 100%;
     }
     
-    li a:hover{
+    ul.mobile.tablet-desktop li a:hover{
+      background-color: #FFE2FF;
+      height: auto;
+    }
+
+    ul.nav__icons li a:hover{
       background-color: #FFE2FF;
       height: auto;
     }
