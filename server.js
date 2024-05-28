@@ -7,7 +7,6 @@ import fetchJson from './helpers/fetch-json.js'
 const apiUrl = 'https://fdnd-agency.directus.app/items/'
 const huizenHome = await fetchJson(apiUrl + 'f_houses')
 const feedbackUrl = await fetchJson(apiUrl + 'f_feedback')
-const lists = await fetchJson(apiUrl + `f_list/?fields=*.*.*.*`)
 const usersUrl = await fetchJson(apiUrl + `f_users/?fields=*.*`)
 const gelukt = 'uw score is toegevoegd';
 //

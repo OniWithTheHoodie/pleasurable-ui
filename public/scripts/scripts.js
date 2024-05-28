@@ -55,7 +55,7 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
           })
           .then(function (responseHTML) {
             //haal de laoder weg
-            console.log('terug!')
+            console.log(' de fetch is gelukt en je ebtn terug!')
             loadingElement.classList.remove('loader');
             succes.classList.add('success')
             succes.textContent = '✓';
