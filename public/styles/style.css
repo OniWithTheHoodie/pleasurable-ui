@@ -86,7 +86,11 @@ body {
     position: relative;
   }
 
-  ul {
+  ul.mobile.tablet-desktop {
+    display: none;
+  }
+
+  ul.nav__icons {
     display: none;
   }
 
