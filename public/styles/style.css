@@ -104,7 +104,11 @@ body {
     text-decoration: none;
   }
 
-  li a:hover{
+  ul.mobile.tablet-desktop li a:hover{
+    background-color: #FFE2FF;
+  }
+
+  ul.nav__icons li a:hover{
     background-color: #FFE2FF;
   }
 
