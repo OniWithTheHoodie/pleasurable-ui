@@ -15,7 +15,7 @@
                     <% if (users.avatar) { %>
                         <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
                              alt="House Image" width="<%= users.width %>"
-                             height="<%= users.height %>" class="userListScore__image">
+                             height="<%= users.height %>" class="userIndex__image">
 
                     <% } else { %>
                         <p>er is geen user avatar</p>
@@ -60,7 +60,7 @@
                 <%- include('./partials/detailed-rating', { huis: huis }) %>
               </form>
 
-              <a class="button__card" href="views/score.ejs" role="button" aria-label="Button naar score overzicht">
+              <a class="button__card" href="/score/<%= huis.id %>">
                 Bekijk score
               </a>
 

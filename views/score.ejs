@@ -37,14 +37,12 @@
                     <% } %>
                 </picture>
             </li>
-            <li class="linkToHouse"><a class="link"
-                                       href="/huis/<%= house.id %>"> <%= house.street %> <%= house.house_nr %></a></li>
-            <li class=""> <%= house.postal_code %><%= house.city %></li>
-            <li class="detailsHouse"><span>kamers: <%= house.rooms %>• </span> <span>oppervalkte huis <%= house.m2 %> m² • </span> <span>
-                    oppervalkte tuin<%= house.m2_garden %></span>
-            </li>
-            <li class=""><%= house.agent %></li>
-            <li class="priceHouse">€ <%= new Intl.NumberFormat("nl-NL").format(house.price) %></li>
+            <h2 class="card__content"><a class="card__link" href="./huis/<%= house.id %>"><%= house.street %> <%= house.house_nr %></a></h2>
+            <li class="card__content">€ <%- house.price.toLocaleString('nl-NL') %></li>
+            <li class="card__content"><%- house.postal_code %> <%- house.city %></li>
+            <li class="card__content"><%- house.m2 %> m² • <%- house.rooms %> Kamers</li>
+            <li class="card__content"><%- house.m2 %></li>
+            <li class="card__content"><%- house.agent %></li>
 
 
         </ul>

@@ -107,7 +107,7 @@ body {
 
   /*todo in een aparte class*/
   li a:hover{
-    background-color: #FFE2FF;
+    /*background-color: #FFE2FF;*/
   }
 
   #toggle:checked ~ ul {
@@ -156,7 +156,7 @@ body {
 
     /*todo dit moet in een aparte class*/
     li a:hover{
-      background-color: #FFE2FF;
+      /*background-color: #FFE2FF;*/
       height: auto;
     }
 
@@ -568,20 +568,4 @@ input[type="submit"] {
 }
 
 
-@media (min-width: 45em) {
-    label.hamburger {
-        font-size: 1.2rem;
-        position: relative;
-        right: 0;
-        bottom: 23px;
-        fill: var(--color-main-text);
-    }
-    nav > h3 {
-        float: right;
-        position: relative;
-        top: 20px;
-        left: 46px;
-        font-size: 16px;
-    }
 
-}

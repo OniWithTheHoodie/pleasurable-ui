@@ -35,13 +35,7 @@ main {
 
 
     grid-row-gap: 3em;
-    & hr {
-        width: 94%;
 
-        margin-left: 2em;
-        margin-right: 2em;
-        /*  dit is de breedte van de hr lijn*/
-    }
 }
 
 
@@ -141,6 +135,14 @@ dit word hergebruiks users op index en score pagina
 
 
 /*einde herbgerbuiken */
+
+.userIndex__image{
+    width: 100px;
+    height: auto;
+    grid-row: 1;
+    display: grid;
+
+}
 
 /*herbgeruiken streep*/
 .houseInfo,.houseDetailsSection,.sectionUsers{

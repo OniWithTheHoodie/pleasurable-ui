@@ -42,38 +42,80 @@ app.listen(app.get('port'), function () {
 
 
 // Get Route voor de index
-app.get('/', function (request, response) {
+// app.get('/', function (request, response) {
+//
+//     console.log('data is geladem')
+//     response.render('index', {
+//
+//         alleHuizen: huizenHome.data,
+//         alleRatings: feedbackUrl.data,
+//         users: usersUrl.data,
+//         ratings: ratings,
+//     })
+// })
 
-    response.render('index', {
-        alleHuizen: huizenHome.data,
-        alleRatings: feedbackUrl.data,
-        users: usersUrl.data,
-        ratings: ratings,
+// Get Route voor de index
+app.get('/', function (request, response) {
+    // fetch data directus table f_feedback
+    fetchJson(apiUrl + 'f_feedback').then((BeoordelingData) => {
+        // console.log(BeoordelingData)
+
+        response.render('index', {
+            alleHuizen: huizenHome.data,
+            alleRatings: feedbackUrl.data,
+            users: usersUrl.data,
+            ratings: ratings,
+        })
+        // console.log(ratings)
     })
 })
 
+// app.post('/', function (request, response) {
+//   console.log(request.body.algemeenNumber)
+//
+//   // posten naar directus..
+//   fetch(`${apiUrl}f_feedback/`, {
+//     method: 'POST',
+//     body: JSON.stringify({
+//       house: request.body.id,
+//       list: 12,
+//       user: 7,
+//       rating: {
+//         stars: request.body.algemeenNumber,
+//       },
+//     }),
+//     headers: {
+//       'Content-Type': 'application/json; charset=UTF-8',
+//     },
+//   }).then((postResponse) => {
+//     console.log(postResponse)
+//     response.redirect(303, '/')
+//   })
+// })
 app.post('/', function (request, response) {
-  console.log(request.body)
+    console.log(request.body)
 
-  // posten naar directus..
-  fetch(`${apiUrl}f_feedback/`, {
-    method: 'POST',
-    body: JSON.stringify({
-      house: request.body.id,
-      list: 12,
-      user: 7,
-      rating: {
-        stars: request.body.algemeenNumber,
-      },
-    }),
-    headers: {
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-  }).then((postResponse) => {
-    console.log(postResponse)
-    response.redirect(303, '/')
-  })
+    // posten naar directus..
+    fetch(`${apiUrl}f_feedback/`, {
+        method: 'POST',
+        body: JSON.stringify({
+            house: request.body.id,
+            list: 12,
+            user: 7,
+            rating: {
+                stars: request.body.algemeenNumber,
+            },
+        }),
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+    }).then((postResponse) => {
+        console.log(postResponse)
+        response.redirect(303, '/')
+    })
 })
+
+
     app.get('/huis/:id', function (request, response) {
         // request.params.id gebruik je zodat je de exacte huis kan weergeven dit is een routeparmater naar de route van die huis
         const url = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*.*`
