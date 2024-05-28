@@ -280,6 +280,7 @@ main {
     /* flex-direction: column; */
     padding: 10px;
     font-size: 0.8em;
+
 }
 
 & img {
@@ -319,7 +320,7 @@ article > h2,a {
 }
 
 .card__content {
-    height: 25px;
+   line-height: 1.5;
     text-overflow: ellipsis;
 }
 

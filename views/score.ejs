@@ -3,7 +3,7 @@
 
 <main>
     <section class="houseInfo">
-        <h1>score pagina</h1>
+        <h1>Score pagina</h1>
         <p class="houseInfo__p">Hier kunt u een beoordeling geven over het huis of de score van anderen zien.
         </p>
         <ul>
@@ -34,15 +34,15 @@
                     <% } %>
                 </picture>
             </li>
-            <li class="card__content">
+            <li class="card__content animationLink">
 
-                <a class="" href="<%= house.id %>"><%= house.street %> <%= house.house_nr %>
+                <a class="animationLink link" href="<%= house.id %>"><%= house.street %> <%= house.house_nr %>
                 </a>
             </li>
-            <li class="card__content">€ <%- house.price.toLocaleString('nl-NL') %></li>
+            <li class="card__content priceHouse">€ <%- house.price.toLocaleString('nl-NL') %></li>
             <li class="card__content"><%- house.postal_code %> <%- house.city %></li>
-            <li class="card__content"><%- house.m2 %> m² • <%- house.rooms %> Kamers</li>
-            <li class="card__content"><%- house.m2 %></li>
+            <li class="card__content">opppervalke • <%- house.m2 %> m²  </li>
+            <li class="card__content">kamers • <%- house.rooms %> </li>
             <li class="card__content"><%- house.agent %></li>
 
 
@@ -58,7 +58,7 @@
         </section>
 
         <section class="formRatingItem formRatingItem__ratings">
-            <h2> score</h2>
+            <h2>Beoordeel</h2>
             <form method="POST" action="/score/<%= house.id %>" class="scorefield">
 
 
@@ -177,16 +177,6 @@
             </section>
             <section class=" formRatingItem formRatingItem__NoteShow ">
                 <h2 class="">Uw notitie:</h2>
-                <ul class="show_notes">
-                    <% if (feedback.length > 0) { %>
-
-                    <li><%=feedback[feedback.length - 1].note %></li>
-
-                    <% } else { %>
-                        <li>u hebt nog niks ingevoerd</li>
-
-                    <% } %>
-                </ul>
                 <%- include('partials/ShowNotes', {feedback: feedback}); -%>
             </section>
 
@@ -236,11 +226,11 @@
                             <label aria-label="1 " for="algemeen1" class="labelRating__second"></label>
 
                             <input class="inputRating" id="algemeen2" name="algemeenNumber" type="radio" value="2">
-                            <label aria-label="2 sterren" for="algemeen2" class="labelRating"></label>
+                            <label aria-label="2 sterren" for="algemeen2" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="algemeen3" name="algemeenNumber" type="radio" value="3">
-                            <label aria-label="3 sterren" for="algemeen3" class="labelRating"></label>
+                            <label aria-label="3 sterren" for="algemeen3" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="algemeen4" name="algemeenNumber" type="radio" value="4">
@@ -255,11 +245,11 @@
                         <fieldset class="fieldsetRating">
                             <legend class="titleRating">Keuken</legend>
                             <input class="inputRating" id="keuken1" name="keukenNumber" type="radio" value="1">
-                            <label aria-label="1 " for="keuken1" class="labelRating"></label>
+                            <label aria-label="1 " for="keuken1" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="keuken2" name="keukenNumber" type="radio" value="2">
-                            <label aria-label="2 sterren" for="keuken2" class="labelRating"></label>
+                            <label aria-label="2 sterren" for="keuken2" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="keuken3" name="keukenNumber" type="radio" value="3 ">
@@ -277,19 +267,19 @@
                         <fieldset class="fieldsetRating">
                             <legend class="titleRating">Badkamer</legend>
                             <input class="inputRating" id="badkamer1" name="badkamerNumber" type="radio" value="1">
-                            <label aria-label="1 " for="badkamer1" class="labelRating"></label>
+                            <label aria-label="1 " for="badkamer1" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="badkamer2" name="badkamerNumber" type="radio" value="2">
-                            <label aria-label="2 sterren" for="badkamer2" class="labelRating"></label>
+                            <label aria-label="2 sterren" for="badkamer2" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="badkamer3" name="badkamerNumber" type="radio" value="3 ">
-                            <label aria-label="3 sterren" for="badkamer3" class="labelRating"></label>
+                            <label aria-label="3 sterren" for="badkamer3" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="badkamer4" name="badkamerNumber" type="radio" value="4">
-                            <label aria-label="4 sterren" for="badkamer4" class="labelRating"></label>
+                            <label aria-label="4 sterren" for="badkamer4" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="badkamer5" name="badkamerNumber" type="radio" value="5">
@@ -299,23 +289,23 @@
                         <fieldset class="fieldsetRating">
                             <legend class="titleRating">Tuin</legend>
                             <input class="inputRating" id="Tuin1" name="tuinNumber" type="radio" value="1">
-                            <label aria-label="1 " for="Tuin1" class="labelRating"></label>
+                            <label aria-label="1 " for="Tuin1" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="Tuin2" name="tuinNumber" type="radio" value="2">
-                            <label aria-label="2 sterren" for="Tuin2" class="labelRating"></label>
+                            <label aria-label="2 sterren" for="Tuin2" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="Tuin3" name="tuinNumber" type="radio" value="3 ">
-                            <label aria-label="3 sterren" for="Tuin3" class="labelRating"></label>
+                            <label aria-label="3 sterren" for="Tuin3" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="Tuin4" name="tuinNumber" type="radio" value="4">
-                            <label aria-label="4 sterren" for="Tuin4" class="labelRating"></label>
+                            <label aria-label="4 sterren" for="Tuin4" class="labelRating__second"></label>
 
 
                             <input class="inputRating" id="Tuin5" name="tuinNumber" type="radio" value="5">
-                            <label aria-label="5 sterren" for="Tuin5" class="labelRating"></label>
+                            <label aria-label="5 sterren" for="Tuin5" class="labelRating__second"></label>
                         </fieldset>
                     </form>
                 </li>
