@@ -13,6 +13,7 @@ const gelukt = 'uw score is toegevoegd';
 //
 // let ratings = ''
 let ratings = []
+
 // hier maak ik een nieuwe express app aan
 const app = express()
 
@@ -25,7 +26,7 @@ app.set('views', './views')
 app.use(express.static('public'))
 
 // Zorg dat werken met request data makkelijker wordt
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 
 // Stel het poortnummer in waar express op moet gaan luisteren
@@ -47,46 +48,52 @@ app.get('/', function (request, response) {
         alleHuizen: huizenHome.data,
         alleRatings: feedbackUrl.data,
         users: usersUrl.data,
+        ratings: ratings,
     })
 })
 
 app.post('/', function (request, response) {
+  console.log(request.body)
 
-    // posten naar directus..
-    fetch(`${apiUrl}f_feedback/`, {
-        method: 'POST',
-        body: JSON.stringify({
-            house: request.body.id,
-            list: 12,
-            user: 7,
-            rating: {
-                stars: request.body.stars,
-            },
-        }),
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-        },
-    }).then((postResponse) => {
-        // console.log(postResponse)
-        response.redirect(303, '/')
+  // posten naar directus..
+  fetch(`${apiUrl}f_feedback/`, {
+    method: 'POST',
+    body: JSON.stringify({
+      house: request.body.id,
+      list: 12,
+      user: 7,
+      rating: {
+        stars: request.body.algemeenNumber,
+      },
+    }),
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  }).then((postResponse) => {
+    console.log(postResponse)
+    response.redirect(303, '/')
+  })
+})
+    app.get('/huis/:id', function (request, response) {
+        // request.params.id gebruik je zodat je de exacte huis kan weergeven dit is een routeparmater naar de route van die huis
+        const url = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*.*`
+        fetchJson(url)
+            .then((apiData) => {
+                if (apiData.data) {
+                    /*als data voer dan dit uit */
+                    // console.log('data bestaat u gaat nu naar de Detailpage page'+JSON.stringify(apiData))
+                    // info gebruiken om die te linken aan apidata.data
+                    response.render('huis', { house: apiData.data })
+                    // console.log(apiData)
+                } else {
+                    console.log('No data found for house with id: ' + request.params.id)
+                    //     laat de error zien als de data al niet gevonden word
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching house data:', error)
+            })
     })
-})
-
-app.get('/huis/:id', function (request, response) {
-    // request.params.id gebruik je zodat je de exacte huis kan weergeven dit is een routeparmater naar de route van die huis
-    const url = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*.*`
-    fetchJson(url)
-        .then((apiData) => {
-            if (apiData.data) {
-                /*als data voer dan dit uit */
-                // console.log('data bestaat u gaat nu naar de Detailpage page'+JSON.stringify(apiData))
-                // info gebruiken om die te linken aan apidata.data
-                response.render('huis', {house: apiData.data})
-                // console.log(apiData)
-            }
-        })
-
-})
 
 app.get('/score/:id', function (request, response) {
     const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
@@ -228,10 +235,10 @@ app.post('/score/:id', function (request, response) {
             // todo  door deze else werkt het wel met aleeen html en niet met css en javascript
 
         })
+    })
 
 
 
 
-})
 
 
