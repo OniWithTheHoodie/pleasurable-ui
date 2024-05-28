@@ -169,6 +169,8 @@ app.post('/score/:id', function (request, response) {
         }),
     })
 
+        // todo je moet opniew documetn.query selecter all opniew kopelen omdat de pagina opnieuw word geladen met niewe data
+        // todo de koppeling met de oud ehtml is weg dus dit zit in je script.js en je moet hiervoor denk ik een niewue functie in maken
 
         // todo als javascript uit staat werkt de interactie niet en moet je de pagina refreshen
         // todo dit moet je met een redirect oplossen voor als javascript uit staat
