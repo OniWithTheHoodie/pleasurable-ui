@@ -313,7 +313,7 @@ einde hergebruiken op de pagina zelf
     content: "★";
     font-size: 2em;
     display: grid;
-    /*place-items: center;*/
+    place-items: center;
 }
 
 .labelRating{
@@ -602,11 +602,11 @@ einde hergebruiken op de pagina zelf
 
 .NotesForm__button {
     cursor: pointer;
+    transition: .1s;
 }
 
 .NotesForm__button:active {
-    transform: translateY(-10px); /* Verplaats de knop 5 pixels naar beneden */
-    animation: spring 0.2s ease-in-out 10; /* Start de animatie */
+    transform: translateY(.1em); /* Verplaats de knop 5 pixels naar beneden */
     cursor: pointer;
 }
 
@@ -618,11 +618,6 @@ einde hergebruiken op de pagina zelf
 /*    50% { transform: translateY(-35px); } !* Spring omhoog *!*/
 /*    100% { transform: translateY(0); } !* Terug naar beginpositie *!*/
 /*}*/
-
-
-.NotesForm__button:hover {
-    text-decoration: underline;
-}
 
 
 .animationLink a {

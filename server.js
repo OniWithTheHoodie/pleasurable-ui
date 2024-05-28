@@ -175,6 +175,8 @@ app.post('/score/:id', function (request, response) {
         // hier word de data omgezet naar een object en met render word het weergegeven
         .then(async (apiResponse) => {
             // if the enhanced is true do this en the render is the partial
+
+            // een or kan ik niet gebruiken omdat ik in de succespartial niet de notes heb
             if (request.body.enhanced) {
                 const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
                 // use a promise.all because the tables are not connected to each other
