@@ -16,10 +16,6 @@ body {
 /*    bottom: 5px;*/
 /*}*/
 
-/*dit stond eerst op display none en nu op zichtbaar*/
-ul {
-    /*display: none;*/
-}
 
 
 
@@ -420,6 +416,7 @@ einde hergebruiken op de pagina zelf
 .show_notes{
     /*display: grid;*/
     /*place-items: center;*/
+
 }
 .formRatingItem__NoteShow h2{
     padding-top: 0.3em;

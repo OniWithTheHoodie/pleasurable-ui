@@ -101,7 +101,7 @@ app.post('/', function (request, response) {
         body: JSON.stringify({
             house: request.body.id,
             list: 12,
-            user: 7,
+            user: 5,
             rating: {
                 stars: request.body.algemeenNumber,
             },
@@ -110,7 +110,7 @@ app.post('/', function (request, response) {
             'Content-Type': 'application/json; charset=UTF-8',
         },
     }).then((postResponse) => {
-        console.log(postResponse)
+        // console.log(postResponse)
         response.redirect(303, '/')
     })
 })
@@ -191,6 +191,7 @@ app.get('/succes', function (request, response) {
 
 
 
+
 app.post('/score/:id', function (request, response) {
 //this is the empty object that is going to be filled with the new score
     const newScore = {
@@ -227,10 +228,12 @@ app.post('/score/:id', function (request, response) {
         .then(async (apiResponse) => {
             // if the enhanced is true do this en the render is the partial
 
+            console.log(noteUser)
             // een or kan ik niet gebruiken omdat ik in de succespartial niet de notes heb
             if (request.body.enhanced) {
                 const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
                 // use a promise.all because the tables are not connected to each other
+                console.log('data word pniew opgehaald scores numbers')
                 fetchJson(feedbackUrl)
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
@@ -246,17 +249,13 @@ app.post('/score/:id', function (request, response) {
 
 
             }
-
-
-
-
             // dit is voor de notitie omdat ik2x een enhanced gebruik
             if (request.body.notesEnhanced) {
                 const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
                 fetchJson(feedbackUrl)
                     .then(async (feedback) => {
-                        console.log('feedback.data["0"].note')
-                        console.log(JSON.stringify(feedback.data.note))
+                        console.log('data word pniew opgehaald notes')
+
                         response.render('partials/ShowNotes', {
                                 result: apiResponse,
                                 feedback: feedback.data
@@ -277,8 +276,11 @@ app.post('/score/:id', function (request, response) {
             // todo  door deze else werkt het wel met aleeen html en niet met css en javascript
 
         })
-    })
 
+
+
+
+})
 
 
 
