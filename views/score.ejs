@@ -176,6 +176,7 @@
             </section>
             <section class=" formRatingItem formRatingItem__NoteShow ">
                 <h2 class="">Uw notitie:</h2>
+                <%- include('partials/succes_partial', {result: feedback}); -%>
                 <%- include('partials/ShowNotes', {feedback: feedback}); -%>
             </section>
 

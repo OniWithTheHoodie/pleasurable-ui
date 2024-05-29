@@ -214,11 +214,13 @@ app.post('/score/:id', function (request, response) {
                             }
                         )
                     })
-            } else {
-                console.log('dit word redicted')
-                // response.redirect(303, '/score/' + request.params.id)
-                response.redirect(303, '/succes')
             }
+            // als deze niet waar zijn doe dan dit
+            if (!request.body.enhanced && !request.body.notesEnhanced) {
+                console.log('redirecting...');
+                response.redirect(303, '/succes');
+            }
+
 
         })
 
