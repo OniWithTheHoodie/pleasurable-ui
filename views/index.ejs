@@ -49,7 +49,7 @@
                     </picture>
 
                     <article>
-                        <ol>
+                        <ol class="card__list">
                             <h2 class="card__content "><a class="card__link"
                                                          href="./huis/<%= huis.id %>"><%= huis.street %> <%= huis.house_nr %></a>
                             </h2>
@@ -59,12 +59,12 @@
                             <li class="card__content">Kamers • <%- huis.rooms %></li>
                             <li class="card__content"><%- huis.agent %></li>
 
-                            <li>
+
 
                                 <form action="/" method="post" class="ratingsFavorieten">
                                     <%- include('./partials/detailed-rating', { huis: huis }) %>
                                 </form>
-                            </li>
+
 
 
                             <li><a class="button__card" href="/score/<%= huis.id %>">
