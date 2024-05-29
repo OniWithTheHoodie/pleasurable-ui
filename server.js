@@ -7,7 +7,6 @@ import fetchJson from './helpers/fetch-json.js'
 const apiUrl = 'https://fdnd-agency.directus.app/items/'
 const huizenHome = await fetchJson(apiUrl + 'f_houses')
 const feedbackUrl = await fetchJson(apiUrl + 'f_feedback')
-const lists = await fetchJson(apiUrl + `f_list/?fields=*.*.*.*`)
 const usersUrl = await fetchJson(apiUrl + `f_users/?fields=*.*`)
 const gelukt = 'uw score is toegevoegd';
 //
@@ -26,7 +25,7 @@ app.set('views', './views')
 app.use(express.static('public'))
 
 // Zorg dat werken met request data makkelijker wordt
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}))
 
 
 // Stel het poortnummer in waar express op moet gaan luisteren
@@ -38,21 +37,6 @@ app.listen(app.get('port'), function () {
     console.log(`Application started on http://localhost:${app.get('port')}`)
 })
 
-
-
-
-// Get Route voor de index
-// app.get('/', function (request, response) {
-//
-//     console.log('data is geladem')
-//     response.render('index', {
-//
-//         alleHuizen: huizenHome.data,
-//         alleRatings: feedbackUrl.data,
-//         users: usersUrl.data,
-//         ratings: ratings,
-//     })
-// })
 
 // Get Route voor de index
 app.get('/', function (request, response) {
@@ -69,29 +53,6 @@ app.get('/', function (request, response) {
         // console.log(ratings)
     })
 })
-
-// app.post('/', function (request, response) {
-//   console.log(request.body.algemeenNumber)
-//
-//   // posten naar directus..
-//   fetch(`${apiUrl}f_feedback/`, {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       house: request.body.id,
-//       list: 12,
-//       user: 7,
-//       rating: {
-//         stars: request.body.algemeenNumber,
-//       },
-//     }),
-//     headers: {
-//       'Content-Type': 'application/json; charset=UTF-8',
-//     },
-//   }).then((postResponse) => {
-//     console.log(postResponse)
-//     response.redirect(303, '/')
-//   })
-// })
 app.post('/', function (request, response) {
     console.log(request.body)
 
@@ -101,7 +62,7 @@ app.post('/', function (request, response) {
         body: JSON.stringify({
             house: request.body.id,
             list: 12,
-            user: 7,
+            user: 5,
             rating: {
                 stars: request.body.algemeenNumber,
             },
@@ -110,32 +71,32 @@ app.post('/', function (request, response) {
             'Content-Type': 'application/json; charset=UTF-8',
         },
     }).then((postResponse) => {
-        console.log(postResponse)
+        // console.log(postResponse)
         response.redirect(303, '/')
     })
 })
 
 
-    app.get('/huis/:id', function (request, response) {
-        // request.params.id gebruik je zodat je de exacte huis kan weergeven dit is een routeparmater naar de route van die huis
-        const url = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*.*`
-        fetchJson(url)
-            .then((apiData) => {
-                if (apiData.data) {
-                    /*als data voer dan dit uit */
-                    // console.log('data bestaat u gaat nu naar de Detailpage page'+JSON.stringify(apiData))
-                    // info gebruiken om die te linken aan apidata.data
-                    response.render('huis', { house: apiData.data })
-                    // console.log(apiData)
-                } else {
-                    console.log('No data found for house with id: ' + request.params.id)
-                    //     laat de error zien als de data al niet gevonden word
-                }
-            })
-            .catch((error) => {
-                console.error('Error fetching house data:', error)
-            })
-    })
+app.get('/huis/:id', function (request, response) {
+    // request.params.id gebruik je zodat je de exacte huis kan weergeven dit is een routeparmater naar de route van die huis
+    const url = `https://fdnd-agency.directus.app/items/f_houses/${request.params.id}/?fields=*.*.*`
+    fetchJson(url)
+        .then((apiData) => {
+            if (apiData.data) {
+                /*als data voer dan dit uit */
+                // console.log('data bestaat u gaat nu naar de Detailpage page'+JSON.stringify(apiData))
+                // info gebruiken om die te linken aan apidata.data
+                response.render('huis', {house: apiData.data})
+                // console.log(apiData)
+            } else {
+                console.log('No data found for house with id: ' + request.params.id)
+                //     laat de error zien als de data al niet gevonden word
+            }
+        })
+        .catch((error) => {
+            console.error('Error fetching house data:', error)
+        })
+})
 
 app.get('/score/:id', function (request, response) {
     const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
@@ -168,7 +129,6 @@ app.get('/score/:id', function (request, response) {
 })
 
 
-
 app.get('/succes', function (request, response) {
     const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
     // hier moet een
@@ -190,7 +150,6 @@ app.get('/succes', function (request, response) {
 })
 
 
-
 app.post('/score/:id', function (request, response) {
 //this is the empty object that is going to be filled with the new score
     const newScore = {
@@ -204,10 +163,10 @@ app.post('/score/:id', function (request, response) {
     const noteUser = request.body.note
 
 // make the post route
-    fetch(`https://fdnd-agency.directus.app/items/f_feedback`, {
+    fetch(`https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json', // Set appropriate header
+            'Content-Type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify({
             "house": request.params.id,
@@ -226,11 +185,12 @@ app.post('/score/:id', function (request, response) {
         // hier word de data omgezet naar een object en met render word het weergegeven
         .then(async (apiResponse) => {
             // if the enhanced is true do this en the render is the partial
-
+            console.log(noteUser)
             // een or kan ik niet gebruiken omdat ik in de succespartial niet de notes heb
             if (request.body.enhanced) {
                 const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
                 // use a promise.all because the tables are not connected to each other
+                console.log('data word pniew opgehaald scores numbers')
                 fetchJson(feedbackUrl)
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
@@ -246,39 +206,29 @@ app.post('/score/:id', function (request, response) {
 
 
             }
-
-
-
-
-            // dit is voor de notitie omdat ik2x een enhanced gebruik
-            if (request.body.notesEnhanced) {
+            // todo navragen waarom deze pagina word ingeladen terwijl dat niet moet en alleen als de html werkt gebruik je dit
+         else   if (request.body.notesEnhanced) {
                 const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
                 fetchJson(feedbackUrl)
                     .then(async (feedback) => {
-                        console.log('feedback.data["0"].note')
-                        console.log(JSON.stringify(feedback.data.note))
+                        console.log('data word pniew opgehaald notes')
+
                         response.render('partials/ShowNotes', {
                                 result: apiResponse,
                                 feedback: feedback.data
                             }
                         )
                     })
-            }
-
-            // todo navragen waarom deze pagina word ingeladen terwijl dat niet moet en alleen als de html werkt gebruik je dit
-            else {
+            } else {
                 console.log('dit word redicted')
                 // response.redirect(303, '/score/' + request.params.id)
-                response.redirect(303, '/succes' )
+                response.redirect(303, '/succes')
             }
 
-            // the else is commented because if it is not working the full page is show in the beoordeling
-
-            // todo  door deze else werkt het wel met aleeen html en niet met css en javascript
-
         })
-    })
 
+
+})
 
 
 

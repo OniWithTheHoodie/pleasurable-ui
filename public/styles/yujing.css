@@ -16,10 +16,6 @@ body {
 /*    bottom: 5px;*/
 /*}*/
 
-/*dit stond eerst op display none en nu op zichtbaar*/
-ul {
-    /*display: none;*/
-}
 
 
 
@@ -34,7 +30,7 @@ main {
 
 
 
-    grid-row-gap: 3em;
+    grid-row-gap: 2em;
 
 }
 
@@ -58,6 +54,7 @@ input:not(input:checked ~ input)
      display: grid;
     border-top: 2px solid hsl(0 0% 90% / 1);
     padding-top: 2em;
+    row-gap: 0.5em;
     /*justify-content: center;*/
     /*align-items: center;*/
     /*place-items: center;*/
@@ -67,7 +64,7 @@ input:not(input:checked ~ input)
     /*text-align: center;*/
     font-size: 2em;
     font-weight: bold;
-    margin-bottom: 1em;
+    margin-bottom: 0.2em;
 }
 .sectionUsers p{
     /*text-align: center;*/
@@ -102,7 +99,7 @@ dit word hergebruiks users op index en score pagina
     /*place-items: center;*/
     grid-column-gap: 3em;
     /*padding: 2em;*/
-    margin-left: calc(50% - (80% / 2));
+    /*margin-left: calc(50% - (80% / 2));*/
 
 }
 .users{
@@ -128,7 +125,7 @@ dit word hergebruiks users op index en score pagina
 
 .userListScore__image{
     width: 200px;
-    height: auto;
+    height: 142px;
     grid-row: 1;
     display: grid;
 }
@@ -145,7 +142,7 @@ dit word hergebruiks users op index en score pagina
 }
 
 /*herbgeruiken streep*/
-.houseInfo,.houseDetailsSection,.sectionUsers{
+.houseInfo,.houseDetailsSection{
     border-bottom:  2px solid hsl(0 0% 90% / 1);
     padding-bottom: 2em;
 }
@@ -175,7 +172,7 @@ hergebruiken op de pagina zelf
 .link{
     color: var(--lochmara-primary-color);
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
 
 }
@@ -204,6 +201,9 @@ einde hergebruiken op de pagina zelf
 .houseInfo{
 
     padding-top: 1em;
+    display: grid;
+    row-gap: 0.5em;
+    /*font-size: 1.1em;*/
 
     /*background-color: red;*/
 }
@@ -220,7 +220,7 @@ einde hergebruiken op de pagina zelf
     /*justify-items: center;*/
     /*padding: 1em 2em 1em 2em;*/
     row-gap: 2em;
-    font-size: 1.1em;
+    font-size: 1.2em;
 
     line-height: 1.5em;
     max-width: 24em;
@@ -249,6 +249,7 @@ einde hergebruiken op de pagina zelf
     grid-template-columns: 1fr;
     column-gap: 1em;
     row-gap: 1em;
+
 }
 
 
@@ -262,7 +263,7 @@ einde hergebruiken op de pagina zelf
     /*grid-template-columns: auto auto auto;*/
     max-width: 100%;
     grid-column-gap: 2em;
-    grid-row-gap: 2em;
+    grid-row-gap: 2em;  padding-bottom: 2em;
     /*max-width: 16em;*/
 
     /*padding: 2em;*/
@@ -272,6 +273,7 @@ einde hergebruiken op de pagina zelf
 .formRatingItem__header{
     /*place-items: center;*/
     display: grid;
+    row-gap: 0.5em;
     /*text-align: center;*/
     /*row-gap: 1em;*/
 }
@@ -283,12 +285,16 @@ einde hergebruiken op de pagina zelf
     /*place-items: center;*/
     font-size: 2em;
     font-weight: bold;
+    margin-bottom: 0.2em;
 }
 
 .formRatingItem__Note{
     padding: 2em;
 }
 
+#note{
+    line-height: 1.5em;
+}
 
 
 
@@ -302,6 +308,12 @@ einde hergebruiken op de pagina zelf
 }
 
 .fieldsetRating {
+    text-weight: bold;
+    border-color: var(--color-main-text);
+    display: flex;
+    width: max-content;
+    /*background-color: deepskyblue;*/
+}.fieldsetRating__second {
     text-weight: bold;
     border-color: var(--color-main-text);
     display: flex;
@@ -329,6 +341,19 @@ einde hergebruiken op de pagina zelf
 .labelRating{
     color: #a4a2a2;
     /*background-color: #0071B3;*/
+}
+
+.labelRating__gray{
+
+    color: #a4a2a2;
+}
+
+.labelRating__gray:after{
+    width: 1.5em;
+    content: "★";
+    font-size: 2em;
+    display: grid;
+    place-items: center;
 }
 
 .labelRating__second:after{
@@ -410,7 +435,7 @@ einde hergebruiken op de pagina zelf
 }
 #note{
     min-width: 18em;
-    height: 8em;
+    height: 11em;
     max-width: 800px;
     overflow: hidden;
     resize: vertical;
@@ -420,6 +445,7 @@ einde hergebruiken op de pagina zelf
 .show_notes{
     /*display: grid;*/
     /*place-items: center;*/
+
 }
 .formRatingItem__NoteShow h2{
     padding-top: 0.3em;
@@ -452,6 +478,7 @@ einde hergebruiken op de pagina zelf
     /*place-items: center;*/
     grid-column-gap: 3em;
     gap: 43px;
+    padding-top: 1em;
 }
 .usersListscore__li{
     display: grid;
@@ -479,7 +506,7 @@ einde hergebruiken op de pagina zelf
     justify-content: flex-start;
     background-color: var(--regent-blue-primary-color);
     padding: 2em;
-    margin: 1em;
+    /*margin: 1em;*/
     column-gap: 2em;
     row-gap: 1em;
     width: max-content;
