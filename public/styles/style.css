@@ -275,7 +275,7 @@ body {
 
     .card__list{
       /*display: grid;*/
-      /*grid-row-gap: 1em;*/
+      /*!*grid-row-gap: 1em;*!*/
       /*grid-template-rows: 4em 2em 2em 2em 2em 2em 2em;*/
 
     }
@@ -344,6 +344,8 @@ body {
 
     .card__content {
       text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
     }
 
     .button__card {
