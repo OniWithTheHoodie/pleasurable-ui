@@ -135,7 +135,7 @@ body {
 }
 
 /********** tablet  **********/
-@media (min-width: 45rem) {
+@media (min-width: 38rem) {
     .logo {
       width: 5.5em;
     }
@@ -151,11 +151,9 @@ body {
     }
 
     .nav--wrapper {
-      margin-left: calc(50% - (80% / 2));
-      margin-right: calc(50% - (80% / 2));
       height: 100%;
     }
-    
+
     ul.mobile.tablet-desktop li a:hover{
       background-color: #FFE2FF;
       height: auto;
@@ -234,9 +232,11 @@ body {
 
 
 @media (min-width: 55rem) {
-  .nav-wrapper {
-  
+  .nav--wrapper {
+    margin-left: calc(50% - (80% / 2));
+    margin-right: calc(50% - (80% / 2));
   }
+  
 }
 
 /****************************************************************
@@ -576,6 +576,7 @@ input[type="submit"] {
     padding-bottom: 1em;
   }
 }
+
 
 
 
