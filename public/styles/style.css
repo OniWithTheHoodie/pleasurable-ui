@@ -333,7 +333,6 @@ body {
     }
 
     .card__content {
-      height: 25px;
       text-overflow: ellipsis;
     }
 

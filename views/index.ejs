@@ -48,7 +48,7 @@
 
                     <article>
                         <ol>
-                            <h2 class="card__content"><a class="card__link"
+                            <h2 class="card__content "><a class="card__link linkToHouse"
                                                          href="./huis/<%= huis.id %>"><%= huis.street %> <%= huis.house_nr %></a>
                             </h2>
                             <li class="card__content">€ <%- huis.price.toLocaleString('nl-NL') %></li>
@@ -63,6 +63,7 @@
                                     <%- include('./partials/detailed-rating', { huis: huis }) %>
                                 </form>
                             </li>
+
 
                             <li><a class="button__card" href="/score/<%= huis.id %>">
                                     Bekijk score
