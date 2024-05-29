@@ -163,7 +163,7 @@ app.post('/score/:id', function (request, response) {
     const noteUser = request.body.note
 
 // make the post route
-    fetch(`https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`, {
+    fetch(`https://fdnd-agency.directus.app/items/f_feedback/?limit=4000&filter[house][_eq]==${request.params.id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8',
@@ -188,13 +188,14 @@ app.post('/score/:id', function (request, response) {
             console.log(noteUser)
             // een or kan ik niet gebruiken omdat ik in de succespartial niet de notes heb
             if (request.body.enhanced) {
-                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?limit=4000&filter[house][_eq]=${request.params.id}`;
                 // use a promise.all because the tables are not connected to each other
                 console.log('data word pniew opgehaald scores numbers')
                 fetchJson(feedbackUrl)
                     // todo zorgen dat de successtate er is want dynamisch weergeven van data en de enhanced is te moeilijk samen
                     .then(async (feedback) => {
-                        // console.log(feedback.data)
+
+                        console.log(feedback.data)
                         response.render('partials/succes_partial', {
                                 result: apiResponse,
                                 feedback: feedback.data
@@ -207,19 +208,28 @@ app.post('/score/:id', function (request, response) {
 
             }
             // todo navragen waarom deze pagina word ingeladen terwijl dat niet moet en alleen als de html werkt gebruik je dit
-         else   if (request.body.notesEnhanced) {
-                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+            if (request.body.notesEnhanced) {
+                // const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?limit=2000&skip=130&filter[house][_eq]=${request.params.id}`;
+
+                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?limit=4000&filter[house][_eq]=${request.params.id}`;
                 fetchJson(feedbackUrl)
+
+
                     .then(async (feedback) => {
                         console.log('data word pniew opgehaald notes')
+                        // Loop through each feedback item
+                        feedback.data.forEach((feedbackItem) => {
+                            console.log(feedbackItem.note + ' dit kotm it directus'); // Log the note property
 
+                        });
                         response.render('partials/ShowNotes', {
                                 result: apiResponse,
                                 feedback: feedback.data
                             }
                         )
                     })
-            } else {
+            }
+         else {
                 console.log('dit word redicted')
                 // response.redirect(303, '/score/' + request.params.id)
                 response.redirect(303, '/succes')
