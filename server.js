@@ -207,7 +207,7 @@ app.post('/score/:id', function (request, response) {
 
             }
             // todo navragen waarom deze pagina word ingeladen terwijl dat niet moet en alleen als de html werkt gebruik je dit
-            if (request.body.notesEnhanced) {
+         else   if (request.body.notesEnhanced) {
                 const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
                 fetchJson(feedbackUrl)
                     .then(async (feedback) => {

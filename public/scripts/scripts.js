@@ -8,9 +8,10 @@ let succes = document.querySelector('.successtate');
 // user parameters for the forms that the code is dry
 // using this is neccessary because the 2 forms must have the exact same function
 FormsEnhanced('.scorefield', '.showscore','enhanced', '.loading');
+
+
 FormsEnhanced('.notesForm', '.show_notes', 'notesEnhanced', '.loading');
 
-// updateButtonColor()
 // todo uitzoeken waarom de loading state met parameters niet werkt
 
 
@@ -98,41 +99,5 @@ function FormsEnhanced(specificForm, ShowResultsData, enhancedName, loadingState
     });
   });
 }
-
-
-function updateButtonColor() {
-  const checkedLabels = allLabels.filter(label => label.querySelector("input").checked);
-  const allChecked = checkedLabels.length === allLabels.length; // Check if all labels are checked
-
-  if (allChecked) {
-    button.style.backgroundColor = "green"; // Change button color to green
-  } else {
-    button.style.backgroundColor = ""; // Reset button color if not all checked
-  }
-}
-
-
-function addSuccessCheckmark(buttonSelector, successElementSelector, delay = 1000) {
-  const button = document.querySelector(buttonSelector);
-  const element = document.querySelector(successElementSelector);
-
-  if (!button || !element) {
-    console.error("Error: Button or success element not found.");
-    return; // Handle potential errors gracefully
-  }
-
-  button.addEventListener("click", function() {
-
-
-    setTimeout(function() {
-      element.classList.add("success");
-      element.textContent = "✓";
-    }, delay);
-  });
-}
-
-// Usage:
-// addSuccessCheckmark(".NotesForm__button", ".successtate");
-
 
 // Assuming your selectors are correct
