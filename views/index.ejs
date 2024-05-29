@@ -51,7 +51,7 @@
                             <h2 class="card__content "><a class="card__link linkToHouse"
                                                          href="./huis/<%= huis.id %>"><%= huis.street %> <%= huis.house_nr %></a>
                             </h2>
-                            <li class="card__content">€ <%- huis.price.toLocaleString('nl-NL') %></li>
+                            <li class="card__content priceHouse">€ <%- huis.price.toLocaleString('nl-NL') %></li>
                             <li class="card__content"><%- huis.postal_code %> <%- huis.city %></li>
                             <li class="card__content"><%- huis.m2 %> m² • <%- huis.rooms %> Kamers</li>
                             <li class="card__content"><%- huis.m2 %></li>
