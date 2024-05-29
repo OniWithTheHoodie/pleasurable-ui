@@ -42,7 +42,7 @@ body {
   .nav--wrapper {
     display: flex;
     align-items: center;
-    
+
     /* position: relative; */
   }
 
@@ -275,7 +275,7 @@ body {
   
     .card__image {
       width: 100%;
-      height: auto;
+      height: 276px;
       object-fit: cover;
     }
   
@@ -288,6 +288,9 @@ body {
       bottom: 0;
       background-color: transparent;
       z-index: 0;
+    }
+    .card__link{
+      color: #0071B3;
     }
   
     & article {
