@@ -510,9 +510,9 @@ input[type="submit"] {
   flex: 0 0 calc(100% - 16px);
 }
 
-.card {
+img.card {
   min-width: 250px;
-  height: 230px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -544,9 +544,9 @@ input[type="submit"] {
                           HUIS.EJS TEKST                        *                        
                                                                 *
 *****************************************************************/
-.detail {
+article.detail {
   border-top: solid 0.2em var(--color-main-text);
-  margin-top: 5em;
+  margin-top: 8em;
   padding-top: 2em;
 }
 
