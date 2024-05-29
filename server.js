@@ -163,7 +163,7 @@ app.post('/score/:id', function (request, response) {
     const noteUser = request.body.note
 
 // make the post route
-    fetch(`https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`, {
+    fetch(`https://fdnd-agency.directus.app/items/f_feedback/?limit=8000&filter[house][_eq]=${request.params.id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=UTF-8',
@@ -177,18 +177,13 @@ app.post('/score/:id', function (request, response) {
         }),
     })
 
-        // todo je moet opniew documetn.query selecter all opniew kopelen omdat de pagina opnieuw word geladen met niewe data
-        // todo de koppeling met de oud ehtml is weg dus dit zit in je script.js en je moet hiervoor denk ik een niewue functie in maken
-
-        // todo als javascript uit staat werkt de interactie niet en moet je de pagina refreshen
-        // todo dit moet je met een redirect oplossen voor als javascript uit staat
         // hier word de data omgezet naar een object en met render word het weergegeven
         .then(async (apiResponse) => {
             // if the enhanced is true do this en the render is the partial
             console.log(noteUser)
             // een or kan ik niet gebruiken omdat ik in de succespartial niet de notes heb
             if (request.body.enhanced) {
-                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?limit=8000&filter[house][_eq]=${request.params.id}`;
                 // use a promise.all because the tables are not connected to each other
                 console.log('data word pniew opgehaald scores numbers')
                 fetchJson(feedbackUrl)
@@ -207,8 +202,8 @@ app.post('/score/:id', function (request, response) {
 
             }
             // todo navragen waarom deze pagina word ingeladen terwijl dat niet moet en alleen als de html werkt gebruik je dit
-         else   if (request.body.notesEnhanced) {
-                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?filter[house][_eq]=${request.params.id}`;
+            if (request.body.notesEnhanced) {
+                const feedbackUrl = `https://fdnd-agency.directus.app/items/f_feedback/?limit=8000&filter[house][_eq]=${request.params.id}`;
                 fetchJson(feedbackUrl)
                     .then(async (feedback) => {
                         console.log('data word pniew opgehaald notes')
