@@ -1,76 +1,80 @@
 <%- include('./partials/head') %>
 <%- include('./partials/navigation') %>
- 
+
 <body>
-  <main class="desktopSpacing">
+<main class="desktopSpacing">
     <header>
-      <h1>Favorieten</h1>
-      <hr />
-      <p>In dit overzicht vind je al jouw favoriete huizen terug.</p>
-        </header >
-        <ul class="usersList">
-            <% users.forEach(users => { %>
+        <h1>Favorieten</h1>
+        <hr/>
+        <p>In dit overzicht vind je al jouw favoriete huizen terug.</p>
+    </header>
+    <ul class="usersList">
+        <% users.forEach(users => { %>
 
-                <li class="users">
-                    <% if (users.avatar) { %>
-                        <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
-                             alt="House Image" width="<%= users.width %>"
-                             height="<%= users.height %>" class="userIndex__image">
+            <li class="users">
+                <% if (users.avatar) { %>
+                    <img src="https://fdnd-agency.directus.app/assets/<%= users.avatar.id %>?width=600&height=400&fit=cover"
+                         alt="House Image" width="<%= users.width %>"
+                         height="<%= users.height %>" class="userIndex__image">
 
-                    <% } else { %>
-                        <p>er is geen user avatar</p>
-                    <% } %>
-                    <span class="userListScore__span"><%= users.name %></span>
+                <% } else { %>
+                    <p>er is geen user avatar</p>
+                <% } %>
+                <span class="userListScore__span"><%= users.name %></span>
 
-                </li>
+            </li>
 
-            <% }) %>
-
-
-        </ul>
-    <div class="container">
-      <div class="grid__container">
-        <% alleHuizen.forEach((huis, index) => { %>
-        <div class="card__favorites">
-          <picture>
-            <source
-              srcset="https://fdnd-agency.directus.app/assets/<%= huis.poster_image %>?format=webp"
-              type="image/webp" />
-            <source
-              srcset="https://fdnd-agency.directus.app/assets/<%= huis.poster_image %>?format=avif"
-              type="image/avif" />
-            <img
-              src="https://fdnd-agency.directus.app/assets/<%= huis.poster_image %>"
-              alt="foto huis"
-              width="400"
-              height="400"
-              class="card__image" />
-          </picture>
- 
-          <article>
-            <ol>
-              <h2 class="card__content"><a class="card__link" href="./huis/<%= huis.id %>"><%= huis.street %> <%= huis.house_nr %></a></h2>
-              <li class="card__content">€ <%- huis.price.toLocaleString('nl-NL') %></li>
-              <li class="card__content"><%- huis.postal_code %> <%- huis.city %></li>
-              <li class="card__content"><%- huis.m2 %> m² • <%- huis.rooms %> Kamers</li>
-              <li class="card__content"><%- huis.m2 %></li>
-              <li class="card__content"><%- huis.agent %></li>
-
-              <form action="/" method="post" class="ratingsFavorieten">
-                <%- include('./partials/detailed-rating', { huis: huis }) %>
-              </form>
-
-              <a class="button__card" href="/score/<%= huis.id %>">
-                Bekijk score
-              </a>
-
-            </ol>
-          </article>
-        </div>
         <% }) %>
-      </div>
+
+    </ul>
+    <div class="container">
+        <div class="grid__container">
+            <% alleHuizen.forEach((huis, index) => { %>
+                <div class="card__favorites">
+                    <picture>
+                        <source
+                                srcset="https://fdnd-agency.directus.app/assets/<%= huis.poster_image %>?format=webp"
+                                type="image/webp"/>
+                        <source
+                                srcset="https://fdnd-agency.directus.app/assets/<%= huis.poster_image %>?format=avif"
+                                type="image/avif"/>
+                        <img
+                                src="https://fdnd-agency.directus.app/assets/<%= huis.poster_image %>"
+                                alt="foto huis"
+                                width="400"
+                                height="400"
+                                class="card__image"/>
+                    </picture>
+
+                    <article>
+                        <ol>
+                            <h2 class="card__content"><a class="card__link"
+                                                         href="./huis/<%= huis.id %>"><%= huis.street %> <%= huis.house_nr %></a>
+                            </h2>
+                            <li class="card__content">€ <%- huis.price.toLocaleString('nl-NL') %></li>
+                            <li class="card__content"><%- huis.postal_code %> <%- huis.city %></li>
+                            <li class="card__content"><%- huis.m2 %> m² • <%- huis.rooms %> Kamers</li>
+                            <li class="card__content"><%- huis.m2 %></li>
+                            <li class="card__content"><%- huis.agent %></li>
+
+                            <li>
+
+                                <form action="/" method="post" class="ratingsFavorieten">
+                                    <%- include('./partials/detailed-rating', { huis: huis }) %>
+                                </form>
+                            </li>
+
+                            <li><a class="button__card" href="/score/<%= huis.id %>">
+                                    Bekijk score
+                                </a></li>
+
+                        </ol>
+                    </article>
+                </div>
+            <% }) %>
+        </div>
     </div>
-  </main>
+</main>
 </body>
- 
+
 <%- include('./partials/foot') %>
