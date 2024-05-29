@@ -142,7 +142,7 @@ dit word hergebruiks users op index en score pagina
 }
 
 /*herbgeruiken streep*/
-.houseInfo,.houseDetailsSection{
+.houseInfo,.houseDetailsSection,.usersList{
     border-bottom:  2px solid hsl(0 0% 90% / 1);
     padding-bottom: 2em;
 }
