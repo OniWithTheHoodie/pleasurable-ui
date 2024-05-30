@@ -24,6 +24,9 @@ app.set('views', './views')
 // Gebruik de map 'public' voor statische resources
 app.use(express.static('public'))
 
+// JSON import
+app.use(express.json());
+
 // Zorg dat werken met request data makkelijker wordt
 app.use(express.urlencoded({extended: true}))
 
@@ -37,44 +40,38 @@ app.listen(app.get('port'), function () {
     console.log(`Application started on http://localhost:${app.get('port')}`)
 })
 
-
-// Get Route voor de index
+// get route for the index
 app.get('/', function (request, response) {
-    // fetch data directus table f_feedback
     fetchJson(apiUrl + 'f_feedback').then((BeoordelingData) => {
-        // console.log(BeoordelingData)
-
-        response.render('index', {
-            alleHuizen: huizenHome.data,
-            alleRatings: feedbackUrl.data,
-            users: usersUrl.data,
-            ratings: ratings,
-        })
-        // console.log(ratings)
-    })
-})
-app.post('/', function (request, response) {
-    console.log(request.body)
-
-    // posten naar directus..
+      response.render('index', {
+        alleHuizen: huizenHome.data,
+        alleRatings: feedbackUrl.data,
+        users: usersUrl.data,
+        ratings: [],
+      });
+    });
+  });
+  
+  app.post('/', function (request, response) {
+    console.log(request.body);
+  
     fetch(`${apiUrl}f_feedback/`, {
-        method: 'POST',
-        body: JSON.stringify({
-            house: request.body.id,
-            list: 12,
-            user: 5,
-            rating: {
-                stars: request.body.algemeenNumber,
-            },
-        }),
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
+      method: 'POST',
+      body: JSON.stringify({
+        house: request.body.id,
+        list: 12,
+        user: 5,
+        rating: {
+          stars: request.body.algemeenNumber,
         },
+      }),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
     }).then((postResponse) => {
-        // console.log(postResponse)
-        response.redirect(303, '/')
-    })
-})
+      response.redirect(303, '/');
+    });
+  });
 
 
 app.get('/huis/:id', function (request, response) {

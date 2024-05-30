@@ -1,24 +1,52 @@
-// Ik heb de form een class mee gegeven waarbij ik alle formulieren selecteer met de class ratingsFavorieten deze zit in een variable genaamd allRatings
-const allRatings = document.querySelectorAll('.ratingsFavorieten')
-// hier schrijf ik een if statement waarbij ik de variable allRatings oproep waarbij de class .ratingsFavoriten in zit en maak ik een forEach loop mee
-// En maak ik een variable waarbij ik alle input radio oproep
-if(allRatings){
-  allRatings.forEach(function(formRating){
-    const radioButtons = formRating.querySelectorAll('input[type=radio]')
+document.addEventListener('DOMContentLoaded', function () {
+  const allRatings = document.querySelectorAll('.ratingsFavorieten');
 
-    // hier maak ik een een forEach loop waar ik een nieuwe funcite maak met een eventListener waarbij ik zeg activeer als er een verandering komt in de input radio's
-    radioButtons.forEach(function(radioButton){
-      radioButton.addEventListener('change', function(){
-        // const value = radioButton.value
+  if (allRatings) {
+    allRatings.forEach(function (formRating) {
+      const radioButtons = formRating.querySelectorAll('input[type=radio]');
 
-        // nu haal ik formRating op met de functie submit
-        formRating.submit()
-      })
-    })
+      // submit eventListener toegevoegd voor de form
+      formRating.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default voor de form zodat de page niet refreshed
+
+        // opvangen van de form data
+        const formData = new FormData(formRating);
+        const formDataObj = Object.fromEntries(formData.entries());
+
+        // Debug log voor de form data
+        console.log('Form data:', formDataObj);
+
+        // Afhandelen form data postingen het fetchen daar van
+        fetch(formRating.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formDataObj),
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handel de respone data af
+          console.log('Success:', data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      });
+
+      // Change event voor de radio button
+      radioButtons.forEach(function (radioButton) {
+        radioButton.addEventListener('change', function () {
+          // handmatige trigger voor het submiten dit is voor het gedrag bij het posten met de radio buttons en het triggeren van prevent default
+          formRating.dispatchEvent(new Event('submit', { cancelable: true }));
+        });
+      });
+    });
+  }
+});
 
 
-  })
-}
+
 
 
 

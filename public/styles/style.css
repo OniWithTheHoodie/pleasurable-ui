@@ -417,70 +417,60 @@ input[type="submit"] {
   display: none;
 }
 
-.scorefield{
+.scorefield {
   display: grid;
   grid-template-rows: 5em 5em 5em 5em;
   row-gap: 1em;
-  /*place-items: center;*/
 }
 
 .fieldsetRatingCard {
   font-weight: bold;
   display: flex;
   border: none;
-  /*background-color: deepskyblue;*/
 }
 
-
-.titleRating{
-  /*text-align: center;*/
+.titleRating {
   font-weight: bold;
 }
 
-.labelRating:hover{
-  scale: 2;
+.labelRating:hover {
+  scale: 1.2;
   transition: 0.5s;
   color: var(--web-orange-primary-color);
 }
 
-.labelRating:after{
-  width: 1.5em;
+.labelRating::after {
   content: "★";
   font-size: 2em;
   display: grid;
   place-items: center;
 }
 
-.labelRating{
+.labelRating {
   color: #a4a2a2;
-  /*background-color: #0071B3;*/
-}
-.fieldsetRating:checked{
-  border-color: #0071B3;
 }
 
-/*hier word gecheckt of de input checked is en het bijbehorende label*/
-.fieldsetRating input:checked + label {
+input[type="radio"]:checked + .labelRating {
   color: #eea02e;
 }
 
-/*door deze code worden de andere sterren daarachter ook groen door het sibling selectord */
-.fieldsetRating label:has(~ :checked) {
+/* Highlights the stars behind the checked one */
+input[type="radio"]:checked ~ .labelRating {
   color: #eea02e;
-  transition: 1s;
+  transition: color 1s;
 }
 
-/*hier worden de sterren geel als er op gehoverd word behalve de sterren die gechekt zijn*/
-.fieldsetRating label:hover:not(input:checked + label) {
+/* Change color on hover, but do not affect checked stars */
+.fieldsetRatingCard label:hover ~ label,
+.fieldsetRatingCard label:hover {
   cursor: pointer;
   color: #eea02e;
 }
 
-/*hier worden de sterren geel en overgenomen op label vanwege het sibling selector*/
-.fieldsetRating label:has(~ label:hover):not(input:checked + label) {
+/* Ensures that hovering only changes colors if not already checked */
+.fieldsetRatingCard label:hover ~ label:not(:checked) {
   color: #eea02e;
 }
-
 
 .ratingsFavorieten {
   position: relative;
