@@ -1,4 +1,4 @@
-#Funda redesign
+# Funda redesign
 
 Dit project gaat over het Funda redesign waar ik samen met mijn mede student Yujing een pleaserable UI maken. 
 
