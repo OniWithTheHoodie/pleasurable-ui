@@ -1,3 +1,5 @@
+#Funda redesign
+
 Dit project gaat over het Funda redesign waar ik samen met mijn mede student Yujing een pleaserable UI maken. 
 
 
@@ -52,8 +54,7 @@ https://nodejs.org/en
     ![image](https://github.com/OniWithTheHoodie/pleasurable-ui/assets/144009897/da9c3aa4-7092-4585-9632-055e1928c225)
 
 
-
-Voor de website van Funda is het bedoeld dat deze punten er in komen.....
+link naar de website: https://pleasurable-ui.onrender.com/
 
 ## User stories
 
